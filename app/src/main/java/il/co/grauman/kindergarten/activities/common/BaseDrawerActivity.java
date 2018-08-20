@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.utils.Util;
 
 @SuppressLint("Registered")
 public class BaseDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +27,13 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Util.setRtl(this, "he");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        this.setupDrawerMenuItems();
     }
 
     @NonNull
@@ -55,6 +63,7 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
 
         getNavigationView().inflateMenu(getDrawerMenu());
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle.setDrawerIndicatorEnabled(true);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);

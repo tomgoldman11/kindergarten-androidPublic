@@ -15,13 +15,8 @@ public class EmployeeMainActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_main);
-
         setSupportActionBar(getToolbar());
-        setTitle("Employee Panel");
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        setTitle(R.string.employee_panel);
     }
 
 

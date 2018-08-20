@@ -1,9 +1,9 @@
 package il.co.grauman.kindergarten.activities.admin;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import il.co.grauman.kindergarten.R;
@@ -16,11 +16,7 @@ public class AdminMainActivity extends BaseDrawerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_main);
         setSupportActionBar(getToolbar());
-        setTitle("Admin Panel");
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        setTitle(R.string.admin_panel);
     }
 
 

@@ -6,4 +6,7 @@
     <string name="profile_page">פרופיל אישי</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="admin_panel">מערכת ניהול</string>
+    <string name="employee_panel">מערכת עובדים</string>
+    <string name="user_panel">מסך הבית</string>
 </resources>

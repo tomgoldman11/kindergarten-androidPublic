@@ -38,7 +38,6 @@ public class AdminMainActivity extends BaseDrawerActivity {
         return findViewById(R.id.toolbar);
     }
 
-    @NonNull
     @Override
     public int getDrawerMenu() {
         return R.menu.admin_drawer_menu;

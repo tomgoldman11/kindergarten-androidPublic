@@ -30,6 +30,12 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
         Util.setRtl(this, "he");
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        this.setupDrawerMenuItems();
+    }
+
     @NonNull
     public DrawerLayout getDrawerLayout() {
         throw new RuntimeException("Must override getDrawerLayout");

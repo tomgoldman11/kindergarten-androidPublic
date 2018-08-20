@@ -15,14 +15,14 @@ public class AdminMainActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_main);
-        this.setupDrawerMenuItems();
-        setTitle("admin panel");
         setSupportActionBar(getToolbar());
+        setTitle("Admin Panel");
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
+
 
     @NonNull
     @Override
@@ -39,7 +39,7 @@ public class AdminMainActivity extends BaseDrawerActivity {
     @NonNull
     @Override
     public Toolbar getToolbar() {
-        return null;
+        return findViewById(R.id.toolbar);
     }
 
     @NonNull

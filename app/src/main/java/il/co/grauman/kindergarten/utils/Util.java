@@ -14,6 +14,9 @@ import il.co.grauman.kindergarten.activities.common.BaseDrawerActivity;
 public class Util {
     private static final String TAG = Util.class.getSimpleName();
 
+    /**
+     * Forcing RTL for older system versions
+     */
     @SuppressWarnings("deprecation")
     private static void setSystemLocaleLegacy(Configuration config, Locale locale) {
         config.locale = locale;
@@ -24,12 +27,18 @@ public class Util {
         }
     }
 
+    /**
+     * Forcing RTL for newer system versions
+     */
     @TargetApi(Build.VERSION_CODES.N)
     private static void setSystemLocale(Configuration config, Locale locale) {
         config.setLocale(locale);
         config.setLayoutDirection(locale);
     }
 
+    /**
+     * Forcing RTL for specific activity
+     */
     public static void setRtl(Context context, String languageCode) {
         Resources res = context.getResources();
         Locale locale = new Locale(languageCode);
@@ -40,7 +49,6 @@ public class Util {
         } else {
             setSystemLocaleLegacy(config, locale);
         }
-        res.updateConfiguration(config,
-                context.getResources().getDisplayMetrics());
+        res.updateConfiguration(config, res.getDisplayMetrics());
     }
 }

@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.models.User;
@@ -101,5 +102,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onLoginFailed(String errorMessage) {
         // TODO: hide loader
         // TODO: show error
+        Toast.makeText(this, errorMessage,Toast.LENGTH_LONG).show();
+
     }
 }

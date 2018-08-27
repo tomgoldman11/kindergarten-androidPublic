@@ -1,10 +1,10 @@
-package bl;
+package il.co.grauman.kindergarten.bl;
 
-public class LoginRequset {
+public class LoginRequest {
 
     private String username , password;
 
-    public LoginRequset(String username, String password) {
+    public LoginRequest(String username, String password) {
         this.username = username;
         this.password = password;
     }

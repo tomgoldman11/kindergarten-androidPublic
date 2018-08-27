@@ -4,14 +4,19 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.admin.AdminMainActivity;
 import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
 import il.co.grauman.kindergarten.activities.user.UserMainActivity;
+import il.co.grauman.kindergarten.bl.RestRequestImpl;
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.services.AuthService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     @Override

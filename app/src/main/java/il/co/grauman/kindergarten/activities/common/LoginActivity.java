@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         // TODO: check password validation
 
         // TODO: if it's not valid input use the TextInputLayout to display the error
-        // usernameInput.setError("username must be less than 25");
+         usernameInput.setError("username must be less than 25");
         return true;
     }
 

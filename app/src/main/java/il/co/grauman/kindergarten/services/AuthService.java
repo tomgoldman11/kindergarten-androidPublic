@@ -14,8 +14,8 @@ import java8.util.function.Consumer;
 
 public class AuthService {
 
-    final static String USERNAME = "username";
-    final static String SHAREDPREF = "savedLogin";
+    private final static String USERNAME = "username";
+    private final static String SHAREDPREF = "savedLoginSession";
     private static final String ROLE = "userRole";
 
     /**

@@ -45,7 +45,7 @@ public class AuthService {
     }
 
     public static void loginWith(Context ctx, String username, String password, Consumer<User> callback) throws LoginFailedException {
-        User tempUser = new User(username, password, Role.ADMIN);
+        User tempUser = new User(username, password, Role.EMPLOYEE);
         //TODO: Replace the "new User..." above with the line commented below when the BL function is ready.
                 //BL.checkLogin(new User(username, password, Role.ADMIN));
         if (tempUser != null){

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/launch_background" />
+
+    <TextView
+        android:id="@+id/tvHelloParent"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal"
+        android:text="@string/user_greeting"
+        android:textColor="#efefbb"
+        android:textSize="20sp"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="8dp"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/btnDailyScheduleParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/bluebtn_gradient"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/daily_schedule"
+        android:textAllCaps="false"
+        android:textColor="#16222A"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHelloParent" />
+
+    <Button
+        android:id="@+id/btnAnnualScheduleParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bluebtn_gradient"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/calendar"
+        android:textAllCaps="false"
+        android:textColor="#16222A"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDailyScheduleParent" />
+
+
+    <Button
+        android:id="@+id/btnEmployeeMessagesParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bluebtn_gradient"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/messages"
+        android:textAllCaps="false"
+        android:textColor="#16222A"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnnualScheduleParent" />
+
+</android.support.constraint.ConstraintLayout>

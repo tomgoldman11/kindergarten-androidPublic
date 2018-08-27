@@ -6,6 +6,12 @@
     <string name="profile_page">פרופיל אישי</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="user_greeting">שלום, s%</string>
+    <string name="working_arrangement">סידור עבודה</string>
+    <string name="calendar">לוח שנה</string>
+    <string name="daily_schedule">לוח זמנים יומי </string>
+    <string name="daily_summary">סיכום יומי</string>
+    <string name="messages">הודעות</string>
     <string name="admin_panel">מערכת ניהול</string>
     <string name="employee_panel">מערכת עובדים</string>
     <string name="user_panel">מסך הבית</string>

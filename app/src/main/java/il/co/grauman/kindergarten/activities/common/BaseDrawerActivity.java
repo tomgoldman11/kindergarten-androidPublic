@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +18,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.activities.admin.AdminHomeFragment;
+import il.co.grauman.kindergarten.activities.admin.AdminSettingsFragment;
+import il.co.grauman.kindergarten.activities.employee.EmployeeHomeFragment;
+import il.co.grauman.kindergarten.activities.user.UserHomeFragment;
 import il.co.grauman.kindergarten.utils.Util;
 
 @SuppressLint("Registered")
@@ -23,11 +30,13 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
     private ActionBarDrawerToggle toggle;
     private ImageView drawerUserPhoto;
     private TextView drawerUserName;
+    protected FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Util.setRtl(this, "he");
+        fragmentManager = getSupportFragmentManager();
     }
 
     @Override
@@ -37,18 +46,18 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
     }
 
     @NonNull
-    public DrawerLayout getDrawerLayout() {
-        throw new RuntimeException("Must override getDrawerLayout");
+    private DrawerLayout getDrawerLayout() {
+        return findViewById(R.id.drawerLayout);
     }
 
     @NonNull
-    public NavigationView getNavigationView() {
-        throw new RuntimeException("Must override getNavigationView");
+    private NavigationView getNavigationView() {
+        return findViewById(R.id.navView);
     }
 
     @NonNull
     public Toolbar getToolbar() {
-        throw new RuntimeException("Must override getToolbar");
+        return findViewById(R.id.toolbar);
     }
 
     public int getDrawerMenu() {
@@ -67,9 +76,8 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        drawerUserPhoto = navigationView.getHeaderView(0).findViewById(R.id.drawer_user_photo);
-        drawerUserName = navigationView.getHeaderView(0).findViewById(R.id.drawer_user_name);
-
+        drawerUserPhoto = navigationView.getHeaderView(0).findViewById(R.id.drawerUserPhoto);
+        drawerUserName = navigationView.getHeaderView(0).findViewById(R.id.drawerUserName);
         setupUserDetails();
     }
 
@@ -82,10 +90,33 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // TODO: Handle navigation view item clicks here.
         int id = item.getItemId();
-
         getDrawerLayout().closeDrawer(GravityCompat.START);
-
+        switch (id) {
+            // admin fragments
+            case R.id.adminHome:
+                navigateToFragment(new AdminHomeFragment());
+                break;
+            case R.id.adminSettings:
+                navigateToFragment(new AdminSettingsFragment());
+                break;
+            // employee fragments
+            case R.id.employeeHome:
+                navigateToFragment(new EmployeeHomeFragment());
+                break;
+            // user fragments
+            case R.id.userHome:
+                navigateToFragment(new UserHomeFragment());
+                break;
+        }
         return true;
+    }
+
+    protected void navigateToFragment(BaseFragment fragment) {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragmentLayout, (Fragment) fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+        setTitle(fragment.getTitle(this));
     }
 
     @Override

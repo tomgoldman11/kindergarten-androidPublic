@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+<<<<<<< HEAD
 <item android:title="daad"/>
+=======
+    <group
+        android:id="@+id/grp1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/userHome"
+            android:checkable="false"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home_page" />
+    </group>
+>>>>>>> 4981b493fca21b259bb483932d6ff9bc768228b9
 </menu>

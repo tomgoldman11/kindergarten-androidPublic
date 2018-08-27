@@ -25,6 +25,7 @@
         android:layout_marginEnd="8dp"
         android:gravity="center_horizontal"
         android:text="@string/user_greeting"
+        android:textStyle="bold|italic"
         android:textColor="#efefbb"
         android:textSize="20sp"
         android:shadowColor="@color/colorPrimaryDark"
@@ -49,12 +50,13 @@
         android:textAllCaps="false"
         android:textColor="#16222A"
         android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHelloEmployee" />
 
     <Button
-        android:id="@+id/btnCalendarScheduleEmployee"
+        android:id="@+id/btnCalendarEmployee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -67,6 +69,7 @@
         android:textAllCaps="false"
         android:textColor="#16222A"
         android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDailyScheduleEmployee" />
@@ -85,9 +88,10 @@
         android:textAllCaps="false"
         android:textColor="#16222A"
         android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalendarScheduleEmployee" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCalendarEmployee" />
 
 
     <Button
@@ -104,8 +108,20 @@
         android:textAllCaps="false"
         android:textColor="#16222A"
         android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnWorkScheduleEmployee" />
+
+    <ImageView
+        android:id="@+id/ivSymbolEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvHelloEmployee"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
 
 </android.support.constraint.ConstraintLayout>

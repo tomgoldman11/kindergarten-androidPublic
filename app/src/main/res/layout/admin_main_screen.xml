@@ -18,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    />
 
     <TextView
         android:id="@+id/tvHelloAdmin"
@@ -30,6 +29,7 @@
         android:shadowDx="10"
         android:shadowDy="10"
         android:text="@string/user_greeting"
+        android:textStyle="bold|italic"
         android:textColor="#efefbb"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +51,7 @@
         android:textAllCaps="false"
         android:textColor="#16222A"
         android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnDailySummaryAdmin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -72,6 +73,7 @@
         android:textAllCaps="false"
         android:textColor="#16222A"
         android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnCalendarAdmin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -93,6 +95,7 @@
         android:textAllCaps="false"
         android:textColor="#16222A"
         android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnWorkScheduleAdmin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -112,6 +115,7 @@
         android:paddingStart="10dp"
         android:text="לוח זמנים"
         android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnMessagesAdmin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,10 +137,22 @@
         android:textAllCaps="false"
         android:textColor="#16222A"
         android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ivWrapperAdmin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDailySummaryAdmin" />
+
+    <ImageView
+        android:id="@+id/ivSymbolAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvHelloAdmin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
 
 </android.support.constraint.ConstraintLayout>

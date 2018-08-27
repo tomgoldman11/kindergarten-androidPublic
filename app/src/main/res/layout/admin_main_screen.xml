@@ -10,9 +10,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/launch_background"
-        tools:layout_editor_absoluteX="294dp"
-        tools:layout_editor_absoluteY="421dp" />
+        android:src="@drawable/launch_background" />
 
     <TextView
         android:id="@+id/tvHelloEmployee"

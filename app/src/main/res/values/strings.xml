@@ -12,4 +12,9 @@
     <string name="daily_schedule">לוח זמנים יומי </string>
     <string name="daily_summary">סיכום יומי</string>
     <string name="messages">הודעות</string>
+    <string name="admin_panel">מערכת ניהול</string>
+    <string name="employee_panel">מערכת עובדים</string>
+    <string name="user_panel">מסך הבית</string>
+    <string name="home_page">ראשי</string>
+    <string name="settings">הגדרות</string>
 </resources>

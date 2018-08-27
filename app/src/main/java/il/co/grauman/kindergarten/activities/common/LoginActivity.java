@@ -50,11 +50,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void setupUIElements() {
-        usernameInput = findViewById(R.id.username_input);
+        usernameInput = findViewById(R.id.usernameInput);
         username = findViewById(R.id.username);
-        passwordInput = findViewById(R.id.password_input);
+        passwordInput = findViewById(R.id.passwordInput);
         password = findViewById(R.id.password);
-        loginButton = findViewById(R.id.login_button);
+        loginButton = findViewById(R.id.loginButton);
 
 
         // for every text change should validate the inputs

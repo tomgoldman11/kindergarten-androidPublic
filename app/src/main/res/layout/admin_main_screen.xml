@@ -7,7 +7,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivWrapperAdmin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/launch_background" />
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/ivWrapperAdmin"
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <Button
@@ -124,7 +124,7 @@
         android:textAllCaps="false"
         android:textColor="#16222A"
         android:textSize="19sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/ivWrapperAdmin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

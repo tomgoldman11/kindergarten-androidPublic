@@ -9,4 +9,6 @@
     <string name="admin_panel">מערכת ניהול</string>
     <string name="employee_panel">מערכת עובדים</string>
     <string name="user_panel">מסך הבית</string>
+    <string name="home_page">ראשי</string>
+    <string name="settings">הגדרות</string>
 </resources>

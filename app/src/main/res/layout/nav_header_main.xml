@@ -10,7 +10,7 @@
     android:paddingTop="26dp">
 
     <ImageView
-        android:id="@+id/drawer_user_photo"
+        android:id="@+id/drawerUserPhoto"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="18dp"
@@ -18,7 +18,7 @@
         android:padding="3dp" />
 
     <TextView
-        android:id="@+id/drawer_user_name"
+        android:id="@+id/drawerUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

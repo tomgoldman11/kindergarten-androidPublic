@@ -1,5 +1,8 @@
 package il.co.grauman.kindergarten.bl;
 
+import java.util.Date;
+import java.util.List;
+
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -10,4 +13,11 @@ public interface Api {
 
     @POST ("myresource/login")
     Call<User> userLogin(@Body LoginRequest req);
+
+    @POST ("myresource/Scheduale")
+    Call<WeeklySchedualeObject> showWorkSchedule(@Body Schedule schedule);
+
+    @POST("myresource/AdminScheduale")
+    Call<List<WeeklySchedualeObject>> showWorkSchedule(@Body Date day);
+
 }

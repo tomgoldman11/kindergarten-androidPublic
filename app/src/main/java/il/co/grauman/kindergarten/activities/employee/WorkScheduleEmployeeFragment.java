@@ -1,6 +1,7 @@
-package il.co.grauman.kindergarten.activities.admin;
+package il.co.grauman.kindergarten.activities.employee;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,8 +14,7 @@ import android.widget.TextView;
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.common.BaseFragment;
 
-public class AdminSettingsFragment extends Fragment implements BaseFragment {
-
+public class WorkScheduleEmployeeFragment extends Fragment implements BaseFragment {
     private TextView testTextView;
 
     @Nullable
@@ -28,7 +28,7 @@ public class AdminSettingsFragment extends Fragment implements BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        testTextView.setText("Settings view");
+        testTextView.setText("Work Schedule");
     }
 
     @Override

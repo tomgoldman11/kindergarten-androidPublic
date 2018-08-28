@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -17,8 +17,12 @@ import android.widget.Toast;
 //import il.co.grauman.kindergarten.R;
 
 import il.co.grauman.kindergarten.R;
+
+import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
+
 import il.co.grauman.kindergarten.bl.RestRequest;
 import il.co.grauman.kindergarten.bl.RestRequestImpl;
+
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
 import il.co.grauman.kindergarten.services.AuthService;

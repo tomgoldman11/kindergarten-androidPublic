@@ -18,14 +18,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.admin.AdminHomeFragment;
-import il.co.grauman.kindergarten.activities.admin.AdminSettingsFragment;
-import il.co.grauman.kindergarten.activities.employee.EmployeeHomeFragment;
-import il.co.grauman.kindergarten.activities.user.UserHomeFragment;
 import il.co.grauman.kindergarten.utils.Util;
 
 @SuppressLint("Registered")
-public class BaseDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public abstract class BaseDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActionBarDrawerToggle toggle;
     private ImageView drawerUserPhoto;
@@ -46,7 +42,7 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
     }
 
     @NonNull
-    private DrawerLayout getDrawerLayout() {
+    protected DrawerLayout getDrawerLayout() {
         return findViewById(R.id.drawerLayout);
     }
 
@@ -92,23 +88,12 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
         int id = item.getItemId();
         getDrawerLayout().closeDrawer(GravityCompat.START);
         switch (id) {
-            // admin fragments
-            case R.id.adminHome:
-                navigateToFragment(new AdminHomeFragment());
-                break;
-            case R.id.adminSettings:
-                navigateToFragment(new AdminSettingsFragment());
-                break;
-            // employee fragments
-            case R.id.employeeHome:
-                navigateToFragment(new EmployeeHomeFragment());
-                break;
-            // user fragments
-            case R.id.userHome:
-                navigateToFragment(new UserHomeFragment());
-                break;
+            case R.id.btnSettings:
+                navigateToFragment(new SettingsFragment());
+                return true;
         }
-        return true;
+
+        return false;
     }
 
     protected void navigateToFragment(BaseFragment fragment) {

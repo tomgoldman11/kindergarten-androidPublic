@@ -72,17 +72,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setupOnClickListeners() {
         loginButton.setOnClickListener(v -> {
-            RestRequestImpl.getInstance().userLogin("aa", "aa", new Callback<User>() {
-                @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    Log.d(response.body().getUsername()+" ",response.body().getPassword());
-                }
-
-                @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    Log.d("Wrong","Error");
-                }
-            });
             if (validateInputs()) {
                 // TODO: display loader
 

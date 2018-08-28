@@ -39,13 +39,13 @@ public class AuthService {
 
         // TODO: check if
         String username = ctx.getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE).getString(USERNAME,"");
-        int intUserRole = ctx.getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE).getInt(ROLE,3);
+        int intUserRole = ctx.getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE).getInt(ROLE,2);
         Role userRole = Role.values()[intUserRole];
         callback.accept(new User(username, "", userRole));
     }
 
     public static void loginWith(Context ctx, String username, String password, Consumer<User> callback) throws LoginFailedException {
-        User tempUser = new User(username, password, Role.EMPLOYEE);
+        User tempUser = new User(username, password, Role.ADMIN);
         //TODO: Replace the "new User..." above with the line commented below when the BL function is ready.
                 //BL.checkLogin(new User(username, password, Role.ADMIN));
         if (tempUser != null){

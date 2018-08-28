@@ -17,4 +17,7 @@
     <string name="user_panel">מסך הבית</string>
     <string name="home_page">ראשי</string>
     <string name="settings">הגדרות</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

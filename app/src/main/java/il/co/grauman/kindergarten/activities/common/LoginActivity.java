@@ -6,15 +6,26 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//import il.co.grauman.kindergarten.R;
+
 import il.co.grauman.kindergarten.R;
+
 import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
+
+import il.co.grauman.kindergarten.bl.RestRequest;
+import il.co.grauman.kindergarten.bl.RestRequestImpl;
+
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
 import il.co.grauman.kindergarten.services.AuthService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -47,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         setupUIElements();
         setupOnClickListeners();
+
     }
 
 
@@ -67,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(v -> {
             if (validateInputs()) {
                 // TODO: display loader
+
 
                 try {
                     AuthService.loginWith(this, username.getText().toString(), password.getText().toString(), this::onLoginSucceed);

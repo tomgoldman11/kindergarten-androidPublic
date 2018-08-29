@@ -67,11 +67,22 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
         Toolbar toolbar = getToolbar();
 
         getNavigationView().inflateMenu(getDrawerMenu());
+
+        // init Action Bar Drawer Toggle [Hamburger]
+        // link toggle -> drawer left view
+        // lint toggle -> toolbar upper view (to know where to put the icon)
+        // other strings is for accessibility purpose
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        // display the icon on the toolbar
         toggle.setDrawerIndicatorEnabled(true);
+        // add event listener to drawer to detect onClick to open th drawer (left view)
         drawer.addDrawerListener(toggle);
+        // sync animated Hamburger to the drawer state
         toggle.syncState();
+        // set listener to on item click in the drawer -> this should implement the interface
         navigationView.setNavigationItemSelectedListener(this);
+
+        // set up ui elements
         drawerUserPhoto = navigationView.getHeaderView(0).findViewById(R.id.drawerUserPhoto);
         drawerUserName = navigationView.getHeaderView(0).findViewById(R.id.drawerUserName);
         setupUserDetails();

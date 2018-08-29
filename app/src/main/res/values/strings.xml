@@ -21,4 +21,6 @@
     <string name="subject">:נושא</string>
     <string name="new_day">New Day</string>
     <string name="home">בית</string>
+    <string name="date_format">%s%s%s</string>
+    <string name="add_event">הוסף ארוע</string>
 </resources>

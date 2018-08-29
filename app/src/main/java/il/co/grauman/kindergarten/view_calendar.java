@@ -50,7 +50,6 @@ public class view_calendar extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +63,7 @@ public class view_calendar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view_calendar, container, false);
+        return inflater.inflate(R.layout.fragment_update_calendar, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

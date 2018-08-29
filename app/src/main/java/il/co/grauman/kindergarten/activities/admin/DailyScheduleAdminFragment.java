@@ -20,7 +20,7 @@ public class DailyScheduleAdminFragment extends Fragment implements BaseFragment
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_admin_home, container, false);
+        View fragmentView = inflater.inflate(R.layout.activity_admin_home, container, false);
         testTextView = fragmentView.findViewById(R.id.testTextView);
         return fragmentView;
     }

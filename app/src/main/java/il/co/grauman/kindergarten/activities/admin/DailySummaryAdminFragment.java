@@ -1,4 +1,4 @@
-package il.co.grauman.kindergarten.activities.employee;
+package il.co.grauman.kindergarten.activities.admin;
 
 
 import android.content.Context;
@@ -17,14 +17,14 @@ import il.co.grauman.kindergarten.activities.common.BaseFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CalendarScheduleEmployeeFragment extends Fragment implements BaseFragment {
+public class DailySummaryAdminFragment extends Fragment implements BaseFragment{
 
     private TextView testTextView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_admin_settings, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_admin_home, container, false);
         testTextView = fragmentView.findViewById(R.id.testTextView);
         return fragmentView;
     }
@@ -32,7 +32,8 @@ public class CalendarScheduleEmployeeFragment extends Fragment implements BaseFr
     @Override
     public void onResume() {
         super.onResume();
-        testTextView.setText("Calender Schedule");
+        testTextView.setText("Daily Summary");
+
     }
 
     @Override
@@ -40,9 +41,8 @@ public class CalendarScheduleEmployeeFragment extends Fragment implements BaseFr
         super.onPause();
     }
 
-
     @Override
     public String getTitle(Context context) {
-        return context.getString(R.string.employee_panel);
+        return context.getString(R.string.admin_panel);
     }
 }

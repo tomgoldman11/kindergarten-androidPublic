@@ -30,18 +30,22 @@ public class EmployeeMainActivity extends BaseDrawerActivity {
         getDrawerLayout().closeDrawer(GravityCompat.START);
         switch (id) {
             // admin fragments
-            case R.id.btnDailyScheduleEmployee:
+            case R.id.employeeHome:
                 navigateToFragment(new DailyScheduleEmployeeFragment());
                 break;
-            case R.id.btnCalendarScheduleEmployee:
+            // admin fragments
+            case R.id.employeeDailySchedule:
+                navigateToFragment(new DailyScheduleEmployeeFragment());
+                break;
+            case R.id.employeeCalendar:
                 navigateToFragment(new CalendarScheduleFragment());
                 break;
             // employee fragments
-            case R.id.btnWorkScheduleEmployee:
+            case R.id.employeeWorkSchedule:
                 navigateToFragment(new WorkScheduleEmployeeFragment());
                 break;
             // user fragments
-            case R.id.btnMessagesEmployee:
+            case R.id.employeeMessages:
                 navigateToFragment(new MessagesEmployeeFragment());
                 break;
         }

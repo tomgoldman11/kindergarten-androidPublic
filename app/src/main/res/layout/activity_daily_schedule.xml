@@ -59,14 +59,15 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_daily"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/bg_white"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints"
         android:clipToPadding="false"
         android:columnWidth="80dp"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_daily"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
     </android.support.v7.widget.RecyclerView>
 

@@ -99,7 +99,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
         int id = item.getItemId();
         getDrawerLayout().closeDrawer(GravityCompat.START);
         switch (id) {
-            case R.id.btnSettings:
+            case R.id.adminSettings:
                 navigateToFragment(new SettingsFragment());
                 return true;
         }

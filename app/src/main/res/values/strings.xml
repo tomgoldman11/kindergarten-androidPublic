@@ -17,4 +17,10 @@
     <string name="user_panel">מסך הבית</string>
     <string name="home_page">ראשי</string>
     <string name="settings">הגדרות</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="date_format">%s/%s/%s</string>
+    <string name="add_event">הוסף אירוע</string>
+
+
 </resources>

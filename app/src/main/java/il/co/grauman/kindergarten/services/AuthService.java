@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
 
+import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.bl.RestRequestImpl;
 import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.models.User;
@@ -18,10 +19,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AuthService {
-
-    private final static String USERNAME = "username";
-    private final static String SHAREDPREF = "savedLoginSession";
-    private static final String ROLE = "userRole";
 
     /**
      * check if there is session stored in the SharedPref.
@@ -37,12 +34,10 @@ public class AuthService {
         //TODO: Change throws Exception type to more specific (custom) exception V
 
         // TODO: check if there is session stored in the SharedPref.
-        if (!ctx.getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE).contains("username")) {
+        if (!ctx.getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE).contains(Constants.USERNAME)) {
             callback.accept(new User("", "", Role.NONE));
-            throw new NotLoggedInException("Not logged in");
+            throw new NotLoggedInException(ctx.getResources().getString(R.string.user_not_logged_in));
         }
-
-        // TODO: check if
 
         String username = ctx.getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE).getString(Constants.USERNAME, "");
         int intUserRole = ctx.getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE).getInt(Constants.ROLE, 3);

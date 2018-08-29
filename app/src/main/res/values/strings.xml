@@ -17,6 +17,9 @@
     <string name="user_panel">מסך הבית</string>
     <string name="home_page">ראשי</string>
     <string name="settings">הגדרות</string>
+    <string name="password_error">הסיסמה חייבת להיות בין %1$d&#8211;%2$d תווים</string>
+    <string name="username_error">שם משתמש צריך להיות בין %1$d&#8211;%2$d תווים</string>
+    <string name="user_not_logged_in">משתמש אינו מחובר</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

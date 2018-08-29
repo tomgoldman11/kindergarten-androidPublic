@@ -13,14 +13,14 @@ import android.widget.TextView;
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.common.BaseFragment;
 
-public class AdminSettingsFragment extends Fragment implements BaseFragment {
+public class DailyScheduleAdminFragment extends Fragment implements BaseFragment {
 
     private TextView testTextView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_admin_settings, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_admin_home, container, false);
         testTextView = fragmentView.findViewById(R.id.testTextView);
         return fragmentView;
     }
@@ -28,7 +28,8 @@ public class AdminSettingsFragment extends Fragment implements BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        testTextView.setText("Settings view");
+        testTextView.setText("Daily Schedule");
+
     }
 
     @Override
@@ -36,9 +37,8 @@ public class AdminSettingsFragment extends Fragment implements BaseFragment {
         super.onPause();
     }
 
-
     @Override
     public String getTitle(Context context) {
-        return context.getString(R.string.settings);
+        return context.getString(R.string.admin_panel);
     }
 }

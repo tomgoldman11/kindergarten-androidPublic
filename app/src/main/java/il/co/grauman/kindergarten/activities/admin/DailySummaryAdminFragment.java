@@ -1,5 +1,6 @@
 package il.co.grauman.kindergarten.activities.admin;
 
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,7 +14,10 @@ import android.widget.TextView;
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.common.BaseFragment;
 
-public class AdminHomeFragment extends Fragment implements BaseFragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class DailySummaryAdminFragment extends Fragment implements BaseFragment{
 
     private TextView testTextView;
 
@@ -28,7 +32,7 @@ public class AdminHomeFragment extends Fragment implements BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        testTextView.setText("test text view");
+        testTextView.setText("Daily Summary");
 
     }
 

@@ -1,19 +1,35 @@
 package il.co.grauman.kindergarten.activities.common;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//import il.co.grauman.kindergarten.R;
+
 import il.co.grauman.kindergarten.R;
+
+import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
+
+import il.co.grauman.kindergarten.bl.RestRequest;
+import il.co.grauman.kindergarten.bl.RestRequestImpl;
+
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
 import il.co.grauman.kindergarten.services.AuthService;
+import il.co.grauman.kindergarten.utils.Constants;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -46,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         setupUIElements();
         setupOnClickListeners();
+
     }
 
 
@@ -67,29 +84,44 @@ public class LoginActivity extends AppCompatActivity {
             if (validateInputs()) {
                 // TODO: display loader
 
-                try {
-                    AuthService.loginWith(this, username.getText().toString(), password.getText().toString(), this::onLoginSucceed);
-                } catch (LoginFailedException e) {
-                    //TODO: show error to the user
-                    onLoginFailed(e.getMessage());
-                    e.printStackTrace();
-                }
+                RestRequestImpl.getInstance().userLogin(username.getText().toString(), password.getText().toString(), new Callback<User>() {
+                    @Override
+                    public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
+                        User tempUser = response.body();
+                        SharedPreferences.Editor editor = getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE).edit();
+                        editor.putString(Constants.USERNAME, username.getText().toString());
+                        editor.putInt(Constants.ROLE, tempUser.getRole().ordinal());
+                        editor.apply();
+                        LoginActivity.this.onLoginSucceed(tempUser);
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
+                        LoginActivity.this.onLoginFailed(t.getMessage());
+                    }
+                });
+
             }
         });
     }
 
     /**
      * check if the username/password is in the correct format
-     * clietn validation
+     * client validation
      *
      * @return true if valid
      */
     private boolean validateInputs() {
-        // TODO: check username validation
-        // TODO: check password validation
+        // check username validation
+        
+        // check password validation
+        if(password.getText().toString().length() < 6 || password.getText().toString().length() > 20){
+            passwordInput.setError("Password must be between 6 and 20 characters.");
+            return false;
+        }
 
         // TODO: if it's not valid input use the TextInputLayout to display the error
-         usernameInput.setError("username must be less than 25");
+        usernameInput.setError("username must be less than 25");
         return true;
     }
 
@@ -102,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onLoginFailed(String errorMessage) {
         // TODO: hide loader
         // TODO: show error
-        Toast.makeText(this, errorMessage,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
 
     }
 }

@@ -1,4 +1,5 @@
-package il.co.grauman.kindergarten.activities.admin;
+package il.co.grauman.kindergarten.activities.common;
+
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,9 +12,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.common.BaseFragment;
 
-public class AdminSettingsFragment extends Fragment implements BaseFragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class SettingsFragment extends Fragment implements BaseFragment{
 
     private TextView testTextView;
 

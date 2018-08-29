@@ -13,7 +13,7 @@ import android.widget.TextView;
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.common.BaseFragment;
 
-public class EmployeeHomeFragment extends Fragment implements BaseFragment {
+public class DailyScheduleEmployeeFragment extends Fragment implements BaseFragment {
 
     private TextView testTextView;
 
@@ -28,7 +28,7 @@ public class EmployeeHomeFragment extends Fragment implements BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        testTextView.setText("test text view");
+        testTextView.setText("btnDaily Schedule");
 
     }
 

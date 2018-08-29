@@ -6,7 +6,7 @@
     <color name="colorAccent">#81D4FA</color>
     <color name="textColorPrimary">#333</color>
     <color name="textColorSecondary">#fff</color>
-    <color name="white">#fff</color>
-    <color name="lightGrey">#f1f1f1</color>
-    <color name="black">#000</color>
+    <color name="white">#ecdddd</color>
+    <color name="lightGrey">#fefefe</color>
+    <color name="black">#1a1818</color>
 </resources>

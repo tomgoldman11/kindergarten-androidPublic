@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//import il.co.grauman.kindergarten.R;
+
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
@@ -46,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         setupUIElements();
         setupOnClickListeners();
+
     }
 
 
@@ -66,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(v -> {
             if (validateInputs()) {
                 // TODO: display loader
+
 
                 try {
                     AuthService.loginWith(this, username.getText().toString(), password.getText().toString(), this::onLoginSucceed);

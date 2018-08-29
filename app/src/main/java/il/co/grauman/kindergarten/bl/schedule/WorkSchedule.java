@@ -1,13 +1,11 @@
-package il.co.grauman.kindergarten.bl;
+package il.co.grauman.kindergarten.bl.schedule;
 
 import java.util.Date;
 import java.util.List;
 
-import il.co.grauman.kindergarten.models.User;
 import retrofit2.Callback;
 
-public interface RestRequest {
-    void userLogin(String username, String password, Callback<User> callback);
+public interface WorkSchedule {
     void getWorkSchedule(String userId , Date day, Callback<WeeklySchedule> callback);
     void getWorkSchedule(Date day, Callback<List<WeeklySchedule>> callback);
 }

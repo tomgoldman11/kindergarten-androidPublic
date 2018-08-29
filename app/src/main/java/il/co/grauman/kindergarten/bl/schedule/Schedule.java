@@ -1,8 +1,8 @@
-package il.co.grauman.kindergarten.bl;
+package il.co.grauman.kindergarten.bl.schedule;
 
 import java.util.Date;
 
-class Schedule {
+public class Schedule {
     String userId;
     Date day;
     public Schedule(Date day) {

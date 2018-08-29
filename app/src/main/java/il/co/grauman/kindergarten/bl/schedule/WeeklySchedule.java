@@ -1,6 +1,8 @@
-package il.co.grauman.kindergarten.bl;
+package il.co.grauman.kindergarten.bl.schedule;
 
 import java.util.List;
+
+import il.co.grauman.kindergarten.bl.schedule.DailySchedule;
 
 public class WeeklySchedule {
     List<DailySchedule> workWeek;

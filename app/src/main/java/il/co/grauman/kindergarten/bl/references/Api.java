@@ -1,8 +1,11 @@
-package il.co.grauman.kindergarten.bl;
+package il.co.grauman.kindergarten.bl.references;
 
 import java.util.Date;
 import java.util.List;
 
+import il.co.grauman.kindergarten.bl.login.LoginRequest;
+import il.co.grauman.kindergarten.bl.schedule.Schedule;
+import il.co.grauman.kindergarten.bl.schedule.WeeklySchedule;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Call;
 import retrofit2.http.Body;

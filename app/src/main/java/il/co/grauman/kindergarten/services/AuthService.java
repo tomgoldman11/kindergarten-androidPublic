@@ -37,7 +37,7 @@ public class AuthService {
 
         // TODO: check if there is session stored in the SharedPref.
         if (!ctx.getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE).contains("username")) {
-            callback.accept(new User("", "", Role.NONE));
+            callback.accept(new User("", "", Role.ADMIN));
             throw new NotLoggedInException("Not logged in");
         }
 

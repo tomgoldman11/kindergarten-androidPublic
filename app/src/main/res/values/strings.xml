@@ -17,4 +17,8 @@
     <string name="user_panel">מסך הבית</string>
     <string name="home_page">ראשי</string>
     <string name="settings">הגדרות</string>
+    <string name="from">:מאת</string>
+    <string name="subject">:נושא</string>
+    <string name="new_day">New Day</string>
+    <string name="home">בית</string>
 </resources>

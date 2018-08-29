@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group
-        android:id="@+id/grp1"
+        android:id="@+id/groupEmployee"
         android:checkableBehavior="single">
+
         <item
             android:id="@+id/employeeHome"
             android:checkable="false"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_menu_home"
             android:title="@string/home_page" />
+
+        <item
+            android:id="@+id/employeeDailySchedule"
+            android:checkable="false"
+            android:icon="@drawable/ic_menu_daily_schedule"
+            android:title="@string/daily_schedule" />
+
+        <item
+            android:id="@+id/employeeWorkSchedule"
+            android:checkable="false"
+            android:icon="@drawable/ic_menu_work_schedule"
+            android:title="@string/working_arrangement" />
+
+        <item
+            android:id="@+id/employeeCalendar"
+            android:checkable="false"
+            android:title="@string/calendar"
+            android:icon="@drawable/ic_menu_calendar" />
+
+        <item
+            android:id="@+id/employeeMessages"
+            android:checkable="false"
+            android:title="@string/messages"
+            android:icon="@drawable/ic_menu_message" />
+
+        <item
+            android:id="@+id/employeeSettings"
+            android:checkable="false"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="@string/settings" />
+
+
     </group>
 </menu>

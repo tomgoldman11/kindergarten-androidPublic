@@ -11,6 +11,7 @@ import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
 import il.co.grauman.kindergarten.models.exceptions.NotLoggedInException;
+import il.co.grauman.kindergarten.utils.Constants;
 import java8.util.function.Consumer;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,14 +37,15 @@ public class AuthService {
         //TODO: Change throws Exception type to more specific (custom) exception V
 
         // TODO: check if there is session stored in the SharedPref.
-        if (!ctx.getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE).contains("username")) {
+        if (!ctx.getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE).contains("username")) {
             callback.accept(new User("", "", Role.NONE));
             throw new NotLoggedInException("Not logged in");
         }
 
         // TODO: check if
-        String username = ctx.getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE).getString(USERNAME, "");
-        int intUserRole = ctx.getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE).getInt(ROLE, 3);
+
+        String username = ctx.getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE).getString(Constants.USERNAME, "");
+        int intUserRole = ctx.getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE).getInt(Constants.ROLE, 3);
         Role userRole = Role.values()[intUserRole];
         callback.accept(new User(username, "", userRole));
     }

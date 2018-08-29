@@ -23,4 +23,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="from">:מאת</string>
+    <string name="subject">:נושא</string>
+    <string name="new_day">New Day</string>
+    <string name="home">בית</string>
 </resources>

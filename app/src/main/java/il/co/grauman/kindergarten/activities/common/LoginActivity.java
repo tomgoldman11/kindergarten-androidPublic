@@ -9,7 +9,6 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,9 +19,6 @@ import il.co.grauman.kindergarten.R;
 
 import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
 
-import il.co.grauman.kindergarten.bl.RestRequest;
-import il.co.grauman.kindergarten.bl.RestRequestImpl;
-
 import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
@@ -31,6 +27,9 @@ import il.co.grauman.kindergarten.utils.Constants;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import il.co.grauman.kindergarten.models.User;
+import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
+import il.co.grauman.kindergarten.services.AuthService;
 
 public class LoginActivity extends AppCompatActivity {
 

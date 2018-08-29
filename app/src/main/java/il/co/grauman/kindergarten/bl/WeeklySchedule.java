@@ -2,8 +2,8 @@ package il.co.grauman.kindergarten.bl;
 
 import java.util.List;
 
-public class WeeklySchedualeObject {
-    List<DailySchedualeObject> workWeek;
+public class WeeklySchedule {
+    List<DailySchedule> workWeek;
     String userId;
 
     public String getUserId() {
@@ -14,16 +14,16 @@ public class WeeklySchedualeObject {
         this.userId = userId;
     }
 
-    public WeeklySchedualeObject(List<DailySchedualeObject> workWeek, String userId) {
+    public WeeklySchedule(List<DailySchedule> workWeek, String userId) {
         this.workWeek = workWeek;
         this.userId = userId;
     }
 
-    public List<DailySchedualeObject> getWorkWeek() {
+    public List<DailySchedule> getWorkWeek() {
         return workWeek;
     }
 
-    public void setWorkWeek(List<DailySchedualeObject> workWeek) {
+    public void setWorkWeek(List<DailySchedule> workWeek) {
         this.workWeek = workWeek;
     }
 }

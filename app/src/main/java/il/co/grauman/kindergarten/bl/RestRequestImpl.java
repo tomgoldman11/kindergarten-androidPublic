@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.models.User;
+import java8.util.function.Supplier;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,78 +32,45 @@ public class RestRequestImpl implements RestRequest {
                 .build();
     }
 
+    private  <T> void apiImplementation(Callback<T> callback, Supplier<Call<T>> func) {
+        Call<T> call = func.get();
+        call.enqueue(new Callback<T>() {
+            @Override
+            public void onResponse(Call<T> call, Response<T> response) {
+                if(response.code() == 200) {
+                    callback.onResponse(call, response);
+                }else {
+                    try {
+                        callback.onFailure(call, new Exception(response.errorBody().string()));
+                    } catch (IOException e) {
+                        callback.onFailure(call, e);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<T> call, Throwable t) {
+                callback.onFailure(call, t);
+            }
+        });
+    }
+
     @Override
     public void userLogin(String username, String password, Callback<User> callback) {
         Api api = ret.create(Api.class);
-        Call<User> call = api.userLogin(new LoginRequest(username, password));
-        call.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                if(response.code() == 200) {
-                     callback.onResponse(call, response);
-                }else {
-                    try {
-                        callback.onFailure(call, new Exception(response.errorBody().string()));
-                    } catch (IOException e) {
-                        callback.onFailure(call, e);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                 callback.onFailure(call, t);
-            }
-        });
-    }
-
-    public void showWorkSchedule(String userId, Date day, Callback<WeeklySchedualeObject> callback){
-        Api api = ret.create(Api.class);
-        Call<WeeklySchedualeObject> call = api.showWorkSchedule(new Schedule(userId, day));
-        call.enqueue(new Callback<WeeklySchedualeObject>(){
-            @Override
-            public void onResponse(Call<WeeklySchedualeObject> call, Response<WeeklySchedualeObject> response) {
-                if(response.code() == 200){
-                    callback.onResponse(call, response);
-                }else {
-                    try {
-                        callback.onFailure(call, new Exception(response.errorBody().string()));
-                    } catch (IOException e) {
-                        callback.onFailure(call, e);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<WeeklySchedualeObject> call, Throwable t) {
-                callback.onFailure(call, t);
-            }
-        });
+        apiImplementation(callback, () -> api.userLogin(new LoginRequest(username, password)));
     }
 
     @Override
-    public void showWorkSchedule(Date day, Callback<List<WeeklySchedualeObject>> callback) {
+    public void getWorkSchedule(String userId, Date day, Callback<WeeklySchedule> callback){
         Api api = ret.create(Api.class);
-        Call<List<WeeklySchedualeObject>> call = api.showWorkSchedule(day);
-        call.enqueue(new Callback<List<WeeklySchedualeObject>>(){
-            @Override
-            public void onResponse(Call<List<WeeklySchedualeObject>> call, Response<List<WeeklySchedualeObject>> response) {
-                if(response.code() == 200){
-                    callback.onResponse(call, response);
-                }else {
-                    try {
-                        callback.onFailure(call, new Exception(response.errorBody().string()));
-                    } catch (IOException e) {
-                        callback.onFailure(call, e);
-                    }
-                }
-            }
+        apiImplementation(callback, () -> api.getWorkSchedule(new Schedule(userId, day)));
+    }
 
-            @Override
-            public void onFailure(Call<List<WeeklySchedualeObject>> call, Throwable t) {
-                callback.onFailure(call, t);
-            }
-        });
+    @Override
+    public void getWorkSchedule(Date day, Callback<List<WeeklySchedule>> callback) {
+        Api api = ret.create(Api.class);
+        apiImplementation(callback, () -> api.getWorkSchedule(day));
     }
 
 

@@ -14,10 +14,10 @@ public interface Api {
     @POST ("myresource/login")
     Call<User> userLogin(@Body LoginRequest req);
 
-    @POST ("myresource/Scheduale")
-    Call<WeeklySchedualeObject> showWorkSchedule(@Body Schedule schedule);
+    @POST ("myresource/scheduale")
+    Call<WeeklySchedule> getWorkSchedule(@Body Schedule schedule);
 
-    @POST("myresource/AdminScheduale")
-    Call<List<WeeklySchedualeObject>> showWorkSchedule(@Body Date day);
+    @POST("myresource/adminScheduale")
+    Call<List<WeeklySchedule>> getWorkSchedule(@Body Date day);
 
 }

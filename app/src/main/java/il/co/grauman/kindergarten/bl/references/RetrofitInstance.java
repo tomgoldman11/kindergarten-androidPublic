@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitInstance {
     private Retrofit ret;
+    private Api api;
     private static RetrofitInstance instance;
     public static RetrofitInstance getInstance(){
         if(instance == null)
@@ -21,6 +22,11 @@ public class RetrofitInstance {
                 .baseUrl(Api.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
+        api =ret.create(Api.class);
+    }
+
+    public Api getApi(){
+        return api;
     }
 
     public Retrofit getRet(){

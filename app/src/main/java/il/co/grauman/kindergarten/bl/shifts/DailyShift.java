@@ -1,15 +1,15 @@
-package il.co.grauman.kindergarten.bl.schedule;
+package il.co.grauman.kindergarten.bl.shifts;
 
 import java.util.Date;
 
-class DailySchedule {
+class DailyShift {
     String userId;
     Date beginShift;
     Date finshShift;
 
-    public DailySchedule() {}
+    public DailyShift() {}
 
-    public DailySchedule(String userId, Date beginShift, Date finshShift) {
+    public DailyShift(String userId, Date beginShift, Date finshShift) {
         this.userId = userId;
         this.beginShift = beginShift;
         this.finshShift = finshShift;

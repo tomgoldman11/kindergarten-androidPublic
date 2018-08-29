@@ -3,6 +3,13 @@
     <group
         android:id="@+id/groupEmployee"
         android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/employeeHome"
+            android:checkable="false"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/home_page" />
+
         <item
             android:id="@+id/employeeDailySchedule"
             android:checkable="false"

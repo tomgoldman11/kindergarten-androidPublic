@@ -1,4 +1,4 @@
-package il.co.grauman.kindergarten.activities.admin;
+package il.co.grauman.kindergarten.activities.user;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,14 +14,14 @@ import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.common.BaseFragment;
 
 
-public class Daily_schedule extends Fragment implements BaseFragment {
+public class DailyScheduleUserFragment extends Fragment implements BaseFragment {
 
     private TextView testTextView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_admin_home, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_employee_home, container, false);
         testTextView = fragmentView.findViewById(R.id.testTextView);
         return fragmentView;
     }
@@ -29,7 +29,7 @@ public class Daily_schedule extends Fragment implements BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        testTextView.setText("Daily_schedule");
+        testTextView.setText("Schedule User");
 
     }
 
@@ -40,6 +40,6 @@ public class Daily_schedule extends Fragment implements BaseFragment {
 
     @Override
     public String getTitle(Context context) {
-        return context.getString(R.string.Daily_schedule);
+        return context.getString(R.string.daily_schedule);
     }
 }

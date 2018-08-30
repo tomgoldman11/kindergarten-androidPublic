@@ -17,6 +17,10 @@
     <string name="user_panel">מסך הבית</string>
     <string name="home_page">ראשי</string>
     <string name="settings">הגדרות</string>
+    <string name="user_message_page">הודעות הורים</string>
+    <string name="user_daily_schedule">סיכום יומי</string>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

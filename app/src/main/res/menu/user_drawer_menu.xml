@@ -4,9 +4,19 @@
         android:id="@+id/grp1"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/userHome"
+            android:id="@+id/UserDrawerBtnDailySchedule"
             android:checkable="false"
             android:icon="@drawable/ic_home"
-            android:title="@string/home_page" />
+            android:title="@string/user_daily_schedule" />
+        <item
+            android:id="@+id/UserDrawerBtnCalendar"
+            android:checkable="false"
+            android:icon="@drawable/ic_home"
+            android:title="@string/calendar" />
+        <item
+            android:id="@+id/UserDrawerBtnMessage"
+            android:checkable="false"
+            android:icon="@drawable/ic_home"
+            android:title="@string/user_message_page" />
     </group>
 </menu>

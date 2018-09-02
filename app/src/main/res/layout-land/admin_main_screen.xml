@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +7,7 @@
 
 
     <ImageView
-        android:id="@+id/ivWrapperEmployee"
+        android:id="@+id/ivWrapperAdmin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/launch_background"
@@ -18,69 +17,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
     <TextView
-        android:id="@+id/tvHelloEmployee"
+        android:id="@+id/tvHelloAdmin"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginEnd="8dp"
         android:gravity="center_horizontal"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:shadowDx="10"
+        android:shadowDy="10"
         android:text="@string/user_greeting"
         android:textStyle="bold|italic"
         android:textColor="#efefbb"
         android:textSize="20sp"
-        android:shadowColor="@color/colorPrimaryDark"
-        android:shadowDx="10"
-        android:shadowDy="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="8dp" />
 
     <Button
-        android:id="@+id/btnDailyScheduleEmployee"
+        android:id="@+id/btnWorkScheduleAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/bluebtn_gradient"
-        android:paddingEnd="10dp"
-        android:paddingStart="10dp"
-        android:text="@string/daily_schedule"
-        android:textAllCaps="false"
-        android:textColor="#16222A"
-        android:textSize="19sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHelloEmployee" />
-
-    <Button
-        android:id="@+id/btnCalendarEmployee"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/bluebtn_gradient"
-        android:paddingEnd="10dp"
-        android:paddingStart="10dp"
-        android:text="@string/calendar"
-        android:textAllCaps="false"
-        android:textColor="#16222A"
-        android:textSize="19sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDailyScheduleEmployee" />
-
-    <Button
-        android:id="@+id/btnWorkScheduleEmployee"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bluebtn_gradient"
         android:paddingEnd="10dp"
         android:paddingStart="10dp"
@@ -89,18 +52,84 @@
         android:textColor="#16222A"
         android:textSize="19sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnDailySummaryAdmin"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalendarEmployee" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCalendarAdmin" />
 
 
     <Button
-        android:id="@+id/btnMessagesEmployee"
+        android:id="@+id/btnDailyScheduleAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bluebtn_gradient"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/daily_schedule"
+        android:textAllCaps="false"
+        android:textColor="#16222A"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnCalendarAdmin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivWrapperAdmin"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <Button
+        android:id="@+id/btnCalendarAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bluebtn_gradient"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/calendar"
+        android:textAllCaps="false"
+        android:textColor="#16222A"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnWorkScheduleAdmin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDailyScheduleAdmin" />
+
+
+    <Button
+        android:id="@+id/btnDailySummaryAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bluebtn_gradient"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="לוח זמנים"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnMessagesAdmin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnWorkScheduleAdmin"
+        tools:text="@string/daily_summary" />
+
+    <Button
+        android:id="@+id/btnMessagesAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bluebtn_gradient"
         android:paddingEnd="10dp"
         android:paddingStart="10dp"
@@ -109,18 +138,20 @@
         android:textColor="#16222A"
         android:textSize="19sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ivWrapperAdmin"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnWorkScheduleEmployee" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDailySummaryAdmin" />
 
     <ImageView
-        android:id="@+id/ivSymbolEmployee"
+        android:id="@+id/ivSymbolAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvHelloEmployee"
+        app:layout_constraintStart_toEndOf="@+id/tvHelloAdmin"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />
 

@@ -9,6 +9,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,7 +21,6 @@ import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
 
 import il.co.grauman.kindergarten.bl.login.UserLogin;
-import il.co.grauman.kindergarten.bl.references.ApiImplementation;
 import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
@@ -29,9 +29,6 @@ import il.co.grauman.kindergarten.utils.Constants;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import il.co.grauman.kindergarten.models.User;
-import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
-import il.co.grauman.kindergarten.services.AuthService;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -85,8 +82,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(v -> {
             if (validateInputs()) {
                 // TODO: display loader
-                // Test: without SharedPref (comment bellow)
-                // onLoginSucceed(new User("","", Role.ADMIN));
+                User temp = new User("","", Role.ADMIN);
+                LoginActivity.this.onLoginSucceed(temp);
                 UserLogin.userLogin(username.getText().toString(), password.getText().toString(), new Callback<User>() {
                     @Override
                     public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
@@ -116,26 +113,15 @@ public class LoginActivity extends AppCompatActivity {
      */
     private boolean validateInputs() {
         // check username validation
-        if(     username.getText().toString().length() < getResources().getInteger(R.integer.min_username) ||
-                username.getText().toString().length() > getResources().getInteger(R.integer.max_username)) {
-            usernameInput.setError( getResources().getString(R.string.username_error,
-                                    getResources().getInteger(R.integer.min_username),
-                                    getResources().getInteger(R.integer.max_username)));
-            return false;
-        } else {
-            usernameInput.setError(null);
-        }
+        
         // check password validation
-        if(     password.getText().toString().length() < getResources().getInteger(R.integer.min_password) ||
-                password.getText().toString().length() > getResources().getInteger(R.integer.max_password)){
-            passwordInput.setError( getResources().getString(R.string.password_error,
-                                    getResources().getInteger(R.integer.min_password),
-                                    getResources().getInteger(R.integer.max_password)));
-            return false;
-        } else {
-            passwordInput.setError(null);
-        }
+//        if(password.getText().toString().length() < 6 || password.getText().toString().length() > 20){
+//            passwordInput.setError("Password must be between 6 and 20 characters.");
+//            return false;
+//        }
 
+        // TODO: if it's not valid input use the TextInputLayout to display the error
+        usernameInput.setError("username must be less than 25");
         return true;
     }
 

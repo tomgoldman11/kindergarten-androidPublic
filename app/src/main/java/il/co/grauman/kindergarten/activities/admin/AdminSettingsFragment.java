@@ -20,7 +20,7 @@ public class AdminSettingsFragment extends Fragment implements BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_admin_settings, container, false);
+        View fragmentView = inflater.inflate(R.layout.activity_admin_settings, container, false);
         testTextView = fragmentView.findViewById(R.id.testTextView);
         return fragmentView;
     }

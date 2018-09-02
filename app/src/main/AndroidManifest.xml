@@ -14,10 +14,11 @@
             android:name=".activities.common.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".activities.common.LoginActivity"
@@ -26,13 +27,26 @@
         <activity
             android:name=".activities.admin.AdminMainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activities.employee.EmployeeMainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.user.UserMainActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activities.admin.DailyScheduleAdminActivity" />
+        <activity android:name=".activities.admin.WorkScheduleAdminActivity" />
+        <activity android:name=".activities.common.CalendarScheduleActivity" />
+        <activity android:name=".activities.admin.DailySummaryAdminActivity" />
+        <activity android:name=".activities.admin.MessagesAdminActivity" />
+        <activity android:name=".activities.employee.DailyScheduleEmployeeActivity" />
+        <activity android:name=".activities.employee.WorkScheduleEmployeeActivity" />
+        <activity android:name=".activities.employee.MessagesEmployeeActivity"></activity>
     </application>
 
 </manifest>

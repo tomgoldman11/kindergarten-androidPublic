@@ -3,6 +3,7 @@ package il.co.grauman.kindergarten.bl.references;
 import java.util.Date;
 import java.util.List;
 
+import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.AdminShiftsRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
@@ -32,6 +33,15 @@ public interface Api {
 
     @POST("myresource/update_shift")
     Call<StatusResponse> updateShift(@Body UpdateShiftRequset updateShiftRequset);
+
+    @POST("myresource/add_user")
+    Call<User> addUser(@Body User user);
+
+    @POST("myresource/checkin")
+    Call<StatusResponse> checkIn(@Body ChckInOutRequest checkInRequest);
+
+    @POST("myresource/checkout")
+    Call<StatusResponse> checkOut(@Body ChckInOutRequest checkOutRequest);
 
 
 }

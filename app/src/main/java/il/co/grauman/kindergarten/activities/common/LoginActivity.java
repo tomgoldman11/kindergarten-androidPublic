@@ -19,6 +19,8 @@ import il.co.grauman.kindergarten.R;
 
 import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
 
+import il.co.grauman.kindergarten.bl.login.UserLogin;
+import il.co.grauman.kindergarten.bl.references.ApiImplementation;
 import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
@@ -85,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                 // TODO: display loader
                 // Test: without SharedPref (comment bellow)
                 // onLoginSucceed(new User("","", Role.ADMIN));
-                RestRequestImpl.getInstance().userLogin(username.getText().toString(), password.getText().toString(), new Callback<User>() {
+                UserLogin.userLogin(username.getText().toString(), password.getText().toString(), new Callback<User>() {
                     @Override
                     public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
                         User tempUser = response.body();

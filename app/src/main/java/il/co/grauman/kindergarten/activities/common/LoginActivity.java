@@ -26,6 +26,7 @@ import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
 import il.co.grauman.kindergarten.services.AuthService;
 import il.co.grauman.kindergarten.utils.Constants;
+import il.co.grauman.kindergarten.utils.SPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -88,10 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
                         User tempUser = response.body();
-                        SharedPreferences.Editor editor = getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE).edit();
-                        editor.putString(Constants.USERNAME, username.getText().toString());
-                        editor.putInt(Constants.ROLE, tempUser.getRole().ordinal());
-                        editor.apply();
+                        SPref.getInstance().putString(Constants.USERNAME, username.getText().toString());
+                        SPref.getInstance().putInt(Constants.ROLE,  tempUser.getRole().ordinal());
                         LoginActivity.this.onLoginSucceed(tempUser);
                     }
 

@@ -20,6 +20,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.activities.admin.AdminMainActivity;
+import il.co.grauman.kindergarten.activities.admin.DailyScheduleAdminActivity;
+import il.co.grauman.kindergarten.activities.admin.DailySummaryAdminActivity;
+import il.co.grauman.kindergarten.activities.admin.MessagesAdminActivity;
+import il.co.grauman.kindergarten.activities.admin.WorkScheduleAdminActivity;
+import il.co.grauman.kindergarten.enums.Role;
+import il.co.grauman.kindergarten.utils.Constants;
+import il.co.grauman.kindergarten.utils.SPref;
 import il.co.grauman.kindergarten.utils.Util;
 
 @SuppressLint("Registered")
@@ -28,13 +36,18 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
     private ActionBarDrawerToggle toggle;
     private ImageView drawerUserPhoto;
     private TextView drawerUserName;
-    protected FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        super.setContentView(R.layout.activity_drawer_main);
         Util.setRtl(this, "he");
-        fragmentManager = getSupportFragmentManager();
+        setSupportActionBar(getToolbar());
+    }
+
+    @Override
+    public void setContentView(int resId){
+        getLayoutInflater().inflate(resId, findViewById(R.id.subLayout), true);
     }
 
     @Override
@@ -59,7 +72,16 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
     }
 
     public int getDrawerMenu() {
-        throw new RuntimeException("Must override getDrawerMenu");
+        switch (Role.values()[SPref.getInstance().getInt(Constants.ROLE, Role.NONE.ordinal())]) {
+            case ADMIN:
+                return R.menu.admin_drawer_menu;
+            case EMPLOYEE:
+                return R.menu.employee_drawer_menu;
+            case USER:
+                return R.menu.user_drawer_menu;
+            default:
+                throw new IllegalStateException();
+        }
     }
 
 
@@ -97,30 +119,43 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // TODO: Handle navigation view item clicks here.
         int id = item.getItemId();
         getDrawerLayout().closeDrawer(GravityCompat.START);
         switch (id) {
-            case R.id.adminSettings:
-                navigateToFragment(new SettingsFragment());
-                return true;
+            // admin fragments
+            case R.id.adminHome:
+                navigateToActivity(new AdminMainActivity());
+                break;
+            // admin fragments
+            case R.id.adminDailySchedule:
+                navigateToActivity(new DailyScheduleAdminActivity());
+                break;
+            case R.id.userCalendar:
+            case R.id.employeeCalendar:
+            case R.id.adminCalendar:
+                navigateToActivity(new CalendarScheduleActivity());
+                break;
+            // employee fragments
+            case R.id.adminWorkSchedule:
+                navigateToActivity(new WorkScheduleAdminActivity());
+                break;
+            // user fragments
+            case R.id.adminDailySummary:
+                navigateToActivity(new DailySummaryAdminActivity());
+                break;
+            // user fragments
+            case R.id.employeeMessages:
+                navigateToActivity(new MessagesAdminActivity());
+                break;
         }
 
-        return false;
+        return true;
     }
     protected void navigateToActivity(Activity newIntent) {
         Intent intent = new Intent(BaseDrawerActivity.this, newIntent.getClass());
 
         startActivity(intent);
         finish();
-    }
-
-    protected void navigateToFragment(BaseFragment fragment) {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragmentLayout, (Fragment) fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
-        setTitle(fragment.getTitle(this));
     }
 
     @Override

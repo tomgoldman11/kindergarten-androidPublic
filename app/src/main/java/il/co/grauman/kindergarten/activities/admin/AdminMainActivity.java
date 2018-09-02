@@ -7,7 +7,7 @@ import android.view.MenuItem;
 
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.common.BaseDrawerActivity;
-import il.co.grauman.kindergarten.activities.common.CalendarScheduleFragment;
+import il.co.grauman.kindergarten.activities.common.CalendarScheduleActivity;
 
 public class AdminMainActivity extends BaseDrawerActivity {
 
@@ -17,7 +17,7 @@ public class AdminMainActivity extends BaseDrawerActivity {
         setContentView(R.layout.activity_drawer_main);
         setSupportActionBar(getToolbar());
         setTitle(R.string.admin_panel);
-        navigateToFragment(new DailyScheduleAdminFragment());
+        navigateToActivity(new DailyScheduleAdminActivity());
     }
 
 
@@ -33,26 +33,26 @@ public class AdminMainActivity extends BaseDrawerActivity {
         switch (id) {
             // admin fragments
             case R.id.adminHome:
-                navigateToFragment(new DailyScheduleAdminFragment());
+                navigateToActivity(new AdminMainActivity());
                 break;
             // admin fragments
             case R.id.adminDailySchedule:
-                navigateToFragment(new DailyScheduleAdminFragment());
+                navigateToActivity(new DailyScheduleAdminActivity());
                 break;
             case R.id.employeeCalendar:
-                navigateToFragment(new CalendarScheduleFragment());
+                navigateToActivity(new CalendarScheduleActivity());
                 break;
             // employee fragments
             case R.id.adminWorkSchedule:
-                navigateToFragment(new WorkScheduleAdminFragment());
+                navigateToActivity(new WorkScheduleAdminActivity());
                 break;
             // user fragments
             case R.id.adminDailySummary:
-                navigateToFragment(new DailySummaryAdminFragment());
+                navigateToActivity(new DailySummaryAdminActivity());
                 break;
             // user fragments
             case R.id.employeeMessages:
-                navigateToFragment(new MessagesAdminFragment());
+                navigateToActivity(new MessagesAdminActivity());
                 break;
         }
 

@@ -1,6 +1,8 @@
 package il.co.grauman.kindergarten.activities.common;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -105,6 +107,12 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
         }
 
         return false;
+    }
+    protected void navigateToActivity(Activity newIntent) {
+        Intent intent = new Intent(BaseDrawerActivity.this, newIntent.getClass());
+
+        startActivity(intent);
+        finish();
     }
 
     protected void navigateToFragment(BaseFragment fragment) {

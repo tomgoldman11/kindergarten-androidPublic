@@ -37,7 +37,7 @@ public class AuthService {
         //TODO: Change throws Exception type to more specific (custom) exception V
 
         // TODO: check if there is session stored in the SharedPref.
-
+        callback.accept(new User("", "", Role.ADMIN));
         if (!ctx.getSharedPreferences(SHAREDPREF, Context.MODE_PRIVATE).contains("username")) {
             callback.accept(new User("", "", Role.ADMIN));
 

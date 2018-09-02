@@ -6,9 +6,9 @@ import android.support.v4.view.GravityCompat;
 import android.view.MenuItem;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.admin.DailyScheduleAdminFragment;
+import il.co.grauman.kindergarten.activities.admin.DailyScheduleAdminActivity;
 import il.co.grauman.kindergarten.activities.common.BaseDrawerActivity;
-import il.co.grauman.kindergarten.activities.common.CalendarScheduleFragment;
+import il.co.grauman.kindergarten.activities.common.CalendarScheduleActivity;
 
 public class EmployeeMainActivity extends BaseDrawerActivity {
     @Override
@@ -17,7 +17,7 @@ public class EmployeeMainActivity extends BaseDrawerActivity {
         setContentView(R.layout.activity_drawer_main);
         setSupportActionBar(getToolbar());
         setTitle(R.string.employee_panel);
-        navigateToFragment(new DailyScheduleAdminFragment());
+        navigateToActivity(new DailyScheduleAdminActivity());
     }
     @Override
     public int getDrawerMenu() {
@@ -30,19 +30,23 @@ public class EmployeeMainActivity extends BaseDrawerActivity {
         getDrawerLayout().closeDrawer(GravityCompat.START);
         switch (id) {
             // admin fragments
-            case R.id.btnDailyScheduleEmployee:
-                navigateToFragment(new DailyScheduleEmployeeFragment());
+            case R.id.employeeHome:
+                navigateToActivity(new DailyScheduleEmployeeActivity());
                 break;
-            case R.id.btnCalendarScheduleEmployee:
-                navigateToFragment(new CalendarScheduleFragment());
+            // admin fragments
+            case R.id.employeeDailySchedule:
+                navigateToActivity(new DailyScheduleEmployeeActivity());
+                break;
+            case R.id.employeeCalendar:
+                navigateToActivity(new CalendarScheduleActivity());
                 break;
             // employee fragments
-            case R.id.btnWorkScheduleEmployee:
-                navigateToFragment(new WorkScheduleEmployeeFragment());
+            case R.id.employeeWorkSchedule:
+                navigateToActivity(new WorkScheduleEmployeeActivity());
                 break;
             // user fragments
-            case R.id.btnMessagesEmployee:
-                navigateToFragment(new MessagesEmployeeFragment());
+            case R.id.employeeMessages:
+                navigateToActivity(new MessagesEmployeeActivity());
                 break;
         }
 

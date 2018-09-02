@@ -22,8 +22,8 @@ public interface Api {
 
     @POST("myresource/admin_scheduale")
     Call<List<WeeklyShifts>> getWorkSchedule(@Body Date day);
-
-    @POST("myresource/update_shift")
-    Call<>
+//
+//    @POST("myresource/update_shift")
+//    Call<>
 
 }

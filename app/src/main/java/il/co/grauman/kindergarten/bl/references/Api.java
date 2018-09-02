@@ -6,7 +6,6 @@ import java.util.List;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.AdminShiftsRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
-import il.co.grauman.kindergarten.bl.shifts.shiftModels.UpdateShiftResponse;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Call;
@@ -29,10 +28,10 @@ public interface Api {
     Call<DailyShift> addShift(@Body DailyShift dailyShift);
 
     @POST("myresource/remove_shift")
-    Call<UpdateShiftResponse> removeShift(@Body DailyShift dailyShift);
+    Call<StatusResponse> removeShift(@Body DailyShift dailyShift);
 
     @POST("myresource/update_shift")
-    Call<UpdateShiftResponse> updateShift(@Body UpdateShiftRequset updateShiftRequset);
+    Call<StatusResponse> updateShift(@Body UpdateShiftRequset updateShiftRequset);
 
 
 }

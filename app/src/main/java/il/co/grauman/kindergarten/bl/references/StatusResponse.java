@@ -1,12 +1,12 @@
-package il.co.grauman.kindergarten.bl.shifts.shiftModels;
+package il.co.grauman.kindergarten.bl.references;
 
-public class UpdateShiftResponse {
+public class StatusResponse {
     boolean response;
 
-    public UpdateShiftResponse() {
+    public StatusResponse() {
     }
 
-    public UpdateShiftResponse(boolean response) {
+    public StatusResponse(boolean response) {
         this.response = response;
     }
 

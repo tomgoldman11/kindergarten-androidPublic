@@ -4,7 +4,7 @@ package il.co.grauman.kindergarten.bl.shifts;
 import il.co.grauman.kindergarten.bl.references.ApiImplementation;
 import il.co.grauman.kindergarten.bl.references.RetrofitInstance;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
-import il.co.grauman.kindergarten.bl.shifts.shiftModels.UpdateShiftResponse;
+import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
 
 public class UpdateShift implements ShiftsApi {
@@ -16,14 +16,14 @@ public class UpdateShift implements ShiftsApi {
     }
 
     @Override
-    public void removeShift(DailyShift dailyShift , retrofit2.Callback<UpdateShiftResponse> callback){
+    public void removeShift(DailyShift dailyShift , retrofit2.Callback<StatusResponse> callback){
         ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
         .getApi().removeShift(dailyShift));
     }
 
 
     @Override
-    public void updateShift(DailyShift oldShift , DailyShift newShift , retrofit2.Callback<UpdateShiftResponse> callback) {
+    public void updateShift(DailyShift oldShift , DailyShift newShift , retrofit2.Callback<StatusResponse> callback) {
         UpdateShiftRequset updateShiftRequset = new UpdateShiftRequset(newShift, oldShift);
         ApiImplementation.apiImplementation(callback , ()->RetrofitInstance.getInstance()
         .getApi().updateShift(updateShiftRequset));

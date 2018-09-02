@@ -4,8 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
-import il.co.grauman.kindergarten.bl.shifts.ShiftRequest;
-import il.co.grauman.kindergarten.bl.shifts.WeeklyShifts;
+import il.co.grauman.kindergarten.bl.shifts.AdminShiftsRequest;
+import il.co.grauman.kindergarten.bl.shifts.AdminWeeklyShifts;
+import il.co.grauman.kindergarten.bl.shifts.EmployeeWeeklyShifts;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,10 +19,10 @@ public interface Api {
     Call<User> userLogin(@Body LoginRequest req);
 
     @POST ("myresource/scheduale")
-    Call<WeeklyShifts> getWorkSchedule(@Body ShiftRequest shift);
+    Call<EmployeeWeeklyShifts> getWorkSchedule(@Body AdminShiftsRequest shift);
 
     @POST("myresource/admin_scheduale")
-    Call<List<WeeklyShifts>> getWorkSchedule(@Body Date day);
+    Call<AdminWeeklyShifts> getWorkSchedule(@Body Date day);
 
     @POST("myresource/update_shift")
     Call<>

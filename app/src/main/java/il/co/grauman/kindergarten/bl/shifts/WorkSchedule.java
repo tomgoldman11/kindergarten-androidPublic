@@ -6,6 +6,6 @@ import java.util.List;
 import retrofit2.Callback;
 
 public interface WorkSchedule {
-    void getWorkSchedule(String userId , Date day, Callback<WeeklyShifts> callback);
-    void getWorkSchedule(Date day, Callback<List<WeeklyShifts>> callback);
+    void getWorkSchedule(String userId , Date day, Callback<EmployeeWeeklyShifts> callback);
+    void getWorkSchedule(Date day, Callback<AdminWeeklyShifts> callback);
 }

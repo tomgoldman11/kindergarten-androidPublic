@@ -2,7 +2,7 @@ package il.co.grauman.kindergarten.bl.shifts;
 
 import java.util.List;
 
-public class WeeklyShifts {
+public class EmployeeWeeklyShifts {
     List<DailyShift> workWeek;
     String userId;
 
@@ -14,7 +14,7 @@ public class WeeklyShifts {
         this.userId = userId;
     }
 
-    public WeeklyShifts(List<DailyShift> workWeek, String userId) {
+    public EmployeeWeeklyShifts(List<DailyShift> workWeek, String userId) {
         this.workWeek = workWeek;
         this.userId = userId;
     }

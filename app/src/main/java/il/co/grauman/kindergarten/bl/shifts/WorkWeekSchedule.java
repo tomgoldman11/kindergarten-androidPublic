@@ -9,13 +9,13 @@ import retrofit2.Callback;
 
 public class WorkWeekSchedule implements WorkSchedule {
     @Override
-    public void getWorkSchedule(String userId, Date day, Callback<WeeklyShifts> callback){
+    public void getWorkSchedule(String userId, Date day, Callback<EmployeeWeeklyShifts> callback){
        ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-               .getApi().getWorkSchedule(new ShiftRequest(userId, day)));
+               .getApi().getWorkSchedule(new EmployeeShiftsRequest(day,userId)));
     }
 
     @Override
-    public void getWorkSchedule(Date day, Callback<List<WeeklyShifts>> callback) {
+    public void getWorkSchedule(Date day, Callback<AdminWeeklyShifts> callback) {
         ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                 .getApi().getWorkSchedule(day));
     }

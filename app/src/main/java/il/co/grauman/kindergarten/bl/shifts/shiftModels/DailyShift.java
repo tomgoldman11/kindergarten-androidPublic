@@ -1,8 +1,8 @@
-package il.co.grauman.kindergarten.bl.shifts;
+package il.co.grauman.kindergarten.bl.shifts.shiftModels;
 
 import java.util.Date;
 
-class DailyShift {
+public class DailyShift {
     String userId;
     Date beginShift;
     Date finshShift;

@@ -4,9 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
-import il.co.grauman.kindergarten.bl.shifts.AdminShiftsRequest;
-import il.co.grauman.kindergarten.bl.shifts.AdminWeeklyShifts;
-import il.co.grauman.kindergarten.bl.shifts.EmployeeWeeklyShifts;
+import il.co.grauman.kindergarten.bl.shifts.shiftRequests.AdminShiftsRequest;
+import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
+import il.co.grauman.kindergarten.bl.shifts.shiftModels.UpdateShiftResponse;
+import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -19,12 +20,19 @@ public interface Api {
     Call<User> userLogin(@Body LoginRequest req);
 
     @POST ("myresource/scheduale")
-    Call<EmployeeWeeklyShifts> getWorkSchedule(@Body AdminShiftsRequest shift);
+    Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
 
     @POST("myresource/admin_scheduale")
-    Call<AdminWeeklyShifts> getWorkSchedule(@Body Date day);
+    Call<List<DailyShift>> getWorkSchedule(@Body Date day);
+
+    @POST("myresource/add_shift")
+    Call<DailyShift> addShift(@Body DailyShift dailyShift);
+
+    @POST("myresource/remove_shift")
+    Call<UpdateShiftResponse> removeShift(@Body DailyShift dailyShift);
 
     @POST("myresource/update_shift")
-    Call<>
+    Call<UpdateShiftResponse> updateShift(@Body UpdateShiftRequset updateShiftRequset);
+
 
 }

@@ -1,4 +1,4 @@
-package il.co.grauman.kindergarten.bl.shifts;
+package il.co.grauman.kindergarten.bl.shifts.shiftRequests;
 
 import java.util.Date;
 

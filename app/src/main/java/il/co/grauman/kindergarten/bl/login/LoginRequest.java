@@ -1,4 +1,4 @@
-package il.co.grauman.kindergarten.bl;
+package il.co.grauman.kindergarten.bl.login;
 
 public class LoginRequest {
 

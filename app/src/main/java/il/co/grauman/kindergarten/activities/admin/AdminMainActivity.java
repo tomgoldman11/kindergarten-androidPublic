@@ -17,7 +17,7 @@ public class AdminMainActivity extends BaseDrawerActivity {
         setContentView(R.layout.activity_drawer_main);
         setSupportActionBar(getToolbar());
         setTitle(R.string.admin_panel);
-        navigateToActivity(new DailyScheduleAdminActivity());
+        //navigateToActivity(new DailyScheduleAdminActivity());
     }
 
 

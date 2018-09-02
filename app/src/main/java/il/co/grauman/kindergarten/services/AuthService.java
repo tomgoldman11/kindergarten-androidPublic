@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
-
-import il.co.grauman.kindergarten.bl.RestRequestImpl;
 import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;

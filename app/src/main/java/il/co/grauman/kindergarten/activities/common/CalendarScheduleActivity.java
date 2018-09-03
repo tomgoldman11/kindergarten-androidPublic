@@ -1,21 +1,19 @@
 package il.co.grauman.kindergarten.activities.common;
 
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 
-import java.time.DayOfWeek;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.enums.Role;
-import il.co.grauman.kindergarten.models.exceptions.NotLoggedInException;
 import il.co.grauman.kindergarten.utils.Constants;
 import il.co.grauman.kindergarten.utils.SPref;
 
@@ -24,6 +22,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     private static final String TAG = CalendarScheduleActivity.class.getSimpleName();
     private CalendarView simpleCalendarView;
     private RecyclerView eventsRecyclerView;
+    private FloatingActionButton adminAddEvents;
     private String lastDatePicked = null;
 
     @Override
@@ -31,18 +30,27 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         setTitle(getString(R.string.calendar));
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         setupUIElements();
 
         simpleCalendarView.setOnDateChangeListener(this);
     }
 
-
     private void setupUIElements() {
         simpleCalendarView = findViewById(R.id.simpleCalendarView);
         simpleCalendarView.setFirstDayOfWeek(1);
         simpleCalendarView.setDate(Calendar.getInstance().getTimeInMillis());
-        eventsRecyclerView = findViewById(R.id.rec);
+        eventsRecyclerView = findViewById(R.id.rvEvents);
+        adminAddEvents = findViewById(R.id.fabAddEvent);
+        if (Role.values()[SPref.getInstance().getInt(Constants.ROLE,3)]==Role.ADMIN){
+            adminAddEvents.setVisibility(View.VISIBLE);
+        } else {
+            adminAddEvents.setVisibility(View.GONE);
+        }
     }
 
     @Override

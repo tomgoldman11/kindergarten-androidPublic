@@ -28,5 +28,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_event">הוסף אירוע</string>
     <string name="default_hour_format">00:00</string>
-    <string name="add_description">הוסף אירוע</string>
+    <string name="add_description">הוסף תיאור</string>
+    <string name="cancel">ביטול</string>
+    <string name="save">שמירה</string>
 </resources>

@@ -113,15 +113,26 @@ public class LoginActivity extends AppCompatActivity {
      */
     private boolean validateInputs() {
         // check username validation
-        
+        if(     username.getText().toString().length() < getResources().getInteger(R.integer.min_username) ||
+                username.getText().toString().length() > getResources().getInteger(R.integer.max_username)) {
+            usernameInput.setError( getResources().getString(R.string.username_error,
+                                    getResources().getInteger(R.integer.min_username),
+                                    getResources().getInteger(R.integer.max_username)));
+            return false;
+        } else {
+            usernameInput.setError(null);
+        }
         // check password validation
-//        if(password.getText().toString().length() < 6 || password.getText().toString().length() > 20){
-//            passwordInput.setError("Password must be between 6 and 20 characters.");
-//            return false;
-//        }
+        if(     password.getText().toString().length() < getResources().getInteger(R.integer.min_password) ||
+                password.getText().toString().length() > getResources().getInteger(R.integer.max_password)){
+            passwordInput.setError( getResources().getString(R.string.password_error,
+                                    getResources().getInteger(R.integer.min_password),
+                                    getResources().getInteger(R.integer.max_password)));
+            return false;
+        } else {
+            passwordInput.setError(null);
+        }
 
-        // TODO: if it's not valid input use the TextInputLayout to display the error
-        usernameInput.setError("username must be less than 25");
         return true;
     }
 

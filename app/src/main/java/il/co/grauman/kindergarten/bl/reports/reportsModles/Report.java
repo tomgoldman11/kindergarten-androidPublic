@@ -1,10 +1,10 @@
 package il.co.grauman.kindergarten.bl.reports.reportsModles;
 
-public class ReportSheet {
+public class Report {
     String parentID , workerID , text;
     ReportType type;
 
-    public ReportSheet(String parentID, String workerID, String text, ReportType type) {
+    public Report(String parentID, String workerID, String text, ReportType type) {
         this.parentID = parentID;
         this.workerID = workerID;
         this.text = text;

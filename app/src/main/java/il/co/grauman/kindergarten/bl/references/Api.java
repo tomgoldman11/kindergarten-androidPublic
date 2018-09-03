@@ -8,7 +8,7 @@ import il.co.grauman.kindergarten.bl.calender.YearSchedule;
 import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.ReportSheet;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySum;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DaySchedule;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
@@ -74,10 +74,10 @@ public interface Api {
     Call<List<Child>> getLateChildren(@Body Date day);
 
     @POST("myresource/reports_to")
-    Call<StatusResponse> reportsTo(@Body ReportSheet report);
+    Call<StatusResponse> reportsTo(@Body Report report);
 
     @POST("myresource/get_reports")
-    Call<List<ReportSheet>> getReports();
+    Call<List<Report>> getReports();
 
 
 }

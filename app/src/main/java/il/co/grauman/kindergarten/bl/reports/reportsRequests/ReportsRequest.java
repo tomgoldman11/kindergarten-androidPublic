@@ -1,4 +1,4 @@
-package il.co.grauman.kindergarten.bl.reports;
+package il.co.grauman.kindergarten.bl.reports.reportsRequests;
 
 public class ReportsRequest {
     int month , year;

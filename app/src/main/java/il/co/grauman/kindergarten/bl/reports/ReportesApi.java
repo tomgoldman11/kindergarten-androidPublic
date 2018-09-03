@@ -3,7 +3,9 @@ package il.co.grauman.kindergarten.bl.reports;
 import java.util.Date;
 import java.util.List;
 
-import javax.security.auth.callback.Callback;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySum;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DaySchedule;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
 
 public interface ReportesApi {
     void getHoursReportForWorker(int month , int year , String userID , retrofit2.Callback<List<WorkHours>> callback);

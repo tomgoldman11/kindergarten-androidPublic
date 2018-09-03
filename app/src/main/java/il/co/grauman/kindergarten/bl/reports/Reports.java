@@ -5,6 +5,11 @@ import java.util.List;
 
 import il.co.grauman.kindergarten.bl.references.ApiImplementation;
 import il.co.grauman.kindergarten.bl.references.RetrofitInstance;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySum;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DaySchedule;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
+import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
+import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
 import retrofit2.Callback;
 
 public class Reports implements ReportesApi {
@@ -22,12 +27,14 @@ public class Reports implements ReportesApi {
 
     @Override
     public void getDailySchedule(Date day, Callback<List<DaySchedule>> callback) {
-
+        ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
+        .getApi().getDailySchedule(day));
     }
 
     @Override
     public void getDailySum(Date day, Callback<DailySum> callback) {
-
+        ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
+        .getApi().getDailySum(day));
     }
 
 }

@@ -3,11 +3,15 @@ package il.co.grauman.kindergarten.bl.references;
 import java.util.Date;
 import java.util.List;
 
+import il.co.grauman.kindergarten.bl.calender.UpdateCalenderRequest;
+import il.co.grauman.kindergarten.bl.calender.YearSchedule;
 import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
-import il.co.grauman.kindergarten.bl.reports.EmployeeReportsRequest;
-import il.co.grauman.kindergarten.bl.reports.ReportsRequest;
-import il.co.grauman.kindergarten.bl.reports.WorkHours;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySum;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DaySchedule;
+import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
+import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.AdminShiftsRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
@@ -51,6 +55,18 @@ public interface Api {
 
     @POST("myresource/get_hours_report")
     Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
+
+    @POST("myresource/get_daily_schedule")
+    Call<List<DaySchedule>> getDailySchedule(@Body Date day);
+
+    @POST("myresource/get_daily_sum")
+    Call<DailySum> getDailySum(@Body Date day);
+
+    @POST("myresource/get_calender")
+    Call<YearSchedule> getCalender(@Body int year);
+
+    @POST("myresource/update_calender")
+    Call<StatusResponse> updateCalender(@Body UpdateCalenderRequest request);
 
 
 }

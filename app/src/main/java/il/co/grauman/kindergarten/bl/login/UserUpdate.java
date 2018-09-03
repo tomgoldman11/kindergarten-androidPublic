@@ -19,16 +19,14 @@ public abstract class UserUpdate implements UserApi{
 
     @Override
     public void checkIn(Date time, String userId, Callback<StatusResponse> callback) {
-        ChckInOutRequest request = new ChckInOutRequest(time,userId);
         ApiImplementation.apiImplementation(callback , ()->RetrofitInstance.getInstance()
-        .getApi().checkIn(request));
+        .getApi().checkIn(new ChckInOutRequest(time,userId)));
 
     }
 
     @Override
     public void checkOut(Date time, String userId, Callback<StatusResponse> callback) {
-        ChckInOutRequest request = new ChckInOutRequest(time,userId);
         ApiImplementation.apiImplementation(callback , ()->RetrofitInstance.getInstance()
-                .getApi().checkIn(request));
+                .getApi().checkIn(new ChckInOutRequest(time,userId)));
     }
 }

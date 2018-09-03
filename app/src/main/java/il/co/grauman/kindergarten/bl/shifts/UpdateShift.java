@@ -24,8 +24,7 @@ public class UpdateShift implements ShiftsApi {
 
     @Override
     public void updateShift(DailyShift oldShift , DailyShift newShift , retrofit2.Callback<StatusResponse> callback) {
-        UpdateShiftRequset updateShiftRequset = new UpdateShiftRequset(newShift, oldShift);
         ApiImplementation.apiImplementation(callback , ()->RetrofitInstance.getInstance()
-        .getApi().updateShift(updateShiftRequset));
+        .getApi().updateShift(new UpdateShiftRequset(newShift, oldShift)));
     }
 }

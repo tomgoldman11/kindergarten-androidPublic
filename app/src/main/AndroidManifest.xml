@@ -37,6 +37,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".activities.user.MessagesUserActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".activities.admin.DailyScheduleAdminActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />

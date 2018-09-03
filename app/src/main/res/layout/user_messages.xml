@@ -10,28 +10,28 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/from_layout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/lightGrey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/mailFrom"
             android:layout_width="300dp"
-            android:layout_height="39dp"
+            android:layout_height="33dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="textEmailAddress"
+            android:text="from"
             app:layout_constraintEnd_toStartOf="@+id/from"
             app:layout_constraintHorizontal_bias="0.588"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="parent" />
 
         <TextView
             android:id="@+id/from"
@@ -49,18 +49,15 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/subject_layout"
+        android:id="@+id/to_layout"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_below="@id/from_layout"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/lightGrey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="60dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@id/from_layout">
 
         <EditText
             android:id="@+id/mailTo"
@@ -100,7 +97,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/white"
-        android:text="TextView"
+        android:text="RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
         android:textAlignment="textStart"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

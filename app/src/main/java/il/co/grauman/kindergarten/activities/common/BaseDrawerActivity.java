@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ import il.co.grauman.kindergarten.activities.employee.DailyScheduleEmployeeActiv
 import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
 import il.co.grauman.kindergarten.activities.employee.MessagesEmployeeActivity;
 import il.co.grauman.kindergarten.activities.employee.WorkScheduleEmployeeActivity;
+import il.co.grauman.kindergarten.activities.user.MessagesUserActivity;
 import il.co.grauman.kindergarten.activities.user.UserMainActivity;
 import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.utils.Constants;
@@ -69,6 +71,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
     }
 
     public int getDrawerMenu() {
+        Log.d("ROOOOOOOOOOOOOOOle", "getDrawerMenu: "+Role.values()[SPref.getInstance().getInt(Constants.ROLE, Role.NONE.ordinal())]);
         switch (Role.values()[SPref.getInstance().getInt(Constants.ROLE, Role.NONE.ordinal())]) {
             case ADMIN:
                 return R.menu.admin_drawer_menu;
@@ -140,7 +143,9 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
             case R.id.userHome:
                 navigateToActivity(new UserMainActivity());
                 break;
-
+            case R.id.userMessages:
+                navigateToActivity(new MessagesUserActivity());
+                break;
 
             case R.id.employeeHome:
                 navigateToActivity(new EmployeeMainActivity());

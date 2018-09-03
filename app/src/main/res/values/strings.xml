@@ -48,4 +48,6 @@
     <string name="cancel">ביטול</string>
     <string name="save">שמירה</string>
     <string name="new_message">הודעה חדשה</string>
+    <string name="employee_presence">נוכחות עובדים</string>
+    <string name="children_presence">נוכחות ילדים</string>
 </resources>

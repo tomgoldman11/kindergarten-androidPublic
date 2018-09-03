@@ -2,11 +2,11 @@ package il.co.grauman.kindergarten.bl.reports.reportsModles;
 
 import java.util.Date;
 
-public class DaySchedule {
+public class DayActivtey {
     Date day;
     String discreption;
 
-    public DaySchedule(Date day, String discreption) {
+    public DayActivtey(Date day, String discreption) {
         this.day = day;
         this.discreption = discreption;
     }

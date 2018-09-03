@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_update_calendar">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_layout_events"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/launch_background">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_events"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/back_ic"
+            >
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constarint_layout_eventsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/title_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/date_format"
+                    android:textAppearance="@android:style/TextAppearance.Material.Title"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toEndOf="@+id/title_events"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/title_events"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/events"
+                    android:textAppearance="@android:style/TextAppearance.Material.Title"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="@id/constarint_layout_eventsTitle"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="@id/title_events"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleEvents"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_events"
+            android:textAlignment="center"
+            android:background="@drawable/bg_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+            <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/edit_ic"
+            android:background="#0288d1"
+            app:layout_constraintTop_toBottomOf="@+id/recycleEvents" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</FrameLayout>

@@ -12,9 +12,4 @@ public class EmployeeMainActivity extends BaseDrawerActivity {
         setContentView(R.layout.activity_employee_main);
         setTitle(R.string.employee_panel);
     }
-
-    @Override
-    public int getDrawerMenu() {
-        return R.menu.employee_drawer_menu;
-    }
 }

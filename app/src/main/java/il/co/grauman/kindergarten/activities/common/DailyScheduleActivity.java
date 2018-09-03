@@ -57,6 +57,8 @@ public class DailyScheduleActivity extends AppCompatActivity {
     private void setSchedule(){
         ArrayList<DailySchedule> dailyActivities = new ArrayList<DailySchedule>();
 
+        //TO-DO: ADD THE FUNCTION THAT GETS DATA FROM BL FOR THE DAILY SCHEDULE
+        // STATIC DATA FOR NOW
         dailyActivities.add(new DailySchedule("8","אוכל"));
         dailyActivities.add(new DailySchedule("9","פיפי"));
         dailyActivities.add(new DailySchedule("10","סקראם"));

@@ -1,6 +1,8 @@
 package il.co.grauman.kindergarten.activities.common;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,14 +20,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.admin.AdminHomeFragment;
-import il.co.grauman.kindergarten.activities.admin.AdminSettingsFragment;
-import il.co.grauman.kindergarten.activities.employee.EmployeeHomeFragment;
-import il.co.grauman.kindergarten.activities.user.UserHomeFragment;
 import il.co.grauman.kindergarten.utils.Util;
 
 @SuppressLint("Registered")
-public class BaseDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public abstract class BaseDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActionBarDrawerToggle toggle;
     private ImageView drawerUserPhoto;
@@ -46,7 +44,7 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
     }
 
     @NonNull
-    private DrawerLayout getDrawerLayout() {
+    protected DrawerLayout getDrawerLayout() {
         return findViewById(R.id.drawerLayout);
     }
 
@@ -71,11 +69,22 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
         Toolbar toolbar = getToolbar();
 
         getNavigationView().inflateMenu(getDrawerMenu());
+
+        // init Action Bar Drawer Toggle [Hamburger]
+        // link toggle -> drawer left view
+        // lint toggle -> toolbar upper view (to know where to put the icon)
+        // other strings is for accessibility purpose
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        // display the icon on the toolbar
         toggle.setDrawerIndicatorEnabled(true);
+        // add event listener to drawer to detect onClick to open th drawer (left view)
         drawer.addDrawerListener(toggle);
+        // sync animated Hamburger to the drawer state
         toggle.syncState();
+        // set listener to on item click in the drawer -> this should implement the interface
         navigationView.setNavigationItemSelectedListener(this);
+
+        // set up ui elements
         drawerUserPhoto = navigationView.getHeaderView(0).findViewById(R.id.drawerUserPhoto);
         drawerUserName = navigationView.getHeaderView(0).findViewById(R.id.drawerUserName);
         setupUserDetails();
@@ -92,23 +101,18 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
         int id = item.getItemId();
         getDrawerLayout().closeDrawer(GravityCompat.START);
         switch (id) {
-            // admin fragments
-            case R.id.adminHome:
-                navigateToFragment(new AdminHomeFragment());
-                break;
             case R.id.adminSettings:
-                navigateToFragment(new AdminSettingsFragment());
-                break;
-            // employee fragments
-            case R.id.employeeHome:
-                navigateToFragment(new EmployeeHomeFragment());
-                break;
-            // user fragments
-            case R.id.userHome:
-                navigateToFragment(new UserHomeFragment());
-                break;
+                navigateToFragment(new SettingsFragment());
+                return true;
         }
-        return true;
+
+        return false;
+    }
+    protected void navigateToActivity(Activity newIntent) {
+        Intent intent = new Intent(BaseDrawerActivity.this, newIntent.getClass());
+
+        startActivity(intent);
+        finish();
     }
 
     protected void navigateToFragment(BaseFragment fragment) {

@@ -1,4 +1,5 @@
-package il.co.grauman.kindergarten.activities.employee;
+package il.co.grauman.kindergarten.activities.common;
+
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,16 +12,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.common.BaseFragment;
 
-public class EmployeeHomeFragment extends Fragment implements BaseFragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class SettingsFragment extends Fragment implements BaseFragment{
 
     private TextView testTextView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_employee_home, container, false);
+        View fragmentView = inflater.inflate(R.layout.activity_admin_settings, container, false);
         testTextView = fragmentView.findViewById(R.id.testTextView);
         return fragmentView;
     }
@@ -28,8 +31,7 @@ public class EmployeeHomeFragment extends Fragment implements BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        testTextView.setText("test text view");
-
+        testTextView.setText("Settings view");
     }
 
     @Override
@@ -37,8 +39,9 @@ public class EmployeeHomeFragment extends Fragment implements BaseFragment {
         super.onPause();
     }
 
+
     @Override
     public String getTitle(Context context) {
-        return context.getString(R.string.employee_panel);
+        return context.getString(R.string.settings);
     }
 }

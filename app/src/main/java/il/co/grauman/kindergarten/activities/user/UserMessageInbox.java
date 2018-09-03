@@ -1,5 +1,6 @@
-package il.co.grauman.kindergarten.activities.admin;
+package il.co.grauman.kindergarten.activities.user;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,14 +14,15 @@ import android.widget.TextView;
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.common.BaseFragment;
 
-public class AdminSettingsFragment extends Fragment implements BaseFragment {
+@SuppressLint("ValidFragment")
+class UserMessageInbox extends Fragment implements BaseFragment {
 
     private TextView testTextView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.activity_admin_settings, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_user_home, container, false);
         testTextView = fragmentView.findViewById(R.id.testTextView);
         return fragmentView;
     }
@@ -28,7 +30,8 @@ public class AdminSettingsFragment extends Fragment implements BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        testTextView.setText("Settings view");
+        testTextView.setText("Parents Inbox Page");
+
     }
 
     @Override
@@ -36,9 +39,8 @@ public class AdminSettingsFragment extends Fragment implements BaseFragment {
         super.onPause();
     }
 
-
     @Override
     public String getTitle(Context context) {
-        return context.getString(R.string.settings);
+        return context.getString(R.string.user_message_page);
     }
 }

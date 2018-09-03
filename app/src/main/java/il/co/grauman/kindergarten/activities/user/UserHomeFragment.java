@@ -20,7 +20,7 @@ public class UserHomeFragment extends Fragment implements BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_user_home, container, false);
+        View fragmentView = inflater.inflate(R.layout.activity_user_home, container, false);
         testTextView = fragmentView.findViewById(R.id.testTextView);
         return fragmentView;
     }

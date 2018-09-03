@@ -5,8 +5,22 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/userHome"
+            android:id="@+id/UserDrawerBtnDailySchedule"
             android:checkable="false"
+<<<<<<< HEAD
+            android:icon="@drawable/ic_home"
+            android:title="@string/user_daily_schedule" />
+        <item
+            android:id="@+id/UserDrawerBtnCalendar"
+            android:checkable="false"
+            android:icon="@drawable/ic_home"
+            android:title="@string/calendar" />
+        <item
+            android:id="@+id/UserDrawerBtnMessage"
+            android:checkable="false"
+            android:icon="@drawable/ic_home"
+            android:title="@string/user_message_page" />
+=======
             android:icon="@drawable/ic_menu_home"
             android:title="@string/home_page" />
 
@@ -34,5 +48,6 @@
             android:icon="@drawable/ic_menu_settings"
             android:title="@string/settings" />
 
+>>>>>>> 7247ed02b7251ba69c1dd417c13fa5eb7d8dd664
     </group>
 </menu>

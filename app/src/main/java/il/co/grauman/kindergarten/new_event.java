@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link fragment_add_event.OnFragmentInteractionListener} interface
+ * {@link new_event.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link fragment_add_event#newInstance} factory method to
+ * Use the {@link new_event#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fragment_add_event extends Fragment {
+public class new_event extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +29,7 @@ public class fragment_add_event extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public fragment_add_event() {
+    public new_event() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class fragment_add_event extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_add_event_calendar.
+     * @return A new instance of fragment new_event.
      */
     // TODO: Rename and change types and number of parameters
-    public static fragment_add_event newInstance(String param1, String param2) {
-        fragment_add_event fragment = new fragment_add_event();
+    public static new_event newInstance(String param1, String param2) {
+        new_event fragment = new new_event();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +64,7 @@ public class fragment_add_event extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_event_calendar, container, false);
+        return inflater.inflate(R.layout.fragment_new_event_daily_summary, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

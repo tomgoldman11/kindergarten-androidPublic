@@ -7,6 +7,8 @@ import il.co.grauman.kindergarten.bl.calender.UpdateCalenderRequest;
 import il.co.grauman.kindergarten.bl.calender.YearSchedule;
 import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.ReportSheet;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySum;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DaySchedule;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
@@ -21,12 +23,12 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface Api {
-    public final String BASE_URL = "http://10.0.2.2:9080/Authentication/webapi/";
+    public final String BASE_URL ="http://10.0.2.2:9080/Authentication/webapi/";
 
-    @POST("myresource/login")
+    @POST ("myresource/login")
     Call<User> userLogin(@Body LoginRequest req);
 
-    @POST("myresource/scheduale")
+    @POST ("myresource/scheduale")
     Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
 
     @POST("myresource/admin_scheduale")
@@ -67,4 +69,15 @@ public interface Api {
 
     @POST("myresource/update_calender")
     Call<StatusResponse> updateCalender(@Body UpdateCalenderRequest request);
+
+    @POST("myresource/get_late_children")
+    Call<List<Child>> getLateChildren(@Body Date day);
+
+    @POST("myresource/reports_to")
+    Call<StatusResponse> reportsTo(@Body ReportSheet report);
+
+    @POST("myresource/get_reports")
+    Call<List<ReportSheet>> getReports();
+
+
 }

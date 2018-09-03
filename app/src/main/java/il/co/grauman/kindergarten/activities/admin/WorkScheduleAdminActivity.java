@@ -4,8 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.activities.common.BaseDrawerActivity;
 
-public class WorkScheduleAdminActivity extends AppCompatActivity {
+public class WorkScheduleAdminActivity extends BaseDrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

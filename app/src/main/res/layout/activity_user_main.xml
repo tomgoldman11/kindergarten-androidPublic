@@ -8,6 +8,7 @@
     <TextView
         android:id="@+id/testTextView"
         android:layout_width="0dp"
+        android:text="USER HOME"
         android:layout_height="19dp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

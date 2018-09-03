@@ -7,9 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,8 +20,12 @@ import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.admin.AdminMainActivity;
 import il.co.grauman.kindergarten.activities.admin.DailyScheduleAdminActivity;
 import il.co.grauman.kindergarten.activities.admin.DailySummaryAdminActivity;
-import il.co.grauman.kindergarten.activities.admin.MessagesAdminActivity;
 import il.co.grauman.kindergarten.activities.admin.WorkScheduleAdminActivity;
+import il.co.grauman.kindergarten.activities.employee.DailyScheduleEmployeeActivity;
+import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
+import il.co.grauman.kindergarten.activities.employee.MessagesEmployeeActivity;
+import il.co.grauman.kindergarten.activities.employee.WorkScheduleEmployeeActivity;
+import il.co.grauman.kindergarten.activities.user.UserMainActivity;
 import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.utils.Constants;
 import il.co.grauman.kindergarten.utils.SPref;
@@ -32,10 +33,6 @@ import il.co.grauman.kindergarten.utils.Util;
 
 @SuppressLint("Registered")
 public abstract class BaseDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    private ActionBarDrawerToggle toggle;
-    private ImageView drawerUserPhoto;
-    private TextView drawerUserName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +43,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
     }
 
     @Override
-    public void setContentView(int resId){
+    public void setContentView(int resId) {
         getLayoutInflater().inflate(resId, findViewById(R.id.subLayout), true);
     }
 
@@ -96,7 +93,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
         // link toggle -> drawer left view
         // lint toggle -> toolbar upper view (to know where to put the icon)
         // other strings is for accessibility purpose
-        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         // display the icon on the toolbar
         toggle.setDrawerIndicatorEnabled(true);
         // add event listener to drawer to detect onClick to open th drawer (left view)
@@ -107,8 +104,8 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
         navigationView.setNavigationItemSelectedListener(this);
 
         // set up ui elements
-        drawerUserPhoto = navigationView.getHeaderView(0).findViewById(R.id.drawerUserPhoto);
-        drawerUserName = navigationView.getHeaderView(0).findViewById(R.id.drawerUserName);
+        ImageView drawerUserPhoto = navigationView.getHeaderView(0).findViewById(R.id.drawerUserPhoto);
+        TextView drawerUserName = navigationView.getHeaderView(0).findViewById(R.id.drawerUserName);
         setupUserDetails();
     }
 
@@ -126,31 +123,44 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
             case R.id.adminHome:
                 navigateToActivity(new AdminMainActivity());
                 break;
-            // admin fragments
             case R.id.adminDailySchedule:
                 navigateToActivity(new DailyScheduleAdminActivity());
                 break;
-            case R.id.userCalendar:
-            case R.id.employeeCalendar:
             case R.id.adminCalendar:
                 navigateToActivity(new CalendarScheduleActivity());
                 break;
-            // employee fragments
             case R.id.adminWorkSchedule:
                 navigateToActivity(new WorkScheduleAdminActivity());
                 break;
-            // user fragments
             case R.id.adminDailySummary:
                 navigateToActivity(new DailySummaryAdminActivity());
                 break;
-            // user fragments
+
+
+            case R.id.userHome:
+                navigateToActivity(new UserMainActivity());
+                break;
+
+
+            case R.id.employeeHome:
+                navigateToActivity(new EmployeeMainActivity());
+                break;
+            case R.id.employeeCalendar:
+                break;
+            case R.id.employeeDailySchedule:
+                navigateToActivity(new DailyScheduleEmployeeActivity());
+                break;
+            case R.id.employeeWorkSchedule:
+                navigateToActivity(new WorkScheduleEmployeeActivity());
+                break;
             case R.id.employeeMessages:
-                navigateToActivity(new MessagesAdminActivity());
+                navigateToActivity(new MessagesEmployeeActivity());
                 break;
         }
 
         return true;
     }
+
     protected void navigateToActivity(Activity newIntent) {
         Intent intent = new Intent(BaseDrawerActivity.this, newIntent.getClass());
 

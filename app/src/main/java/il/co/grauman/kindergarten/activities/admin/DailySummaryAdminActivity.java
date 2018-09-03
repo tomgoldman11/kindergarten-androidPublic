@@ -4,8 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.activities.common.BaseDrawerActivity;
 
-public class DailySummaryAdminActivity extends AppCompatActivity {
+public class DailySummaryAdminActivity extends BaseDrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

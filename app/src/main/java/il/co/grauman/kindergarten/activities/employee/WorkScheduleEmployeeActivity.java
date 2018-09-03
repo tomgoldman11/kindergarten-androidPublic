@@ -1,11 +1,11 @@
 package il.co.grauman.kindergarten.activities.employee;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.activities.common.BaseDrawerActivity;
 
-public class WorkScheduleEmployeeActivity extends AppCompatActivity {
+public class WorkScheduleEmployeeActivity extends BaseDrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

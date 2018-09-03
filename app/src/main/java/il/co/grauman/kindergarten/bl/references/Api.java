@@ -5,6 +5,9 @@ import java.util.List;
 
 import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
+import il.co.grauman.kindergarten.bl.reports.EmployeeReportsRequest;
+import il.co.grauman.kindergarten.bl.reports.ReportsRequest;
+import il.co.grauman.kindergarten.bl.reports.WorkHours;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.AdminShiftsRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
@@ -42,6 +45,12 @@ public interface Api {
 
     @POST("myresource/checkout")
     Call<StatusResponse> checkOut(@Body ChckInOutRequest checkOutRequest);
+
+    @POST("myresource/worker_hours_report")
+    Call<List<WorkHours>> getHoursReportForWorker(@Body EmployeeReportsRequest request);
+
+    @POST("myresource/get_hours_report")
+    Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
 
 
 }

@@ -9,13 +9,13 @@ import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySum;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DaySchedule;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.ReportSheet;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
 import retrofit2.Callback;
 
-public class Reports implements ReportesApi {
+public class ReportSheets implements ReportSheetsApi {
     @Override
     public void getHoursReportForWorker(int month , int year, String userID , retrofit2.Callback<List<WorkHours>> callback){
         ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
@@ -47,13 +47,13 @@ public class Reports implements ReportesApi {
     }
 
     @Override
-    public void reportsTo(ReportSheet report , retrofit2.Callback<StatusResponse> callback){
+    public void reportsTo(Report report , retrofit2.Callback<StatusResponse> callback){
         ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
         .getApi().reportsTo(report));
     }
 
     @Override
-    public void getReports(retrofit2.Callback<List<ReportSheet>> callback){
+    public void getReports(retrofit2.Callback<List<Report>> callback){
         ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
         .getApi().getReports());
     }

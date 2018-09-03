@@ -124,7 +124,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
                 navigateToActivity(new AdminMainActivity());
                 break;
             case R.id.adminDailySchedule:
-                navigateToActivity(new DailyScheduleAdminActivity());
+                navigateToActivity(new DailyScheduleActivity());
                 break;
             case R.id.adminCalendar:
                 navigateToActivity(new CalendarScheduleActivity());

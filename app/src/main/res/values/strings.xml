@@ -17,18 +17,21 @@
     <string name="user_panel">מסך הבית</string>
     <string name="home_page">ראשי</string>
     <string name="settings">הגדרות</string>
+    <string name="user_message_page">הודעות הורים</string>
+    <string name="user_daily_schedule">סיכום יומי</string>
     <string name="from">:מאת</string>
     <string name="subject">:נושא</string>
-    <string name="new_day">New Day</string>
+    <string name="new_event">New Event</string>
     <string name="home">בית</string>
     <string name="date_format">%s/%s/%s</string>
-    <string name="events">אירועים  -  </string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_event">הוסף אירוע</string>
     <string name="default_hour_format">00:00</string>
     <string name="add_description">הוסף תיאור</string>
     <string name="cancel">ביטול</string>
     <string name="save">שמירה</string>
+    <string name="password_error">הסיסמה חייבת להיות בין %1$d&#8211;%2$d תווים</string>
+    <string name="username_error">שם משתמש צריך להיות בין %1$d&#8211;%2$d תווים</string>
+    <string name="user_not_logged_in">משתמש אינו מחובר</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="events">ארועים -</string>
 </resources>

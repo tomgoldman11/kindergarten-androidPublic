@@ -10,15 +10,8 @@ public class AdminMainActivity extends BaseDrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawer_main);
-        setSupportActionBar(getToolbar());
+        setContentView(R.layout.activity_admin_main);
         setTitle(R.string.admin_panel);
-        navigateToFragment(new AdminHomeFragment());
     }
 
-
-    @Override
-    public int getDrawerMenu() {
-        return R.menu.admin_drawer_menu;
-    }
 }

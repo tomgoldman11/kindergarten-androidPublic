@@ -8,4 +8,8 @@
     <color name="textColorSecondary">#fff</color>
     <color name="white">#fff</color>
     <color name="lightGrey">#f1f1f1</color>
+    <color name="red">#FF0000</color>
+    <color name="yellow">#FFF633</color>
+    <color name="green">#55FF33</color>
+    <color name="lightBlue">#CED8F6</color>
 </resources>

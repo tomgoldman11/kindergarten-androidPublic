@@ -1,8 +1,10 @@
-package il.co.grauman.kindergarten.bl.shifts;
+package il.co.grauman.kindergarten.bl.shifts.shiftModels;
 
 import java.util.List;
 
-public class WeeklyShifts {
+//not used by the REST ,, REST used Lists instead
+
+public class EmployeeWeeklyShifts {
     List<DailyShift> workWeek;
     String userId;
 
@@ -14,7 +16,7 @@ public class WeeklyShifts {
         this.userId = userId;
     }
 
-    public WeeklyShifts(List<DailyShift> workWeek, String userId) {
+    public EmployeeWeeklyShifts(List<DailyShift> workWeek, String userId) {
         this.workWeek = workWeek;
         this.userId = userId;
     }

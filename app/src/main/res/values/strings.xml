@@ -24,6 +24,27 @@
     <string name="date_format">%s%s%s</string>
     <string name="add_event">הוסף ארוע</string>
 
+   <!-- reham ressources-->
+    <string name="worker1">עובד1</string>
+    <string name="add_hours">שבץ</string>
+    <string name="prev_week">שבוע שעבר</string>
+    <string name="next_week">שבוע הבא</string>
+    <string name="Work_Arrangement">שיבוץ עובדים</string>
+    <string name="worker">עובד</string>
+    <string name="sunday">ראשון</string>
+    <string name="monday">שני</string>
+    <string name="tuesday">שלישי</string>
+    <string name="wednsday">רביעי</string>
+    <string name="thirsday">חמישי</string>
+    <string name="friday">שישי</string>
+    <string name="garden">גן ילדים</string>
+    <string name="add" >הוספה</string>
+    <string name="Workers_names">שמות העובדים</string>
+    <string name= "dateOfthisweek">תאריך של תחילת שבוע זה</string>
+    <string name= "shift1">משמרת 1</string>
+    <string name= "shift2">משמרת 2</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="events">ארועים -</string>

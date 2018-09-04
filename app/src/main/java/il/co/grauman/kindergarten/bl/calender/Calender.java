@@ -9,33 +9,19 @@ import retrofit2.Callback;
 
 
 public class Calender {
+    
+    public static void getEventsFromCalender(int year, Callback<List<DayEvent>> callback) {
+        ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                .getApi().getCalender(year));
+    }
 
-    private static CalenderApi instance;
+    public static void updateEventToCalender(DayEvent newEvent, Callback<List<DayEvent>> callback) {
+        ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                .getApi().updateCalender(newEvent));
+    }
 
-    public static CalenderApi getInstance() {
-        if (instance == null) {
-            instance = new CalenderApi() {
-
-                @Override
-                public void getEventsFromCalender(int year, Callback<List<DayEvent>> callback) {
-                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().getCalender(year));
-                }
-
-                @Override
-                public void updateEventToCalender(DayEvent newEvent, Callback<List<DayEvent>> callback) {
-                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().updateCalender(newEvent));
-                }
-
-                @Override
-                public void addEventToCalender(DayEvent newEvent, Callback<List<DayEvent>> callback) {
-                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().addCalender(newEvent));
-                }
-            };
-        }
-
-        return instance;
-        }
+    public static void addEventToCalender(DayEvent newEvent, Callback<List<DayEvent>> callback) {
+        ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                .getApi().addCalender(newEvent));
+    }
 }

@@ -60,8 +60,11 @@ public interface Api {
     @POST("myresource/get_daily_schedule")
     Call<List<DayActivty>> getDailySchedule(@Body Date day);
 
-    @POST("myresource/get_daily_sum")
-    Call<DailySummary> getDailySum(@Body Date day);
+    @POST("myresource/get_daily_summary")
+    Call<DailySummary> getDailySummary(@Body Date day);
+
+    @POST("myresource/add_daily_summary")
+    Call<DailySummary> addDailySummary(@Body DailySummary dailySummary);
 
     @POST("myresource/get_calender")
     Call<List<DayEvent>> getCalender(@Body int year);

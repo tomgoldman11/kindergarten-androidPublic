@@ -6,12 +6,10 @@ import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.common.BaseDrawerActivity;
 
 public class UserMainActivity extends BaseDrawerActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawer_main);
-        setSupportActionBar(getToolbar());
+        setContentView(R.layout.activity_user_main);
         setTitle(R.string.user_panel);
     }
 
@@ -19,4 +17,5 @@ public class UserMainActivity extends BaseDrawerActivity {
     public int getDrawerMenu() {
         return R.menu.user_drawer_menu;
     }
+
 }

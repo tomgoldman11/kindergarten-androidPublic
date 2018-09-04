@@ -1,21 +1,24 @@
 package il.co.grauman.kindergarten.activities.common;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-//import il.co.grauman.kindergarten.R;
-
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.bl.login.UserLogin;
 import il.co.grauman.kindergarten.models.User;
-import il.co.grauman.kindergarten.models.exceptions.LoginFailedException;
-import il.co.grauman.kindergarten.services.AuthService;
+import il.co.grauman.kindergarten.utils.Constants;
+import il.co.grauman.kindergarten.utils.SPref;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -59,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
 
-
         // for every text change should validate the inputs
         username.addTextChangedListener(validateListener);
         password.addTextChangedListener(validateListener);
@@ -68,45 +70,62 @@ public class LoginActivity extends AppCompatActivity {
     private void setupOnClickListeners() {
         loginButton.setOnClickListener(v -> {
             if (validateInputs()) {
-                // TODO: display loader
+                UserLogin.userLogin(username.getText().toString(), password.getText().toString(), new Callback<User>() {
+                    @Override
+                    public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
+                        User tempUser = response.body();
+                        SPref.getInstance().putString(Constants.USERNAME, username.getText().toString());
+                        SPref.getInstance().putInt(Constants.ROLE, tempUser.getRole().ordinal());
+                        LoginActivity.this.onLoginSucceed();
+                    }
 
+                    @Override
+                    public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
+                        LoginActivity.this.onLoginFailed(t.getMessage());
+                    }
+                });
 
-                try {
-                    AuthService.loginWith(this, username.getText().toString(), password.getText().toString(), this::onLoginSucceed);
-                } catch (LoginFailedException e) {
-                    //TODO: show error to the user
-                    onLoginFailed(e.getMessage());
-                    e.printStackTrace();
-                }
             }
         });
     }
 
     /**
      * check if the username/password is in the correct format
-     * clietn validation
+     * client validation
      *
      * @return true if valid
      */
     private boolean validateInputs() {
-        // TODO: check username validation
-        // TODO: check password validation
+        // check username validation
+        if (username.getText().toString().length() < getResources().getInteger(R.integer.min_username) ||
+                username.getText().toString().length() > getResources().getInteger(R.integer.max_username)) {
+            usernameInput.setError(getString(R.string.username_error, getResources().getInteger(R.integer.min_username), getResources().getInteger(R.integer.max_username)));
+            return false;
+        } else {
+            usernameInput.setError(null);
+        }
+        // check password validation
+        if (password.getText().toString().length() < getResources().getInteger(R.integer.min_password) ||
+                password.getText().toString().length() > getResources().getInteger(R.integer.max_password)) {
+            passwordInput.setError(getResources().getString(R.string.password_error,
+                    getResources().getInteger(R.integer.min_password),
+                    getResources().getInteger(R.integer.max_password)));
+            return false;
+        } else {
+            passwordInput.setError(null);
+        }
 
-        // TODO: if it's not valid input use the TextInputLayout to display the error
-         usernameInput.setError("username must be less than 25");
         return true;
     }
 
-    public void onLoginSucceed(User user) {
+    public void onLoginSucceed() {
         // login succeeded, session saved
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
     public void onLoginFailed(String errorMessage) {
-        // TODO: hide loader
-        // TODO: show error
-        Toast.makeText(this, errorMessage,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
 
     }
 }

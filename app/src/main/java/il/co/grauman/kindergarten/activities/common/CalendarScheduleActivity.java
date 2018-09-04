@@ -98,7 +98,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         Log.d(TAG,"EventsForSpecificDate()" + year + "/" + (month+1) + "/" +day);
         if(year != lastYearPicked){
             lastYearPicked = year;
-            Calender.getEventsFromCalender(lastYearPicked, new Callback<List<DayEvent>>() {
+            Calender.getInstance().getEventsFromCalender(lastYearPicked, new Callback<List<DayEvent>>() {
                 @Override
                 public void onResponse(Call<List<DayEvent>> call, Response<List<DayEvent>> response) {
                     yearlyEvents = response.body();

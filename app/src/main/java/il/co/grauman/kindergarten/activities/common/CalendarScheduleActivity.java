@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.TwoLineListItem;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,6 +37,8 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     private FloatingActionButton adminAddEvents;
     private String lastDatePicked = null;
     private int lastYearPicked = 0;
+    private List<DayEvent> yearlyEvents;
+    private ArrayList<DayEvent> eventsForDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +51,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     protected void onResume() {
         super.onResume();
         setupUIElements();
-        lastYearPicked = Calendar.getInstance().get(Calendar.YEAR);
-        EventsForDate(Calendar.getInstance().get(Calendar.YEAR),
+        eventsForSpecificDate(Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
@@ -75,13 +76,43 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         eventsListView.setAdapter(adapter);
     }
 
-    private void EventsForDate(int year, int month, int day) {
-        Log.d(TAG,"EventsForDate" + year+"/"+month+"/"+day);
-        ArrayList<DayEvent> events = new ArrayList<>();
-        events.add(new DayEvent(new Date(),"Purim","Purim event"));
-        events.add(new DayEvent(new Date(),"New Year",""));
+    private void eventsForSpecificDate(int year, int month, int day) {
+        Log.d(TAG,"EventsForSpecificDate()" + year + "/" + (month+1) + "/" +day);
+        if(year != lastYearPicked){
+            lastYearPicked = year;
+            (new Calender()).getCalender(lastYearPicked, new Callback<List<DayEvent>>() {
+                @Override
+                public void onResponse(Call<List<DayEvent>> call, Response<List<DayEvent>> response) {
+                    yearlyEvents = response.body();
+                    eventsForSpecificDate(year,month,day);
+                }
 
-        setEventsListView(events);
+                @Override
+                public void onFailure(Call<List<DayEvent>> call, Throwable t) {
+                    requestFailed(t.getMessage());
+                }
+            });
+
+        } else {
+            Calendar selectedDate = Calendar.getInstance();
+            selectedDate.set(Calendar.YEAR, year);
+            selectedDate.set(Calendar.MONTH, month);
+            selectedDate.set(Calendar.DAY_OF_MONTH, day);
+            eventsForDate = new ArrayList<>();
+            for(int i = 0; i< yearlyEvents.size(); i++){
+                DayEvent newEvent = yearlyEvents.get(i);
+                Calendar eventDate = Calendar.getInstance();
+                eventDate.setTime(newEvent.getDay());
+                if(selectedDate.equals(eventDate)){
+                    eventsForDate.add(newEvent);
+                }
+            }
+            setEventsListView(eventsForDate);
+        }
+    }
+
+    private void requestFailed(String errorMessage) {
+        Toast.makeText(this, errorMessage + getResources().getString(R.string.try_again), Toast.LENGTH_LONG).show();
     }
 
 
@@ -100,7 +131,6 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         Date today = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy/M/d");
         lastDatePicked = format.format(today);
-//        lastYearPicked
         Log.d(TAG, "SetupUIElements() "+ lastDatePicked);
     }
 
@@ -110,7 +140,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         if(String.format("%d/%d/%d",year,month+1,dayOfMonth).equals(lastDatePicked)){
             if(eventsListView.getVisibility() == View.GONE){
                 eventsListView.setVisibility(View.VISIBLE);
-                EventsForDate(year,month,dayOfMonth);
+                eventsForSpecificDate(year,month,dayOfMonth);
             } else {
                 eventsListView.setVisibility(View.GONE);
             }
@@ -119,5 +149,4 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         }
         lastDatePicked = year + "/" + (month+1) + "/" + dayOfMonth;
     }
-
 }

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.bl.login.UserLogin;
+import il.co.grauman.kindergarten.bl.login.UserUpdate;
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.utils.Constants;
 import il.co.grauman.kindergarten.utils.SPref;
@@ -70,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
     private void setupOnClickListeners() {
         loginButton.setOnClickListener(v -> {
             if (validateInputs()) {
-                UserLogin.userLogin(username.getText().toString(), password.getText().toString(), new Callback<User>() {
+                UserUpdate.getInstance().userLogin(username.getText().toString(), password.getText().toString(), new Callback<User>() {
                     @Override
                     public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
                         User tempUser = response.body();

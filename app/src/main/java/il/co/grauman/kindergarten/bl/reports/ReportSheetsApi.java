@@ -15,6 +15,7 @@ public interface ReportSheetsApi {
     void getHoursReport(int month , int year , retrofit2.Callback<List<WorkHours>> callback);
     void getDailySchedule(Date day , retrofit2.Callback<List<DayActivty>> callback);
     void getDailySummary(Date day , retrofit2.Callback<DailySummary> callback);
+    void addDailySummary(DailySummary dailySummary , retrofit2.Callback<DailySummary> callback);
     void getLateChildren(Date day , retrofit2.Callback<List<Child>> callback);
     void reportsTo(Report report , retrofit2.Callback<StatusResponse> callback);
     void getReports(retrofit2.Callback<List<Report>> callback);

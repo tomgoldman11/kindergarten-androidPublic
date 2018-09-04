@@ -48,6 +48,12 @@ public class ReportSheets {
                 }
 
                 @Override
+                public void addDailySummary(DailySummary dailySummary, Callback<DailySummary> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().addDailySummary(dailySummary));
+                }
+
+                @Override
                 public void getLateChildren(Date day, Callback<List<Child>> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().getLateChildren(day));

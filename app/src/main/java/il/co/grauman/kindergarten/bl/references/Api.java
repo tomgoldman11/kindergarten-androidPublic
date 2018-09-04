@@ -61,7 +61,10 @@ public interface Api {
     Call<List<DayActivty>> getDailySchedule(@Body Date day);
 
     @POST("myresource/get_daily_summary")
-    Call<String> getDailySummary(@Body Date day);
+    Call<DailySummary> getDailySummary(@Body Date day);
+
+    @POST("myresource/add_daily_summary")
+    Call<DailySummary> addDailySummary(@Body DailySummary dailySummary);
 
     @POST("myresource/get_calender")
     Call<List<DayEvent>> getCalender(@Body int year);

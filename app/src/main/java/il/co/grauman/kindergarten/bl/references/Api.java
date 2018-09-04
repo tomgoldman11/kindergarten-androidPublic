@@ -65,13 +65,13 @@ public interface Api {
     Call<DailySum> getDailySum(@Body Date day);
 
     @POST("myresource/get_calender")
-    Call<List<DayEvent>> getCalender(@Body List<DayEvent> calender);
+    Call<List<DayEvent>> getCalender(@Body int year);
 
     @POST("myresource/update_calender")
-    Call<List<DayEvent>> updateCalender(@Body List<DayEvent> calender);
+    Call<List<DayEvent>> updateCalender(@Body DayEvent newEvent);
 
     @POST("myresource/add_calender")
-    Call<List<DayEvent>> addCalender(@Body List<DayEvent> calender);
+    Call<List<DayEvent>> addCalender(@Body DayEvent dayEvent);
 
     @POST("myresource/get_late_children")
     Call<List<Child>> getLateChildren(@Body Date day);

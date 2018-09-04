@@ -22,9 +22,11 @@ android {
             res.srcDirs =
                     [
                             'src/main/res/layouts/calendar',
+                            'src/main/res/layouts/children_presence',
                             'src/main/res/layouts/daily_schedule',
                             'src/main/res/layouts/daily_summary',
                             'src/main/res/layouts/drawer',
+                            'src/main/res/layouts/employee_presence',
                             'src/main/res/layouts/home',
                             'src/main/res/layouts/login',
                             'src/main/res/layouts/qr_code',

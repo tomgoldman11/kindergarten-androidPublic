@@ -43,9 +43,24 @@
     <string name= "dateOfthisweek">תאריך של תחילת שבוע זה</string>
     <string name= "shift1">משמרת 1</string>
     <string name= "shift2">משמרת 2</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Cancel">ביטול</string>
+    <string name="OK">אישור</string>
+    <string name="ArrangeWorker">שיבוץ עובד</string>
+    <string name="chooseShift">בחירת משמרת</string>
+    <string name="chooseDay">בחירת יום מהשבוע</string>
+    <string name="chooseWorker">בחירת עובד</string>
+    <string name="edit_arrang">עריכת עובד</string>
+    <string name="workerName">שם עובד</string>
+    <string name="day">תאריך</string>
+    <string name="From">משעה</string>
+    <string name="To">עד שעה</string>
+    <string name="back">חזרה</string>
+    <string name="begin_day">יום התחלה</string>
+    <string name="end_day">יום סיום</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="events">ארועים -</string>
+    <string name="date">תאריך</string>
+    <string name="hours">שעות</string>
+    <string name="this_month_work_hours">החודש הזה עבדת</string>
+    <string name="monthly_work_hours">%d</string>
 </resources>

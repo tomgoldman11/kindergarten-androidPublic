@@ -7,24 +7,25 @@
 
     <TextView
         android:id="@+id/childrenPresence"
-        android:layout_width="105dp"
+        android:layout_width="184dp"
         android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="נוכחות ילדים"
+        android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/children_list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/children_list"
         android:layout_width="572dp"
-        android:layout_height="291dp"
+        android:layout_height="476dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="4dp"

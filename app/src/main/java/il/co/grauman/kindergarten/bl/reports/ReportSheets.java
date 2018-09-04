@@ -44,7 +44,7 @@ public class ReportSheets {
                 @Override
                 public void getDailySum(Date day, Callback<DailySummary> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().getDailySum(day));
+                            .getApi().getDailySummary(day));
                 }
 
                 @Override

@@ -1,5 +1,9 @@
 package il.co.grauman.kindergarten.activities.common;
 
+import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.activities.admin.AddEventToCalendar;
 import il.co.grauman.kindergarten.bl.calender.Calender;
 import il.co.grauman.kindergarten.bl.calender.DayEvent;
 import il.co.grauman.kindergarten.enums.Role;
@@ -56,7 +61,20 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
         simpleCalendarView.setOnDateChangeListener(this);
+        adminAddEvents.setOnClickListener(v -> {
+            //Intent addEventToCalendar = new Intent(this, AddEventToCalendar.class);
+            //startActivityForResult(addEventToCalendar,Constants.ADD_EVENT_TO_CALENDAR_REQUEST);
+        });
     }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if(resultCode == RESULT_OK) {
+//            Toast.makeText(this,getResources().getString(R.string.event_added_to_calendar),Toast.LENGTH_LONG);
+//        } else {
+//            //Toast.makeText(this,getResources().getString())
+//        }
+//    }
 
     public void setEventsListView(ArrayList<DayEvent> events) {
         ArrayAdapter<DayEvent> adapter = new ArrayAdapter<DayEvent>(this,android.R.layout.simple_list_item_2, android.R.id.text1, events){
@@ -112,7 +130,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     }
 
     private void requestFailed(String errorMessage) {
-        Toast.makeText(this, errorMessage + getResources().getString(R.string.try_again), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, /*errorMessage +*/ getResources().getString(R.string.try_again), Toast.LENGTH_LONG).show();
     }
 
 

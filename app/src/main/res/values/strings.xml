@@ -34,5 +34,6 @@
     <string name="user_not_logged_in">משתמש אינו מחובר</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="events">ארועים -</string>
-    <string name="try_again"> אנא נסו שוב.</string>
+    <string name="try_again">אירעה תקלה, אנא נסו שוב</string>
+    <string name="event_added_to_calendar">האירוע נוסף ללוח השנה בהצלחה</string>
 </resources>

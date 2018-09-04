@@ -21,8 +21,7 @@ import java.util.List;
 
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.bl.calender.Calender;
-import il.co.grauman.kindergarten.bl.calender.Event;
-import il.co.grauman.kindergarten.bl.calender.YearSchedule;
+import il.co.grauman.kindergarten.bl.calender.DayEvent;
 import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.utils.Constants;
 import il.co.grauman.kindergarten.utils.SPref;
@@ -50,7 +49,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     protected void onResume() {
         super.onResume();
         setupUIElements();
-
+        lastYearPicked = Calendar.getInstance().get(Calendar.YEAR);
         EventsForDate(Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
@@ -58,8 +57,8 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         simpleCalendarView.setOnDateChangeListener(this);
     }
 
-    public void setEventsListView(ArrayList<Event> events) {
-        ArrayAdapter<Event> adapter = new ArrayAdapter<Event>(this,android.R.layout.simple_list_item_2, android.R.id.text1, events){
+    public void setEventsListView(ArrayList<DayEvent> events) {
+        ArrayAdapter<DayEvent> adapter = new ArrayAdapter<DayEvent>(this,android.R.layout.simple_list_item_2, android.R.id.text1, events){
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -77,9 +76,11 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     }
 
     private void EventsForDate(int year, int month, int day) {
-        ArrayList<Event> events = new ArrayList<>();
-        events.add(new Event(new Date(),"Purim","Purim event"));
-        events.add(new Event(new Date(),"New Year",""));
+        Log.d(TAG,"EventsForDate" + year+"/"+month+"/"+day);
+        ArrayList<DayEvent> events = new ArrayList<>();
+        events.add(new DayEvent(new Date(),"Purim","Purim event"));
+        events.add(new DayEvent(new Date(),"New Year",""));
+
         setEventsListView(events);
     }
 

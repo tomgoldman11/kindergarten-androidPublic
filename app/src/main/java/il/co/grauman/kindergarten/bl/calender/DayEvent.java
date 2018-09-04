@@ -2,11 +2,11 @@ package il.co.grauman.kindergarten.bl.calender;
 
 import java.util.Date;
 
-public class Event {
+public class DayEvent {
     Date day;
     String event , description ;
 
-    public Event(Date day, String event, String description) {
+    public DayEvent(Date day, String event, String description) {
         this.day = day;
         this.description = description;
         this.event = event;

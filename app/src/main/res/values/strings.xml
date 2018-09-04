@@ -9,4 +9,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="date">תאריך</string>
+    <string name="hours">שעות</string>
+    <string name="this_month_work_hours">החודש הזה עבדת</string>
 </resources>

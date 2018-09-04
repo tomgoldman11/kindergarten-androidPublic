@@ -37,6 +37,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     private ListView eventsListView;
     private FloatingActionButton adminAddEvents;
     private String lastDatePicked = null;
+    private int lastYearPicked = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     }
 
     public void setEventsListView(ArrayList<Event> events) {
-        ArrayAdapter<Event> adapter = new ArrayAdapter<Event>(this,android.R.layout.simple_list_item_2,events){
+        ArrayAdapter<Event> adapter = new ArrayAdapter<Event>(this,android.R.layout.simple_list_item_2, android.R.id.text1, events){
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -76,18 +77,10 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     }
 
     private void EventsForDate(int year, int month, int day) {
-
-        (new Calender()).getCalender(year, new Callback<YearSchedule>() {
-            @Override
-            public void onResponse(Call<YearSchedule> call,@NonNull Response<YearSchedule> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<YearSchedule> call, Throwable t) {
-
-            }
-        });
+        ArrayList<Event> events = new ArrayList<>();
+        events.add(new Event(new Date(),"Purim","Purim event"));
+        events.add(new Event(new Date(),"New Year",""));
+        setEventsListView(events);
     }
 
 
@@ -106,6 +99,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         Date today = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy/M/d");
         lastDatePicked = format.format(today);
+//        lastYearPicked
         Log.d(TAG, "SetupUIElements() "+ lastDatePicked);
     }
 

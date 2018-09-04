@@ -12,74 +12,96 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/childImage"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:src="@drawable/ic_person" />
-
-        <ImageView
-            android:id="@+id/childImage2"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:src="@drawable/ic_person" />
-
-        <ImageView
-            android:id="@+id/childImage3"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:src="@drawable/ic_person"
-            tools:layout_editor_absoluteY="200dp" />
-
         <TextView
             android:id="@+id/childName"
-            android:layout_width="wrap_content"
-            android:layout_height="67dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="44dp"
+            android:layout_width="154dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginTop="8dp"
             android:text="child name"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.098"
-            app:layout_constraintStart_toEndOf="@+id/employeeImage"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
 
         <TextView
             android:id="@+id/childName2"
-            android:layout_width="wrap_content"
-            android:layout_height="67dp"
-            android:layout_marginEnd="64dp"
+            android:layout_width="154dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="8dp"
             android:text="child name"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.098"
-            app:layout_constraintStart_toEndOf="@+id/employeeImage"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/childName"
+            app:layout_constraintStart_toEndOf="@+id/childName3"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
         <TextView
             android:id="@+id/childName3"
-            android:layout_width="wrap_content"
-            android:layout_height="67dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="44dp"
+            android:layout_width="154dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="8dp"
             android:text="child name"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.098"
-            app:layout_constraintStart_toEndOf="@+id/employeeImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_person"
+            android:button="@null"
+            android:checked="false"
+            android:duplicateParentState="false"
+            app:layout_constraintEnd_toStartOf="@+id/checkBox5"
+            app:layout_constraintStart_toEndOf="@+id/checkBox"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBox5"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginEnd="64dp"
+
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_person"
+            android:button="@null"
+            android:checked="false"
+            android:duplicateParentState="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="8dp"
+
+            android:background="@drawable/ic_person"
+            android:button="@null"
+            android:duplicateParentState="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

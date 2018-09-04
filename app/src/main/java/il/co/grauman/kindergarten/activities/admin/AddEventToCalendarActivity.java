@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import il.co.grauman.kindergarten.R;
 
-public class AddEventToCalendar extends AppCompatActivity {
+public class AddEventToCalendarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.admin.AddEventToCalendar;
+import il.co.grauman.kindergarten.activities.admin.AddEventToCalendarActivity;
 import il.co.grauman.kindergarten.bl.calender.Calender;
 import il.co.grauman.kindergarten.bl.calender.DayEvent;
 import il.co.grauman.kindergarten.enums.Role;
@@ -62,7 +62,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
 
         simpleCalendarView.setOnDateChangeListener(this);
         adminAddEvents.setOnClickListener(v -> {
-            //Intent addEventToCalendar = new Intent(this, AddEventToCalendar.class);
+            //Intent addEventToCalendar = new Intent(this, AddEventToCalendarActivity.class);
             //startActivityForResult(addEventToCalendar,Constants.ADD_EVENT_TO_CALENDAR_REQUEST);
         });
     }

@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.bl.login.UserLogin;
 import il.co.grauman.kindergarten.bl.login.UserUpdate;
 import il.co.grauman.kindergarten.models.User;
 import il.co.grauman.kindergarten.utils.Constants;

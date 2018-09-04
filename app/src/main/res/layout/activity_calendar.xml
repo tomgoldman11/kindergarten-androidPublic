@@ -24,16 +24,23 @@
             android:firstDayOfWeek="1"
             android:minDate="1/1/2018" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvEvents"
+        <ListView
+            android:id="@+id/lvEvents"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:visibility="gone"
-            >
+            android:visibility="gone"/>
+
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/rvEvents"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:visibility="gone"-->
+            <!--&gt;-->
 
 
-        </android.support.v7.widget.RecyclerView>
+        <!--</android.support.v7.widget.RecyclerView>-->
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton

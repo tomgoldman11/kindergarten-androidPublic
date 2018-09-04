@@ -70,6 +70,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.admin.Add_Event_to_Calendar"></activity>
+        <activity android:name=".activities.common.DailyScheduleActivity" />
+        <activity android:name=".activities.common.DailySummaryActivity"></activity>
     </application>
 
 </manifest>

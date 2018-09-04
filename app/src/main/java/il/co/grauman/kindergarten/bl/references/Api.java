@@ -4,13 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.bl.calender.DayEvent;
-import il.co.grauman.kindergarten.bl.calender.UpdateCalenderRequest;
 import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySum;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivtey;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivty;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
@@ -26,7 +25,7 @@ public interface Api {
     public final String BASE_URL ="http://10.0.2.2:9080/Authentication/webapi/";
 
     @POST ("myresource/login")
-    Call<User> userLogin(@Body LoginRequest req);
+    Call<User>userLogin(@Body LoginRequest req);
 
     @POST ("myresource/scheduale")
     Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
@@ -59,10 +58,10 @@ public interface Api {
     Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
 
     @POST("myresource/get_daily_schedule")
-    Call<List<DayActivtey>> getDailySchedule(@Body Date day);
+    Call<List<DayActivty>> getDailySchedule(@Body Date day);
 
     @POST("myresource/get_daily_sum")
-    Call<DailySum> getDailySum(@Body Date day);
+    Call<DailySummary> getDailySum(@Body Date day);
 
     @POST("myresource/get_calender")
     Call<List<DayEvent>> getCalender(@Body int year);

@@ -9,16 +9,28 @@ import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.EmployeeShiftsRequest;
 import retrofit2.Callback;
 
-public class WorkWeekSchedule implements WorkScheduleApi {
-    @Override
-    public void getWorkSchedule(String userId, Date day, Callback<List<DailyShift>> callback){
-       ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-               .getApi().getWorkSchedule(new EmployeeShiftsRequest(day,userId)));
-    }
+public class WorkWeekSchedule {
 
-    @Override
-    public void getWorkSchedule(Date day, Callback<List<DailyShift>> callback) {
-        ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                .getApi().getWorkSchedule(day));
+
+    private static WorkScheduleApi instance;
+
+    public static WorkScheduleApi getInstance() {
+        if (instance == null) {
+            instance = new WorkScheduleApi() {
+
+                @Override
+                public void getWorkSchedule(String userId, Date day, Callback<List<DailyShift>> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().getWorkSchedule(new EmployeeShiftsRequest(day, userId)));
+                }
+
+                @Override
+                public void getWorkSchedule(Date day, Callback<List<DailyShift>> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().getWorkSchedule(day));
+                }
+            };
+        }
+        return  instance;
     }
 }

@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 package il.co.grauman.kindergarten.bl.shifts;
 
 
 import il.co.grauman.kindergarten.bl.references.ApiImplementation;
 import il.co.grauman.kindergarten.bl.references.RetrofitInstance;
+import il.co.grauman.kindergarten.bl.shifts.ShiftsApi;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
@@ -39,7 +39,6 @@ public class UpdateShift {
         return instance;
     }
 }
-=======
 //package il.co.grauman.kindergarten.bl.shifts;
 //
 //
@@ -56,4 +55,3 @@ public class UpdateShift {
 //    }
 //
 //}
->>>>>>> master

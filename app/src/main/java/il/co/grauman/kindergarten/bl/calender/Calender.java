@@ -9,20 +9,20 @@ import retrofit2.Callback;
 
 public class Calender implements CalenderApi{
     @Override
-    public void getCalender(List<DayEvent> year, Callback<List<DayEvent>> callback) {
+    public void getCalender(int year, Callback<List<DayEvent>> callback) {
         ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
         .getApi().getCalender(year));
     }
 
     @Override
-    public void updateCalender(List<DayEvent> newSchedule, Callback<List<DayEvent>> callback) {
+    public void updateEvent(DayEvent newEvent, Callback<List<DayEvent>> callback) {
         ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
-        .getApi().updateCalender(newSchedule));
+        .getApi().updateCalender(newEvent));
     }
 
     @Override
-    public void addCalender(List<DayEvent> year, Callback<List<DayEvent>> callback) {
+    public void addEventToCalender(DayEvent dayEvent, Callback<List<DayEvent>> callback) {
         ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
-        .getApi().addCalender(year));
+        .getApi().addCalender(dayEvent));
     }
 }

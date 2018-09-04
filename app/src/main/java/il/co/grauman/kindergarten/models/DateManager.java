@@ -26,8 +26,13 @@ public class DateManager {
         goToPrevDate();
     }
 
+    public Date getCurrentDate() {
+        return currentDate;
+    }
+
     public void setDate(int daysChange){
         calendar.add(java.util.Calendar.DAY_OF_YEAR, daysChange);
+        currentDate = calendar.getTime();
         displayDate();
     }
 

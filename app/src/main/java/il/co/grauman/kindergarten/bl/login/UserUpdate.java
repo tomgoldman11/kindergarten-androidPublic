@@ -8,31 +8,41 @@ import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Callback;
 
-public class UserUpdate implements UserApi{
+public class  UserUpdate  {
 
-    @Override
-    public void userLogin(String username, String password, Callback<User> callback) {
-        ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                .getApi().userLogin(new LoginRequest(username, password)));
-    }
+    private static UserApi instance;
 
-    @Override
-    public void addUser(User user, Callback<User> callback) {
-        ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
-        .getApi().addUser(user));
+    public static UserApi getInstance() {
+        if (instance == null) {
+            instance = new UserApi() {
+                @Override
+                public void userLogin(String username, String password, Callback<User> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().userLogin(new LoginRequest(username, password)));
+                }
 
-    }
+                @Override
+                public void addUser(User user, Callback<User> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().addUser(user));
 
-    @Override
-    public void checkIn(Date time, String userId, Callback<StatusResponse> callback) {
-        ApiImplementation.apiImplementation(callback , ()->RetrofitInstance.getInstance()
-        .getApi().checkIn(new ChckInOutRequest(time,userId)));
+                }
 
-    }
+                @Override
+                public void checkIn(Date time, String userId, Callback<StatusResponse> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().checkIn(new ChckInOutRequest(time, userId)));
 
-    @Override
-    public void checkOut(Date time, String userId, Callback<StatusResponse> callback) {
-        ApiImplementation.apiImplementation(callback , ()->RetrofitInstance.getInstance()
-                .getApi().checkIn(new ChckInOutRequest(time,userId)));
+                }
+
+                @Override
+                public void checkOut(Date time, String userId, Callback<StatusResponse> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().checkIn(new ChckInOutRequest(time, userId)));
+                }
+            };
+
+        }
+        return instance;
     }
 }

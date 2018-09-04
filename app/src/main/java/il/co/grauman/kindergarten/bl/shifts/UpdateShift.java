@@ -7,24 +7,34 @@ import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
 
-public class UpdateShift implements ShiftsApi {
+public class UpdateShift {
 
-    @Override
-    public void addShift(DailyShift dailyShift, retrofit2.Callback<DailyShift> callback) {
-        ApiImplementation.apiImplementation(callback , () -> RetrofitInstance.getInstance()
-        .getApi().addShift(dailyShift));
-    }
+    private static ShiftsApi instance;
 
-    @Override
-    public void removeShift(DailyShift dailyShift , retrofit2.Callback<StatusResponse> callback){
-        ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
-        .getApi().removeShift(dailyShift));
-    }
+    public static ShiftsApi getInstance() {
+        if (instance == null) {
+            instance = new ShiftsApi() {
+
+                @Override
+                public void addShift(DailyShift dailyShift, retrofit2.Callback<DailyShift> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().addShift(dailyShift));
+                }
+
+                @Override
+                public void removeShift(DailyShift dailyShift, retrofit2.Callback<StatusResponse> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().removeShift(dailyShift));
+                }
 
 
-    @Override
-    public void updateShift(DailyShift oldShift , DailyShift newShift , retrofit2.Callback<StatusResponse> callback) {
-        ApiImplementation.apiImplementation(callback , ()->RetrofitInstance.getInstance()
-        .getApi().updateShift(new UpdateShiftRequset(newShift, oldShift)));
+                @Override
+                public void updateShift(DailyShift oldShift, DailyShift newShift, retrofit2.Callback<StatusResponse> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().updateShift(new UpdateShiftRequset(newShift, oldShift)));
+                }
+            };
+        }
+        return instance;
     }
 }

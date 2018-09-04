@@ -69,8 +69,8 @@
             android:name=".activities.employee.MessagesEmployeeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        
-        <activity android:name=".activities.common.DailyScheduleActivity"></activity>
+        <activity android:name=".activities.common.DailyScheduleActivity" />
+        <activity android:name=".activities.common.DailySummaryActivity"></activity>
     </application>
 
 </manifest>

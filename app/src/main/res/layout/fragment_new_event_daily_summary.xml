@@ -45,7 +45,7 @@
                 android:background="@color/colorPrimary">
 
                 <TextView
-                    android:id="@+id/tvDate"
+                    android:id="@+id/dailySummaryDate2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -69,7 +69,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tvDate"
+                    app:layout_constraintEnd_toStartOf="@+id/date"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/back_arrow" />
@@ -84,7 +84,7 @@
                     android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tvDate"
+                    app:layout_constraintStart_toEndOf="@+id/date"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/forward_arrow" />
 

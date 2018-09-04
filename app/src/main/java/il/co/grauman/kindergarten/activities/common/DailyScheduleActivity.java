@@ -1,9 +1,12 @@
 package il.co.grauman.kindergarten.activities.common;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,16 +17,14 @@ import java.util.Date;
 
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.models.DailySchedule;
+import il.co.grauman.kindergarten.models.DailyScheduleAdapter;
+import il.co.grauman.kindergarten.models.DateManager;
 
-public class DailyScheduleActivity extends AppCompatActivity {
+public class DailyScheduleActivity extends BaseDrawerActivity {
     TextView date;
     RecyclerView schedule;
-    ImageView goToNextDay;
-    ImageView goToPrevDay;
-
-    Calendar calendar;
-    Date currentDate;
-    SimpleDateFormat dateFormat;
+    ImageView arrowRight;
+    ImageView arrowLeft;
 
     private RecyclerView mRecyclerView;
     private DailyScheduleAdapter mAdapter;
@@ -34,24 +35,20 @@ public class DailyScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_schedule);
 
-        setUIelements();
+        setUIElements();
 
-        displayDate();
+        DateManager dateManager = new DateManager(date, arrowRight, arrowLeft);
 
         setSchedule();
 
-        goToNextDay.setOnClickListener(v -> setDate(1));
-        goToPrevDay.setOnClickListener(v -> setDate(-1));
     }
 
-    private void setUIelements(){
+
+    private void setUIElements(){
         date = findViewById(R.id.date);
         schedule = findViewById(R.id.schedule);
-        goToNextDay = findViewById(R.id.rightArrow);
-        goToPrevDay = findViewById(R.id.leftArrow);
-
-        calendar = Calendar.getInstance();
-        dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        arrowRight = findViewById(R.id.rightArrow);
+        arrowLeft = findViewById(R.id.leftArrow);
     }
 
     private void setSchedule(){
@@ -73,15 +70,5 @@ public class DailyScheduleActivity extends AppCompatActivity {
 
     }
 
-    private void setDate(int daysChange){
-        calendar.add(Calendar.DAY_OF_YEAR, daysChange);
-        displayDate();
-    }
-
-    private void displayDate(){
-        currentDate = calendar.getTime();
-        String formattedDate = dateFormat.format(currentDate);
-        date.setText(formattedDate);
-    }
 
 }

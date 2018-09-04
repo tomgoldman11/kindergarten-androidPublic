@@ -3,8 +3,8 @@ package il.co.grauman.kindergarten.bl.references;
 import java.util.Date;
 import java.util.List;
 
+import il.co.grauman.kindergarten.bl.calender.DayEvent;
 import il.co.grauman.kindergarten.bl.calender.UpdateCalenderRequest;
-import il.co.grauman.kindergarten.bl.calender.YearSchedule;
 import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
@@ -65,10 +65,10 @@ public interface Api {
     Call<DailySum> getDailySum(@Body Date day);
 
     @POST("myresource/get_calender")
-    Call<YearSchedule> getCalender(@Body int year);
+    Call<List<DayEvent>> getCalender(@Body List<DayEvent> calender);
 
     @POST("myresource/update_calender")
-    Call<StatusResponse> updateCalender(@Body UpdateCalenderRequest request);
+    Call<List<DayEvent>> updateCalender(@Body UpdateCalenderRequest request);
 
     @POST("myresource/get_late_children")
     Call<List<Child>> getLateChildren(@Body Date day);

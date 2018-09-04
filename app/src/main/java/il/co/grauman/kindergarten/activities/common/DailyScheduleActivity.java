@@ -1,9 +1,12 @@
 package il.co.grauman.kindergarten.activities.common;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +20,7 @@ import il.co.grauman.kindergarten.models.DailySchedule;
 import il.co.grauman.kindergarten.models.DailyScheduleAdapter;
 import il.co.grauman.kindergarten.models.DateManager;
 
-public class DailyScheduleActivity extends AppCompatActivity {
+public class DailyScheduleActivity extends BaseDrawerActivity {
     TextView date;
     RecyclerView schedule;
     ImageView arrowRight;
@@ -39,6 +42,7 @@ public class DailyScheduleActivity extends AppCompatActivity {
         setSchedule();
 
     }
+
 
     private void setUIElements(){
         date = findViewById(R.id.date);

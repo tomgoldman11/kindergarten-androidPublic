@@ -6,33 +6,26 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 public class DailySummaryEvent {
-    String title;
+    String date;
     String description;
-    String leftImage;
-    String centerImage;
-    String rightImage;
+    ArrayList<String> images;
 
-    public DailySummaryEvent(String name, String description, String leftImage, String centerImage, String rightImage){
-        this.title = name;
+
+    public DailySummaryEvent(String date, String description, ArrayList<String> images){
+        this.date = date;
         this.description = description;
-        this.leftImage = leftImage;
-        this.centerImage = centerImage;
-        this.rightImage = rightImage;
+        this.images = images;
     }
 
-    public String getEventName(){
-        return title;
+    public String getEventDate(){
+        return date;
     }
 
     public String getEventDescription(){
         return description;
     }
 
-    public ArrayList getEventImages(){
-        ArrayList images = new ArrayList<String>();
-        images.add(leftImage);
-        images.add(centerImage);
-        images.add(rightImage);
+    public ArrayList<String> getEventImages(){
         return images;
     }
 

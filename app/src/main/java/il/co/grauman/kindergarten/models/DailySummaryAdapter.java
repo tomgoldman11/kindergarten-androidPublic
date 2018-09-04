@@ -39,7 +39,7 @@ public class DailySummaryAdapter extends RecyclerView.Adapter<DailySummaryAdapte
         DailySummaryEvent currentActivity = dailySummary.get(position);
         ArrayList images = currentActivity.getEventImages();
 
-        dailySummaryViewHolder.title.setText("  " + currentActivity.getEventName());
+        dailySummaryViewHolder.title.setText("  " + currentActivity.getEventDate());
         dailySummaryViewHolder.description.setText("  " + currentActivity.getEventDescription());
 
         Picasso.get().load(images.get(0).toString()).into(dailySummaryViewHolder.leftImage);

@@ -7,22 +7,34 @@ import il.co.grauman.kindergarten.bl.references.RetrofitInstance;
 import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import retrofit2.Callback;
 
-public class Calender implements CalenderApi{
-    @Override
-    public void getCalender(List<DayEvent> year, Callback<List<DayEvent>> callback) {
-        ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
-        .getApi().getCalender(year));
-    }
+public class Calender {
 
-    @Override
-    public void updateCalender(List<DayEvent> newSchedule, Callback<List<DayEvent>> callback) {
-        ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
-        .getApi().updateCalender(newSchedule));
-    }
+    private static CalenderApi instance;
 
-    @Override
-    public void addCalender(List<DayEvent> year, Callback<List<DayEvent>> callback) {
-        ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
-        .getApi().addCalender(year));
+    public static CalenderApi getInstance() {
+        if (instance == null) {
+            instance = new CalenderApi() {
+
+                @Override
+                public void getCalender(List<DayEvent> year, Callback<List<DayEvent>> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().getCalender(year));
+                }
+
+                @Override
+                public void updateCalender(List<DayEvent> newSchedule, Callback<List<DayEvent>> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().updateCalender(newSchedule));
+                }
+
+                @Override
+                public void addCalender(List<DayEvent> year, Callback<List<DayEvent>> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().addCalender(year));
+                }
+            };
+        }
+
+        return instance;
     }
 }

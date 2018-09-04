@@ -8,7 +8,13 @@ import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Callback;
 
-public abstract class UserUpdate implements UserApi{
+public class UserUpdate implements UserApi{
+
+    @Override
+    public void userLogin(String username, String password, Callback<User> callback) {
+        ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                .getApi().userLogin(new LoginRequest(username, password)));
+    }
 
     @Override
     public void addUser(User user, Callback<User> callback) {

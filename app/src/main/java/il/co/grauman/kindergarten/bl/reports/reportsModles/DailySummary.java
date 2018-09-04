@@ -3,12 +3,12 @@ package il.co.grauman.kindergarten.bl.reports.reportsModles;
 import java.util.Date;
 import java.util.List;
 
-public class DailySummery {
+public class DailySummary {
     Date day;
     String event;
     List<String> pictures;
 
-    public DailySummery(Date day, String event, List<String> pictures) {
+    public DailySummary(Date day, String event, List<String> pictures) {
         this.day = day;
         this.event = event;
         this.pictures = pictures;

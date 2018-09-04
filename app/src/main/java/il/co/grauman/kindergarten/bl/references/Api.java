@@ -8,8 +8,8 @@ import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummery;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivtey;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivty;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
@@ -58,10 +58,10 @@ public interface Api {
     Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
 
     @POST("myresource/get_daily_schedule")
-    Call<List<DayActivtey>> getDailySchedule(@Body Date day);
+    Call<List<DayActivty>> getDailySchedule(@Body Date day);
 
     @POST("myresource/get_daily_sum")
-    Call<DailySummery> getDailySum(@Body Date day);
+    Call<DailySummary> getDailySum(@Body Date day);
 
     @POST("myresource/get_calender")
     Call<List<DayEvent>> getCalender(@Body int year);

@@ -17,13 +17,13 @@ public class Calender {
             instance = new CalenderApi() {
 
                 @Override
-                public void getCalender(int year, Callback<List<DayEvent>> callback) {
+                public void getEventsFromCalender(int year, Callback<List<DayEvent>> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().getCalender(year));
                 }
 
                 @Override
-                public void updateEvent(DayEvent newEvent, Callback<List<DayEvent>> callback) {
+                public void updateEventToCalender(DayEvent newEvent, Callback<List<DayEvent>> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().updateCalender(newEvent));
                 }

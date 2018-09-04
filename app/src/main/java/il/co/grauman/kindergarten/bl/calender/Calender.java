@@ -17,6 +17,12 @@ public class Calender implements CalenderApi{
     @Override
     public void updateCalender(List<DayEvent> newSchedule, Callback<List<DayEvent>> callback) {
         ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
-        .getApi().updateCalender(new UpdateCalenderRequest(newSchedule)));
+        .getApi().updateCalender(newSchedule));
+    }
+
+    @Override
+    public void addCalender(List<DayEvent> year, Callback<List<DayEvent>> callback) {
+        ApiImplementation.apiImplementation(callback , ()-> RetrofitInstance.getInstance()
+        .getApi().addCalender(year));
     }
 }

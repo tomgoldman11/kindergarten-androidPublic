@@ -68,7 +68,10 @@ public interface Api {
     Call<List<DayEvent>> getCalender(@Body List<DayEvent> calender);
 
     @POST("myresource/update_calender")
-    Call<List<DayEvent>> updateCalender(@Body UpdateCalenderRequest request);
+    Call<List<DayEvent>> updateCalender(@Body List<DayEvent> calender);
+
+    @POST("myresource/add_calender")
+    Call<List<DayEvent>> addCalender(@Body List<DayEvent> calender);
 
     @POST("myresource/get_late_children")
     Call<List<Child>> getLateChildren(@Body Date day);

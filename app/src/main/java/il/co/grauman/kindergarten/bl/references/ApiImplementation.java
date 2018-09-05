@@ -15,7 +15,7 @@ public class ApiImplementation{
             @Override
             public void onResponse(Call<T> call, Response<T> response) {
                 if(response.code() == 200) {
-                    callback.onResponse(call, response);
+                    callback.onResponse(call,response);
                 }else {
                     try {
                         callback.onFailure(call, new Exception(response.errorBody().string()));

@@ -6,9 +6,9 @@ import java.util.List;
 public class DailySummary<T> {
     Date day;
     String event;
-    T pictures;
+    List<T> pictures;
 
-    public DailySummary(Date day, String event, T pictures) {
+    public DailySummary(Date day, String event, List<T> pictures) {
         this.day = day;
         this.event = event;
         this.pictures = pictures;
@@ -30,11 +30,9 @@ public class DailySummary<T> {
         this.event = event;
     }
 
-    public T getPictures() {
-        return pictures;
-    }
+    public List<T> getPictures() { return pictures; }
 
-    public void setPictures(T pictures) {
+    public void setPictures(List<T> pictures) {
         this.pictures = pictures;
     }
 }

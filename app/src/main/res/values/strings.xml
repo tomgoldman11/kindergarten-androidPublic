@@ -24,7 +24,7 @@
     <string name="new_event">New Event</string>
     <string name="home">בית</string>
     <string name="date_format">%s/%s/%s</string>
-    <string name="add_event">הוסף אירוע</string>
+    <string name="add_event">תאר את האירוע כאן</string>
     <string name="default_hour_format">00:00</string>
     <string name="add_description">הוסף תיאור</string>
     <string name="cancel">ביטול</string>
@@ -36,4 +36,6 @@
     <string name="events">ארועים -</string>
     <string name="try_again">אירעה תקלה, אנא נסו שוב</string>
     <string name="event_added_to_calendar">האירוע נוסף ללוח השנה בהצלחה</string>
+    <string name="pictures">הוסף תמונה חדשה</string>
+    <string name="add_event_description_title">תיאור האירוע</string>
 </resources>

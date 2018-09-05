@@ -1,20 +1,20 @@
 package il.co.grauman.kindergarten.bl.references;
 
-public class StatusResponse {
-    boolean response;
+public class StatusResponse<T> {
+    T response;
 
     public StatusResponse() {
     }
 
-    public StatusResponse(boolean response) {
+    public StatusResponse(T response) {
         this.response = response;
     }
 
-    public boolean isResponse() {
+    public T isResponse() {
         return response;
     }
 
-    public void setResponse(boolean response) {
+    public void setResponse(T response) {
         this.response = response;
     }
 }

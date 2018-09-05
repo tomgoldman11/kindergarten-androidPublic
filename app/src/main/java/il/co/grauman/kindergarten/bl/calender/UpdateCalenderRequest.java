@@ -1,26 +1,19 @@
 package il.co.grauman.kindergarten.bl.calender;
 
-public class UpdateCalenderRequest {
-    YearSchedule oldSchedule , newSchedule;
+import java.util.List;
 
-    public UpdateCalenderRequest(YearSchedule oldSchedule, YearSchedule newSchedule) {
-        this.oldSchedule = oldSchedule;
+public class UpdateCalenderRequest {
+    List<DayEvent> newSchedule;
+
+    public UpdateCalenderRequest(List<DayEvent> newSchedule) {
         this.newSchedule = newSchedule;
     }
 
-    public YearSchedule getOldSchedule() {
-        return oldSchedule;
-    }
-
-    public void setOldSchedule(YearSchedule oldSchedule) {
-        this.oldSchedule = oldSchedule;
-    }
-
-    public YearSchedule getNewSchedule() {
+    public List<DayEvent> getNewSchedule() {
         return newSchedule;
     }
 
-    public void setNewSchedule(YearSchedule newSchedule) {
+    public void setNewSchedule(List<DayEvent> newSchedule) {
         this.newSchedule = newSchedule;
     }
 }

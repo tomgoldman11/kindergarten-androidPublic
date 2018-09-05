@@ -10,6 +10,6 @@ public class MessagesUserActivity extends BaseDrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_messages);
+        setContentView(R.layout.activity_messages);
     }
 }

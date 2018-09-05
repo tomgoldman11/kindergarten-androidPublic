@@ -63,6 +63,7 @@
     <string name="hours">שעות</string>
     <string name="this_month_work_hours">החודש הזה עבדת</string>
     <string name="monthly_work_hours">%d</string>
+    <string name="add_title">הוסף כותרת</string>
 
 
 </resources>

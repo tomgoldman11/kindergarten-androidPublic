@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -44,11 +45,10 @@ public class AddEventFragment extends Fragment {
     TextView date;
     ImageView arrowRight;
     ImageView arrowLeft;
-    EditText newEventName;
-    TextView currentDate;
     ImageView saveBtn;
     ScrollView newImages;
     Button addNewImageBtn;
+    EditText eventDescription;
     LinearLayout dynamicImagesLayout;
     List<byte[]> images = new ArrayList<byte[]>();
     private static final int GALLERY_REQUEST = 1;
@@ -83,7 +83,10 @@ public class AddEventFragment extends Fragment {
     }
 
     private void saveEvent(){
-        //ReportSheets.getInstace().
+        String description = eventDescription.getText().toString();
+//        Toast.makeText(getContext(), description.toString(), Toast.LENGTH_LONG).show();
+//        Toast.makeText(getContext(), images.toString(), Toast.LENGTH_LONG).show();
+        //ReportSheets.getInstace().setDailySchedule(description, images);
     }
 
     private void openGallery(){
@@ -100,17 +103,11 @@ public class AddEventFragment extends Fragment {
                 case GALLERY_REQUEST:
                     Uri selectedImage = data.getData();
                     try {
-
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), selectedImage);
-                        ImageView currentImage = new ImageView(getContext());
-                        currentImage.setImageBitmap(bitmap);
-                        dynamicImagesLayout.addView(currentImage);
-
-                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                        byte[] byteArray = stream.toByteArray();
+                        addNewImageViewToScrollView(bitmap);
+                        byte[] byteArray = convertImageFromBitmapToBytes(bitmap);
                         images.add(byteArray);
-//                        bitmap.recycle();
+                        //bitmap.recycle();
 
                     } catch (IOException e) {
                         Log.i("TAG", "Some exception " + e);
@@ -118,14 +115,24 @@ public class AddEventFragment extends Fragment {
                     break;
             }
     }
+    private byte[] convertImageFromBitmapToBytes(Bitmap bitmap){
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
+    private void addNewImageViewToScrollView(Bitmap bitmap){
+        ImageView currentImage = new ImageView(getContext());
+        currentImage.setImageBitmap(bitmap);
+        dynamicImagesLayout.addView(currentImage);
+    }
 
 
     private void setUIElements(){
         date = getView().findViewById(R.id.tvDate);
         arrowRight = getView().findViewById(R.id.ivRightArrow);
         arrowLeft = getView().findViewById(R.id.ivLeftArrow);
-        newEventName = getView().findViewById(R.id.etNew_event4);
-        currentDate = getView().findViewById(R.id.tvDate);
+        eventDescription = getView().findViewById(R.id.etNew_event4);
         saveBtn = getView().findViewById(R.id.ibSave4);
         newImages = getView().findViewById(R.id.summary);
         dynamicImagesLayout = getView().findViewById(R.id.linearLayoutDynamicImages);

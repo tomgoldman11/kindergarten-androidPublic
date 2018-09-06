@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,8 +21,11 @@ import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.admin.AddEventFragment;
 import il.co.grauman.kindergarten.bl.reports.ReportSheets;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
+import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.models.DateManager;
 import il.co.grauman.kindergarten.models.DailySummaryAdapter;
+import il.co.grauman.kindergarten.utils.Constants;
+import il.co.grauman.kindergarten.utils.SPref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,7 +37,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
     ImageView arrowLeft;
     TextView description;
     LinearLayout DynamicImagesLayout;
-
+    Button addEventBtn;
     DateManager dateManager;
 
     private RecyclerView mRecyclerView;
@@ -46,6 +50,12 @@ public class DailySummaryActivity extends BaseDrawerActivity {
         setContentView(R.layout.activity_daily_summary);
 
         setUIElements();
+
+        if (Role.values()[SPref.getInstance().getInt(Constants.ROLE,3)]==Role.ADMIN){
+            addEventBtn.setVisibility(View.VISIBLE);
+        } else {
+            addEventBtn.setVisibility(View.GONE);
+        }
 
         dateManager = new DateManager(date, arrowRight, arrowLeft);
 
@@ -71,6 +81,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
         description = findViewById(R.id.description);
         arrowRight = findViewById(R.id.rightArrow);
         arrowLeft = findViewById(R.id.leftArrow);
+        addEventBtn = findViewById(R.id.btnNewEvent);
         DynamicImagesLayout = (LinearLayout) findViewById(R.id.linearLayoutDynamicImages);
     }
 

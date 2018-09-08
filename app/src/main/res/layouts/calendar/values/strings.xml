@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="work_hours">שעות עבודה</string>
+    <string name="date">תאריך</string>
+    <string name="select_date">בחר תאריך</string>
+</resources>

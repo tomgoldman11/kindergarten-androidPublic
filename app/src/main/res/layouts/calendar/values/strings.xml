@@ -3,4 +3,5 @@
     <string name="work_hours">שעות עבודה</string>
     <string name="date">תאריך</string>
     <string name="select_date">בחר תאריך</string>
+    <string name="child_name">child name</string>
 </resources>

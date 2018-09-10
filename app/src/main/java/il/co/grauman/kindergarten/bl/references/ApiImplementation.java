@@ -9,13 +9,13 @@ import retrofit2.Response;
 
 public class ApiImplementation{
 
-    public static  <T> void apiImplementation(Callback<T> callback, Supplier<Call<T>> func) {
+    public static  <C,T> void apiImplementation(Callback<T> callback, Supplier<Call<T>> func) {
         Call<T> call = func.get();
         call.enqueue(new Callback<T>() {
             @Override
             public void onResponse(Call<T> call, Response<T> response) {
                 if(response.code() == 200) {
-                    callback.onResponse(call,response);
+                    callback.onResponse(call, response);
                 }else {
                     try {
                         callback.onFailure(call, new Exception(response.errorBody().string()));

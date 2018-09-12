@@ -71,14 +71,14 @@ public class DailySummaryActivity extends BaseDrawerActivity {
     private void setSummary(){
         Date currentDate = dateManager.getCurrentDate();
         DailySummary newEvent;
-        ReportSheets.getInstace().getDailySum(currentDate, new Callback<DailySummary>() {
+        ReportSheets.getInstace().getDailySummary(currentDate, new Callback<DailySummary>() {
             @Override
             public void onResponse(Call<DailySummary> call, Response<DailySummary> response) {
                 DailySummary newEvent = response.body();
 
                 // get data from dailysummary class object
                 String eventDescription = newEvent.getEvent();
-                List<String> eventImages = newEvent.getPictures();
+                List<String> eventImages = (List<String>) newEvent.getPictures();
 
                 description.setText(eventDescription);
 

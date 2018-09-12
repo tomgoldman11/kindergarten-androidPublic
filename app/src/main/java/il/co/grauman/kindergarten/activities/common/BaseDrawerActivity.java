@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.admin.AdminMainActivity;
-import il.co.grauman.kindergarten.activities.admin.DailyScheduleAdminActivity;
 import il.co.grauman.kindergarten.activities.admin.DailySummaryAdminActivity;
 import il.co.grauman.kindergarten.activities.admin.WorkScheduleAdminActivity;
 import il.co.grauman.kindergarten.activities.employee.DailyScheduleEmployeeActivity;
@@ -133,13 +132,24 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
                 navigateToActivity(new WorkScheduleAdminActivity());
                 break;
             case R.id.adminDailySummary:
-                navigateToActivity(new DailySummaryActivity());
+                navigateToActivity(new DailySummaryAdminActivity());
                 break;
 
 
             case R.id.userHome:
                 navigateToActivity(new UserMainActivity());
                 break;
+            case R.id.userDailySummary:
+                navigateToActivity(new DailySummaryActivity());
+                break;
+            case R.id.userCalendar:
+                navigateToActivity(new CalendarScheduleActivity());
+                break;
+            case R.id.userMessages:
+                //navigateToActivity(new MessageUserActivity());
+                break;
+
+
 
 
             case R.id.employeeHome:

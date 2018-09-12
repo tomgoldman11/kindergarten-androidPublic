@@ -41,7 +41,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     private ListView eventsListView;
     private FloatingActionButton adminAddEvents;
     private String lastDatePicked = null;
-    private int lastYearPicked = 0;
+    private int lastYearPicked = -1;
     private List<DayEvent> yearlyEvents;
     private ArrayList<DayEvent> eventsForDate;
 
@@ -107,6 +107,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
 
                 @Override
                 public void onFailure(Call<List<DayEvent>> call, Throwable t) {
+                    lastYearPicked = -1;
                     requestFailed(t.getMessage());
                 }
             });

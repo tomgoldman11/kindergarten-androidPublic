@@ -35,7 +35,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="events">ארועים -</string>
     <string name="try_again">אירעה תקלה, אנא נסו שוב</string>
-    <string name="event_added_to_calendar">האירוע נוסף ללוח השנה בהצלחה</string>
+    <string name="event_added_to_calendar">האירוע %s נוסף ללוח השנה בהצלחה</string>
     <string name="pictures">הוסף תמונה חדשה</string>
     <string name="add_event_description_title">תיאור האירוע</string>
+    <string name="date">תאריך</string>
+    <string name="add_title">אירוע</string>
+    <string name="error_adding_event">אירעה תקלה בהוספת האירוע, אנא נסה שוב</string>
 </resources>

@@ -1,23 +1,48 @@
 package il.co.grauman.kindergarten.bl.calender;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class DayEvent {
-    Date day;
-    String event , description ;
+    private int id;
+    private Date date;
+    private EventType type;
+    private String description;
+    private Time from;
+    private Time to;
 
-    public DayEvent(Date day, String event, String description) {
-        this.day = day;
+
+    public DayEvent(int id, Date date, EventType type, String description, Time from, Time to) {
+        this.id = id;
+        this.date = date;
+        this.type = type;
         this.description = description;
-        this.event = event;
+        this.from = from;
+        this.to = to;
     }
 
-    public Date getDay() {
-        return day;
+    public int getId() {
+        return id;
     }
 
-    public void setDay(Date day) {
-        this.day = day;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     public String getDescription() {
@@ -28,11 +53,19 @@ public class DayEvent {
         this.description = description;
     }
 
-    public String getEvent() {
-        return event;
+    public Time getFrom() {
+        return from;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setFrom(Time from) {
+        this.from = from;
+    }
+
+    public Time getTo() {
+        return to;
+    }
+
+    public void setTo(Time to) {
+        this.to = to;
     }
 }

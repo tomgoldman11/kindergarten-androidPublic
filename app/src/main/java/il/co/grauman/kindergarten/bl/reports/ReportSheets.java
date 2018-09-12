@@ -8,7 +8,7 @@ import il.co.grauman.kindergarten.bl.references.RetrofitInstance;
 import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivty;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivtyPart;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
@@ -36,7 +36,7 @@ public class ReportSheets {
                 }
 
                 @Override
-                public void getDailySchedule(Date day, Callback<List<DayActivty>> callback) {
+                public void getDailySchedule(Date day, Callback<List<DayActivtyPart>> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().getDailySchedule(day));
                 }

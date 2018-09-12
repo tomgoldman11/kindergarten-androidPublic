@@ -9,7 +9,7 @@ import il.co.grauman.kindergarten.bl.login.LoginRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivty;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivtyPart;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
@@ -58,7 +58,7 @@ public interface Api {
     Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
 
     @POST("myresource/get_daily_schedule")
-    Call<List<DayActivty>> getDailySchedule(@Body Date day);
+    Call<List<DayActivtyPart>> getDailySchedule(@Body Date day);
 
     @POST("myresource/get_daily_summary")
     Call<DailySummary> getDailySummary(@Body Date day);

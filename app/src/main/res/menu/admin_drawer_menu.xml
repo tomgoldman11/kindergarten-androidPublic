@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layoutDirection="rtl"
+    android:layout_gravity="end"
+>
     <group
         android:id="@+id/groupAdmin"
-        android:checkableBehavior="single">
+        android:checkableBehavior="single"
+        android:layout_gravity="end"
+        android:gravity="end"
+        >
 
         <item
             android:id="@+id/adminHome"
             android:checkable="false"
             android:icon="@drawable/ic_menu_home"
-            android:title="@string/home_page" />
+            android:title="@string/home_page"
+            android:layout_gravity="end"
+            />
 
         <item
             android:id="@+id/adminDailySummary"

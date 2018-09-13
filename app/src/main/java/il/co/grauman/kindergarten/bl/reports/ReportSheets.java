@@ -11,6 +11,7 @@ import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivtyPart;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.Worker;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
 import retrofit2.Callback;
@@ -70,6 +71,13 @@ public class ReportSheets {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().getReports());
                 }
+
+                @Override
+                public void getWorkersList(retrofit2.Callback<List<Worker>>callback){
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                    .getApi().getWorkersList());
+                }
+
             };
         }
         return instance;

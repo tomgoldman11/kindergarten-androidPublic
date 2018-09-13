@@ -9,7 +9,9 @@ import il.co.grauman.kindergarten.bl.login.LoginRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivty;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivtyPart;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.Worker;
+import il.co.grauman.kindergarten.bl.reports.reportsRequests.DailySummaryRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
@@ -59,14 +61,24 @@ public interface Api {
     @POST("shifts/hours-report-all")
     Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
 
+<<<<<<< HEAD
     @POST("agenda/get=agenda")
     Call<List<DayActivty>> getDailySchedule(@Body Date day);
+=======
+    @POST("myresource/get_daily_schedule")
+    Call<List<DayActivtyPart>> getDailySchedule(@Body Date day);
+>>>>>>> 40ae072dd8a5580dbee387debafdd08983e2c1bd
 
     @POST("summary/get-daily-summary")
     Call<DailySummary> getDailySummary(@Body Date day);
 
+<<<<<<< HEAD
     @POST("summary/add-daily-summary")
     Call<DailySummary> addDailySummary(@Body DailySummary dailySummary);
+=======
+    @POST("myresource/add_daily_summary")
+    Call<DailySummary> addDailySummary(@Body DailySummaryRequest dailySummaryRequest);
+>>>>>>> 40ae072dd8a5580dbee387debafdd08983e2c1bd
 
     @POST("events/get")
     Call<List<DayEvent>> getCalender(@Body int year);
@@ -86,5 +98,6 @@ public interface Api {
     @POST("myresource/get_reports")
     Call<List<Report>> getReports();
 
-
+    @POST("myresource/get_workers_list")
+    Call<List<User>> getWorkersList();
 }

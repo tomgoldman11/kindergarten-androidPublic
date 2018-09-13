@@ -28,16 +28,17 @@
                 android:id="@+id/tvDailySummaryLL"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:gravity="bottom"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvDailySummary"
-                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:text="@string/daily_summary"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:textSize="@dimen/title_size"
+                    android:text="@string/daily_summary"
                     android:textColor="@color/white"
-                    />
+                    android:textSize="@dimen/title_size" />
 
             </LinearLayout>
 
@@ -102,10 +103,26 @@
                 android:layout_below="@id/current_date"
                 android:minHeight="217dp">
 
-                <ImageButton
-                    android:id="@+id/ibSave"
+                <ImageView
+                    android:id="@+id/ivBack3"
                     android:layout_width="wrap_content"
-                    android:layout_height="37dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="352dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/back_arrow" />
+
+                <ImageButton
+                    android:id="@+id/ibSave2"
+                    android:layout_width="25dp"
+                    android:layout_height="21dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="2dp"
                     android:background="#0288d1"
                     android:src="@drawable/save_ic"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -134,7 +151,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="15dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginTop="4dp"
                     android:fontFamily="bold"
                     android:text="@string/pictures"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -142,13 +158,15 @@
 
                 <ScrollView
                     android:id="@+id/summary"
-                    android:layout_width="match_parent"
-                    android:layout_height="210dp"
+                    android:layout_width="386dp"
+                    android:layout_height="247dp"
                     android:layout_below="@+id/description"
+                    android:layout_marginTop="212dp"
                     app:layout_constraintBottom_toTopOf="@+id/ibSave"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <LinearLayout
                         android:id="@+id/linearLayoutDynamicImages"

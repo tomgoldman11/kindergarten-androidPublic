@@ -3,6 +3,7 @@ package il.co.grauman.kindergarten.bl.shifts.shiftRequests;
 import java.util.Date;
 
 public class AdminShiftsRequest {
+    String userID;
     Date day;
     public AdminShiftsRequest(Date day) {
         this.day=day;

@@ -3,20 +3,20 @@ package il.co.grauman.kindergarten.bl.login;
 import java.util.Date;
 
 public class ChckInOutRequest {
-    Date time;
+    Date date;
     String userId;
 
     public ChckInOutRequest(Date time, String userId) {
-        this.time = time;
+        this.date = time;
         this.userId = userId;
     }
 
     public Date getTime() {
-        return time;
+        return date;
     }
 
     public void setTime(Date time) {
-        this.time = time;
+        this.date = time;
     }
 
     public String getUserId() {

@@ -18,7 +18,12 @@ import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.AdminShiftsRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
+import il.co.grauman.kindergarten.models.Agenda;
+import il.co.grauman.kindergarten.models.DailySummaryDTO;
+import il.co.grauman.kindergarten.models.Kid;
+import il.co.grauman.kindergarten.models.Shift;
 import il.co.grauman.kindergarten.models.User;
+import il.co.grauman.kindergarten.models.WorkerShiftsDTO;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -31,23 +36,31 @@ public interface Api {
     @POST ("auth/login")
     Call<User>userLogin(@Body LoginRequest req);
 
-    @POST ("shifts/get-by-date-by-worker/from")
-    Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
+    @POST ("auth/me")
+    Call<User>getLogedUserr();
 
-    @GET("shifts/get-by-date/from/{fromDate}/to/{toDate}")
-    Call<List<DailyShift>> getWorkSchedule( String formDate);
+    @POST ("auth/logout")
+    Call<StatusResponse>getLogedout();
+
+
+    @GET ("shifts/get-by-date-by-worker/{workerId}/from/{fromDate}")
+    Call<WorkerShiftsDTO> getWorkSchedule(@Body AdminShiftsRequest shift);
+
+    @GET("shifts/get-by-date/from/{fromDate}")
+    Call<List<DailyShift>> getWorkSchedule(@Path("fromDate") String formDate);
 
     @POST("shifts/add")
-    Call<DailyShift> addShift(@Body DailyShift dailyShift);
+    Call<Shift> addShift(@Body Shift dailyShift);
 
     @POST("shifts/delete")
-    Call<StatusResponse> removeShift(@Body DailyShift dailyShift);
+    Call<Shift> removeShift(@Body Shift dailyShift);
 
     @POST("shifts/update")
-    Call<StatusResponse> updateShift(@Body UpdateShiftRequset updateShiftRequset);
+    Call<Shift> updateShift(@Body Shift updateShiftRequset);
 
     @POST("admin/users/add")
     Call<User> addUser(@Body User user);
+
 
     @POST("shifts/checkin")
     Call<StatusResponse> checkIn(@Body ChckInOutRequest checkInRequest);
@@ -56,48 +69,53 @@ public interface Api {
     Call<StatusResponse> checkOut(@Body ChckInOutRequest checkOutRequest);
 
     @POST("shifts/hours-report-worker")
-    Call<List<WorkHours>> getHoursReportForWorker(@Body EmployeeReportsRequest request);
+    Call<List<Shift>> getHoursReportForWorker(@Body EmployeeReportsRequest request);
 
     @POST("shifts/hours-report-all")
-    Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
+    Call<List<Shift>> getHoursReport(@Body ReportsRequest request);
 
-<<<<<<< HEAD
-    @POST("agenda/get=agenda")
-    Call<List<DayActivty>> getDailySchedule(@Body Date day);
-=======
-    @POST("myresource/get_daily_schedule")
-    Call<List<DayActivtyPart>> getDailySchedule(@Body Date day);
->>>>>>> 40ae072dd8a5580dbee387debafdd08983e2c1bd
 
-    @POST("summary/get-daily-summary")
-    Call<DailySummary> getDailySummary(@Body Date day);
+    @POST("agenda/getagenda")
+    Call<List<Agenda>> getDailySchedule(@Body Date day);
 
-<<<<<<< HEAD
-    @POST("summary/add-daily-summary")
-    Call<DailySummary> addDailySummary(@Body DailySummary dailySummary);
-=======
+    @POST("agenda/add-agenda-part")
+    Call<Agenda> addDailySchedule(@Body Agenda agenda);
+
+
+    @POST("agenda/remove-agenda-part")
+    Call<Agenda> removeDailySchedule(@Body Agenda agenda);
+
+
+    @GET("summary/get-daily-summary")
+    Call<DailySummaryDTO> getDailySummary(@Body Date day);
+
+
     @POST("myresource/add_daily_summary")
-    Call<DailySummary> addDailySummary(@Body DailySummaryRequest dailySummaryRequest);
->>>>>>> 40ae072dd8a5580dbee387debafdd08983e2c1bd
+    Call<DailySummaryDTO> addDailySummary(@Body DailySummaryRequest dailySummaryRequest);
 
-    @POST("events/get")
+
+    @GET("events/get{year}")
     Call<List<DayEvent>> getCalender(@Body int year);
 
     @POST("events/update")
-    Call<List<DayEvent>> updateCalender(@Body DayEvent newEvent);
+    Call<DayEvent> updateCalender(@Body DayEvent newEvent);
 
     @POST("events/add")
-    Call<List<DayEvent>> addCalender(@Body DayEvent dayEvent);
+    Call<DayEvent> addCalender(@Body DayEvent dayEvent);
 
-    @POST("admin/")
-    Call<List<Child>> getLateChildren(@Body Date day);
 
-    @POST("myresource/reports_to")
-    Call<StatusResponse> reportsTo(@Body Report report);
+    @POST("events/delete")
+    Call<DayEvent> deleteCalender(@Body Integer dayEvent);
 
-    @POST("myresource/get_reports")
+    @GET("admin/late")
+    Call<List<Kid>> getLateKids(@Body Date day);
+
+    @POST("reports/add")
+    Call<Report> reportsTo(@Body Report report);
+
+    @POST("reports/all")
     Call<List<Report>> getReports();
 
-    @POST("myresource/get_workers_list")
+    @GET("admin/get-workers")
     Call<List<User>> getWorkersList();
 }

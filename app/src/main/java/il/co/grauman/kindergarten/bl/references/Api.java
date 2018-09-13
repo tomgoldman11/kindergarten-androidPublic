@@ -66,7 +66,7 @@ public interface Api {
     Call<DailySummary> getDailySummary(@Body Date day);
 
     @POST("myresource/add_daily_summary")
-    Call<DailySummaryRequest> addDailySummary(@Body DailySummary dailySummary);
+    Call<DailySummary> addDailySummary(@Body DailySummaryRequest dailySummaryRequest);
 
     @POST("myresource/get_calender")
     Call<List<DayEvent>> getCalender(@Body int year);
@@ -87,5 +87,5 @@ public interface Api {
     Call<List<Report>> getReports();
 
     @POST("myresource/get_workers_list")
-    Call<List<Worker>> getWorkersList();
+    Call<List<User>> getWorkersList();
 }

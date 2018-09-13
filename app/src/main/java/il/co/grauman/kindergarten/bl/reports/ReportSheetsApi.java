@@ -11,6 +11,7 @@ import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Worker;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.DailySummaryRequest;
+import il.co.grauman.kindergarten.models.User;
 
 public interface ReportSheetsApi {
     void getHoursReportForWorker(int month , int year , String userID , retrofit2.Callback<List<WorkHours>> callback);
@@ -21,5 +22,5 @@ public interface ReportSheetsApi {
     void getLateChildren(Date day , retrofit2.Callback<List<Child>> callback);
     void reportsTo(Report report , retrofit2.Callback<StatusResponse> callback);
     void getReports(retrofit2.Callback<List<Report>> callback);
-    void getWorkersList(retrofit2.Callback<List<Worker>>callback);
+    void getWorkersList(retrofit2.Callback<List<User>>callback);
 }

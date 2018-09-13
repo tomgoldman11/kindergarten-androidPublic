@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             AuthService.isLoggedIn(this, (@NonNull User result) -> {
                 Intent intent;
-                switch (result.getRole()) {
+                switch (result.getCategory()) {
                     case NONE:
                         intent = new Intent(MainActivity.this, LoginActivity.class);
                         break;

@@ -3,15 +3,23 @@ package il.co.grauman.kindergarten.bl.reports.reportsModles;
 import java.util.Date;
 import java.util.List;
 
-public class DailySummary<T> {
+public class DailySummary {
+    int id;
     Date day;
-    String event;
-    T pictures;
+    String description;
 
-    public DailySummary(Date day, String event, T pictures) {
+    public DailySummary(Date day, String event,int id) {
+        this.id = id;
         this.day = day;
-        this.event = event;
-        this.pictures = pictures;
+        this.description = event;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getDay() {
@@ -22,19 +30,11 @@ public class DailySummary<T> {
         this.day = day;
     }
 
-    public String getEvent() {
-        return event;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setDescription(String description) {
+        this.description = description;
     }
-
-    public T getPictures() {
-        return pictures;
     }
-
-    public void setPictures(T pictures) {
-        this.pictures = pictures;
-    }
-}

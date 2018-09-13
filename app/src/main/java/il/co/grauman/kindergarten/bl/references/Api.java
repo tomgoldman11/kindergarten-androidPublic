@@ -18,6 +18,7 @@ import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
@@ -31,7 +32,7 @@ public interface Api {
     Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
 
     @POST("myresource/admin_scheduale")
-    Call<List<DailyShift>> getWorkSchedule(@Body Date day);
+    Call<List<DailyShift>> getWorkSchedule(String currentUser, @Body Date day, Callback<DailyShift> callback);
 
     @POST("myresource/add_shift")
     Call<DailyShift> addShift(@Body DailyShift dailyShift);

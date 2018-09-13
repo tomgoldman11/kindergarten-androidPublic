@@ -51,20 +51,11 @@ public class DailySummaryActivity extends BaseDrawerActivity {
 
         setUIElements();
 
-        if (Role.values()[SPref.getInstance().getInt(Constants.ROLE,3)]==Role.ADMIN){
-            addEventBtn.setVisibility(View.VISIBLE);
-        } else {
-            addEventBtn.setVisibility(View.GONE);
-        }
-
         dateManager = new DateManager(date, arrowRight, arrowLeft);
 
         setSummary();
 
-        Button addEventButton = findViewById(R.id.btnNewEvent);
-
-
-        addEventButton.setOnClickListener(v -> navigateToFragment(new AddEventFragment()));
+        addEventBtn.setOnClickListener(v -> navigateToFragment(new AddEventFragment()));
     }
 
     private void navigateToFragment(Fragment newFragment){
@@ -83,6 +74,12 @@ public class DailySummaryActivity extends BaseDrawerActivity {
         arrowLeft = findViewById(R.id.leftArrow);
         addEventBtn = findViewById(R.id.btnNewEvent);
         DynamicImagesLayout = (LinearLayout) findViewById(R.id.linearLayoutDynamicImages);
+
+        if (Role.values()[SPref.getInstance().getInt(Constants.ROLE,3)]==Role.ADMIN){
+            addEventBtn.setVisibility(View.VISIBLE);
+        } else {
+            addEventBtn.setVisibility(View.GONE);
+        }
     }
 
     private void setSummary(){

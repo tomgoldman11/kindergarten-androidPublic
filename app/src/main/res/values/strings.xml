@@ -38,4 +38,14 @@
     <string name="event_added_to_calendar">האירוע נוסף ללוח השנה בהצלחה</string>
     <string name="pictures">הוסף תמונה חדשה</string>
     <string name="add_event_description_title">תיאור האירוע</string>
+    <string name="day">יום</string>
+    <string name="sunday">ראשון</string>
+    <string name="monday">שני</string>
+    <string name="tuesday">שלישי</string>
+    <string name="wednsday">רביעי</string>
+    <string name="thirsday">חמישי</string>
+    <string name="friday">שישי</string>
+    <string name="prev_week">שבוע שעבר</string>
+    <string name="next_week">שבוע הבא</string>
+    <string name="Work_Arrangement">שיבוץ עובדים</string>
 </resources>

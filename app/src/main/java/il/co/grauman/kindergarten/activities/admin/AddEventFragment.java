@@ -4,7 +4,6 @@ package il.co.grauman.kindergarten.activities.admin;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,24 +18,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.common.DailySummaryActivity;
-import il.co.grauman.kindergarten.bl.reports.ReportSheets;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
 import il.co.grauman.kindergarten.models.DateManager;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -129,7 +118,7 @@ public class AddEventFragment extends Fragment {
 
 
     private void setUIElements(){
-        date = getView().findViewById(R.id.tvDate);
+        date = getView().findViewById(R.id.dateEnd);
         arrowRight = getView().findViewById(R.id.ivRightArrow);
         arrowLeft = getView().findViewById(R.id.ivLeftArrow);
         eventDescription = getView().findViewById(R.id.etNew_event4);

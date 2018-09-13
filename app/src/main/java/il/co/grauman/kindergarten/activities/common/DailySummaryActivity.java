@@ -37,7 +37,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
     ImageView arrowLeft;
     TextView description;
     LinearLayout DynamicImagesLayout;
-    Button addEventBtn;
+    protected Button addEventBtn;
     DateManager dateManager;
 
     private RecyclerView mRecyclerView;
@@ -51,23 +51,18 @@ public class DailySummaryActivity extends BaseDrawerActivity {
 
         setUIElements();
 
-        if (Role.values()[SPref.getInstance().getInt(Constants.ROLE,3)]==Role.ADMIN){
-            addEventBtn.setVisibility(View.VISIBLE);
-        } else {
-            addEventBtn.setVisibility(View.GONE);
-        }
+        setRoleBasedUIElemnts();
 
         dateManager = new DateManager(date, arrowRight, arrowLeft);
 
         setSummary();
-
-        Button addEventButton = findViewById(R.id.btnNewEvent);
-
-
-        addEventButton.setOnClickListener(v -> navigateToFragment(new AddEventFragment()));
     }
 
-    private void navigateToFragment(Fragment newFragment){
+    protected void setRoleBasedUIElemnts() {
+
+    }
+
+    protected void navigateToFragment(Fragment newFragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.subLayout, newFragment);
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);

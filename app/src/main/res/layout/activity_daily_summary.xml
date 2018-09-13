@@ -31,6 +31,7 @@
             android:background="@drawable/bluebtn_gradient"
             android:text="@string/new_event"
             android:textColor="@color/black"
+            android:visibility="gone"
             android:textSize="13sp" />
 
         <TextView

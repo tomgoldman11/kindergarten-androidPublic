@@ -133,7 +133,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
                 navigateToActivity(new CalendarScheduleActivity());
                 break;
             case R.id.adminWorkSchedule:
-                navigateToActivity(new WorkScheduleAdminActivity());
+                navigateToActivity(new EmployeeWorkScheduleActivity());
                 break;
             case R.id.adminDailySummary:
                 navigateToActivity(new DailySummaryActivity());
@@ -156,7 +156,7 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
                 navigateToActivity(new DailyScheduleEmployeeActivity());
                 break;
             case R.id.employeeWorkSchedule:
-                navigateToActivity(new WorkScheduleEmployeeActivity());
+                navigateToActivity(new EmployeeWorkScheduleActivity());
                 break;
             case R.id.employeeMessages:
                 navigateToActivity(new MessagesEmployeeActivity());

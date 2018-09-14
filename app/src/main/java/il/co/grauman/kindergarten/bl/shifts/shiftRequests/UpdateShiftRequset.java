@@ -1,28 +1,29 @@
 package il.co.grauman.kindergarten.bl.shifts.shiftRequests;
 
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
+import il.co.grauman.kindergarten.models.Shift;
 
 public class UpdateShiftRequset {
-    DailyShift newShift , oldShift;
+    Shift newShift , oldShift;
 
-    public UpdateShiftRequset(DailyShift newShift, DailyShift oldShift) {
+    public UpdateShiftRequset(Shift newShift, Shift oldShift) {
         this.newShift = newShift;
         this.oldShift = oldShift;
     }
 
-    public DailyShift getNewShift() {
+    public Shift getNewShift() {
         return newShift;
     }
 
-    public void setNewShift(DailyShift newShift) {
+    public void setNewShift(Shift newShift) {
         this.newShift = newShift;
     }
 
-    public DailyShift getOldShift() {
+    public Shift getOldShift() {
         return oldShift;
     }
 
-    public void setOldShift(DailyShift oldShift) {
+    public void setOldShift(Shift oldShift) {
         this.oldShift = oldShift;
     }
 }

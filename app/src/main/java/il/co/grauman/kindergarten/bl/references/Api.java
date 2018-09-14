@@ -36,15 +36,14 @@ public interface Api {
     @POST ("auth/login")
     Call<User>userLogin(@Body LoginRequest req);
 
-    @POST ("auth/me")
+    @GET ("auth/me")
     Call<User>getLogedUserr();
 
     @POST ("auth/logout")
     Call<StatusResponse>getLogedout();
 
-
     @GET ("shifts/get-by-date-by-worker/{workerId}/from/{fromDate}")
-    Call<WorkerShiftsDTO> getWorkSchedule(@Body AdminShiftsRequest shift);
+    Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
 
     @GET("shifts/get-by-date/from/{fromDate}")
     Call<List<DailyShift>> getWorkSchedule(@Path("fromDate") String formDate);
@@ -53,10 +52,10 @@ public interface Api {
     Call<Shift> addShift(@Body Shift dailyShift);
 
     @POST("shifts/delete")
-    Call<Shift> removeShift(@Body Shift dailyShift);
+    Call<StatusResponse> removeShift(@Body Shift dailyShift);
 
     @POST("shifts/update")
-    Call<Shift> updateShift(@Body Shift updateShiftRequset);
+    Call<Shift> updateShift(@Body UpdateShiftRequset updateShiftRequset);
 
     @POST("admin/users/add")
     Call<User> addUser(@Body User user);
@@ -98,10 +97,10 @@ public interface Api {
     Call<List<DayEvent>> getCalender(@Body int year);
 
     @POST("events/update")
-    Call<DayEvent> updateCalender(@Body DayEvent newEvent);
+    Call<List<DayEvent>> updateCalender(@Body DayEvent newEvent);
 
     @POST("events/add")
-    Call<DayEvent> addCalender(@Body DayEvent dayEvent);
+    Call<List<DayEvent>> addCalender(@Body DayEvent dayEvent);
 
 
     @POST("events/delete")

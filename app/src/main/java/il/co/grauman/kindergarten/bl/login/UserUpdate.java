@@ -20,6 +20,11 @@ public class  UserUpdate  {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().userLogin(new LoginRequest(username, password)));
                 }
+                public void getLogedUserr( Callback<User> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().getLogedUserr());
+                }
+
 
                 @Override
                 public void addUser(User user, Callback<User> callback) {
@@ -38,7 +43,7 @@ public class  UserUpdate  {
                 @Override
                 public void checkOut(Date time, String userId, Callback<StatusResponse> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().checkIn(new ChckInOutRequest(time, userId)));
+                            .getApi().checkOut(new ChckInOutRequest(time, userId)));
                 }
             };
 

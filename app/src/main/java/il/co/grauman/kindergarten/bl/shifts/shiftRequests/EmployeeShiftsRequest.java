@@ -5,7 +5,7 @@ import java.util.Date;
 public class EmployeeShiftsRequest extends AdminShiftsRequest {
     String userID;
 
-    public EmployeeShiftsRequest(Date day, String userID) {
+    public EmployeeShiftsRequest(String day, String userID) {
         super(day);
         this.userID = userID;
     }

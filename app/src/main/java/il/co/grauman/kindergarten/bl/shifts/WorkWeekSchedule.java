@@ -22,8 +22,16 @@ public class WorkWeekSchedule {
 
                 @Override
                 public void getWorkSchedule(String userId, Date day, Callback<List<DailyShift>> callback) {
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(day);
+                    while (calendar.get(Calendar.DAY_OF_WEEK) > calendar.getFirstDayOfWeek()) {
+                        calendar.add(Calendar.DATE, -1); // Substract 1 day until first day of week.
+                    }
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    String fromDateString = format.format(day);
+
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().getWorkSchedule(new EmployeeShiftsRequest(day, userId)));
+                            .getApi().getWorkSchedule(new EmployeeShiftsRequest(fromDateString, userId)));
                 }
 
                 @Override
@@ -33,9 +41,6 @@ public class WorkWeekSchedule {
                     while (calendar.get(Calendar.DAY_OF_WEEK) > calendar.getFirstDayOfWeek()) {
                         calendar.add(Calendar.DATE, -1); // Substract 1 day until first day of week.
                     }
-                    Date from = calendar.getTime();
-                    calendar.add(Calendar.DATE, 7);
-                    Date to = calendar.getTime();
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                     String fromDateString = format.format(day);
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()

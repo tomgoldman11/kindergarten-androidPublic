@@ -24,17 +24,7 @@ public class Worker extends User {
         this.generationTime = generationTime;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public Date getStartWorkDate() {
-        return startWorkDate;
-    }
 
     public void setStartWorkDate(Date startWorkDate) {
         this.startWorkDate = startWorkDate;

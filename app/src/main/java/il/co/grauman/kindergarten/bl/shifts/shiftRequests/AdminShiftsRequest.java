@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class AdminShiftsRequest {
     String userID;
-    Date day;
-    public AdminShiftsRequest(Date day) {
+    String day;
+    public AdminShiftsRequest(String day) {
         this.day=day;
     }
 
-    public Date getDay() {
+    public String getDay() {
         return day;
     }
 

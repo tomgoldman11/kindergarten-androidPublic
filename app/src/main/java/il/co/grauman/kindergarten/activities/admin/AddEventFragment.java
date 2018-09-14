@@ -1,4 +1,4 @@
-package il.co.grauman.kindergarten.activities.common;
+package il.co.grauman.kindergarten.activities.admin;
 
 
 import android.os.Bundle;

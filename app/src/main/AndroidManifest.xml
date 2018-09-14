@@ -82,11 +82,7 @@
             android:name=".activities.common.DailyScheduleActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.common.DailySummaryActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.common.EmployeeWorkScheduleActivity"></activity>
+       
     </application>
 
 </manifest>

@@ -36,8 +36,8 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     private ListView eventsListView;
     private FloatingActionButton adminAddEvents;
     private String lastDatePicked = null;
-    private int lastYearPicked = 0;
-    private List<DayEvent> yearlyEvents;
+    private int lastYearPicked = -1;
+    private List<DayEvent> yearlyEvents = new ArrayList<>();
     private ArrayList<DayEvent> eventsForDate;
 
     @Override
@@ -57,19 +57,24 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
 
         simpleCalendarView.setOnDateChangeListener(this);
         adminAddEvents.setOnClickListener(v -> {
-            //Intent addEventToCalendar = new Intent(this, AddEventToCalendarActivity.class);
-            //startActivityForResult(addEventToCalendar,Constants.ADD_EVENT_TO_CALENDAR_REQUEST);
+            Intent addEventToCalendar = new Intent(this, AddEventToCalendarActivity.class);
+            startActivityForResult(addEventToCalendar,Constants.ADD_EVENT_TO_CALENDAR_REQUEST);
+            //startActivity(addEventToCalendar);
         });
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if(resultCode == RESULT_OK) {
-//            Toast.makeText(this,getResources().getString(R.string.event_added_to_calendar),Toast.LENGTH_LONG);
-//        } else {
-//            //Toast.makeText(this,getResources().getString())
-//        }
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == Constants.ADD_EVENT_TO_CALENDAR_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                String result = data.getStringExtra(Constants.EVENT_ADDED_RESULT);
+                Toast.makeText(this, String.format(getResources().getString(R.string.event_added_to_calendar), result), Toast.LENGTH_LONG);
+            } else {
+                Toast.makeText(this,getResources().getString(R.string.error_adding_event),Toast.LENGTH_LONG);
+            }
+            lastYearPicked =-1;
+        }
+    }
 
     public void setEventsListView(ArrayList<DayEvent> events) {
         ArrayAdapter<DayEvent> adapter = new ArrayAdapter<DayEvent>(this,android.R.layout.simple_list_item_2, android.R.id.text1, events){
@@ -102,6 +107,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
 
                 @Override
                 public void onFailure(Call<List<DayEvent>> call, Throwable t) {
+                    lastYearPicked = -1;
                     requestFailed(t.getMessage());
                 }
             });
@@ -161,5 +167,13 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
             eventsListView.setVisibility(View.VISIBLE);
         }
         lastDatePicked = year + "/" + (month+1) + "/" + dayOfMonth;
+    }
+
+    private void navigateToFragment(Fragment newFragment){
+        android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.subLayout, newFragment);
+        transaction.setTransition(android.support.v4.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

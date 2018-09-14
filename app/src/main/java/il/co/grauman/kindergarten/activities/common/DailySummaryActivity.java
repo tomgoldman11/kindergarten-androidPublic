@@ -51,14 +51,25 @@ public class DailySummaryActivity extends BaseDrawerActivity {
 
         setUIElements();
 
+<<<<<<< HEAD
+=======
+        setRoleBasedUIElemnts();
+
+>>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e
         dateManager = new DateManager(date, arrowRight, arrowLeft);
 
         setSummary();
-
-        addEventBtn.setOnClickListener(v -> navigateToFragment(new AddEventFragment()));
     }
 
-    private void navigateToFragment(Fragment newFragment){
+<<<<<<< HEAD
+        addEventBtn.setOnClickListener(v -> public navigateToFragment(new AddEventFragment()));
+=======
+    protected void setRoleBasedUIElemnts() {
+
+>>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e
+    }
+
+    protected void navigateToFragment(Fragment newFragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.subLayout, newFragment);
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);

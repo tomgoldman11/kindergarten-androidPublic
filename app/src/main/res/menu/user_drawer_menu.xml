@@ -25,11 +25,5 @@
             android:checkable="false"
             android:icon="@drawable/ic_menu_message"
             android:title="@string/messages" />
-
-        <item
-            android:id="@+id/userSettings"
-            android:checkable="false"
-            android:icon="@drawable/ic_menu_settings"
-            android:title="@string/settings" />
     </group>
 </menu>

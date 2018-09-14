@@ -10,68 +10,57 @@
         android:id="@+id/toolbar_daily"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:background="@color/black"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
 
+<<<<<<< HEAD:app/src/main/res/layout/activity_daily_schedule.xml
         >
+=======
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+>>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e:app/src/main/res/layouts/daily_schedule/layout/activity_daily_schedule.xml
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="11dp">
+            android:layout_height="match_parent">
 
 
             <ImageView
-                android:id="@+id/leftArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/back_ic" />
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/title_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@string/date_format"
                 android:textAppearance="@android:style/TextAppearance.Material.Title"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
             <ImageView
-                android:id="@+id/rightArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:background="@drawable/next_ic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.673"
-                app:layout_constraintStart_toEndOf="@+id/date"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="20dp" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/schedule"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="441dp"
         android:background="@drawable/bg_white"
         android:clipToPadding="false"
         android:columnWidth="80dp"
@@ -83,4 +72,23 @@
 
     </android.support.v7.widget.RecyclerView>
 
+<<<<<<< HEAD:app/src/main/res/layout/activity_daily_schedule.xml
+=======
+    <TextView
+        android:id="@+id/tvDailySchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="176dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="לוח זמנים יומי"
+        android:textSize="@dimen/title_size"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+>>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e:app/src/main/res/layouts/daily_schedule/layout/activity_daily_schedule.xml
 </android.support.constraint.ConstraintLayout>

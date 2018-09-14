@@ -56,4 +56,6 @@
     <string name="employee_presence">נוכחות עובדים</string>
     <string name="children_presence">נוכחות ילדים</string>
     <string name="try_again">תנסה עוד פעם</string>
+    <string name="pictures">תמנות</string>
+    <string name="add_event_description_title">הוספת תיאור</string>
 </resources>

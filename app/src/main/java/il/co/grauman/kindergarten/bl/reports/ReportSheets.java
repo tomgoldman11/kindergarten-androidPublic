@@ -51,7 +51,7 @@ public class ReportSheets {
                 @Override
                 public void removeDailySchedule(Agenda agenda, Callback<Agenda> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().addDailySchedule(agenda));
+                            .getApi().removeDailySchedule(agenda));
                 }
 
                 @Override

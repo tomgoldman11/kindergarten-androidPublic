@@ -45,6 +45,12 @@ public class  UserUpdate  {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().checkOut(new ChckInOutRequest(time, userId)));
                 }
+
+                @Override
+                public void getLogedout(Callback<StatusResponse> callback){
+                    ApiImplementation.apiImplementation(callback, ()-> RetrofitInstance.getInstance()
+                    .getApi().getLogedout());
+                }
             };
 
         }

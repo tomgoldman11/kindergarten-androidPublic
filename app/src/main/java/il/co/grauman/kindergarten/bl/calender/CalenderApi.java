@@ -9,4 +9,7 @@ public interface CalenderApi {
     void updateEventToCalender(DayEvent newEvent, retrofit2.Callback<List<DayEvent>> callback);
     void deleteCalender(DayEvent newEvent, retrofit2.Callback<List<DayEvent>> callback);
     void addEventToCalender(DayEvent dayEvents, retrofit2.Callback<List<DayEvent>> callback);
+    //should be called deleteEventFromCalender
+    void deleteCalender(Integer dayEvent, retrofit2.Callback<DayEvent> callback);
+
 }

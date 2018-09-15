@@ -103,6 +103,7 @@ public interface Api {
     Call<List<DayEvent>> addCalender(@Body DayEvent dayEvent);
 
 
+    //should be called deleteEventFromCalender
     @POST("events/delete")
     Call<DayEvent> deleteCalender(@Body Integer dayEvent);
 

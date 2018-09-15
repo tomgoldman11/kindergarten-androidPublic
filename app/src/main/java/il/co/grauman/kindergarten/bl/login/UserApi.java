@@ -12,5 +12,6 @@ public interface UserApi {
     void addUser(User user , Callback<User> callback);
     void checkIn(Date time , String userId , Callback<StatusResponse> callback);
     void checkOut(Date time , String userId , Callback<StatusResponse> callback);
+    void getLogedout(Callback<StatusResponse> callback);
 
 }

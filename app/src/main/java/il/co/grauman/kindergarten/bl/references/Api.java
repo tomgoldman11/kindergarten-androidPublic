@@ -60,7 +60,7 @@ public interface Api {
     @POST("shifts/checkout")
     Call<StatusResponse> checkOut(@Body ChckInOutRequest checkOutRequest);
 
-    @GET("shifts/hours-report-worker/{userID}/{month}/{year}")
+    @GET("shifts/hours-report-worker/{userID}/date/{month}/{year}")
     Call<List<WorkHours>> getHoursReportForWorker(@Path("userID") String userID,@Path("month") int month,@Path("year") int year);
 
     @GET("shifts/hours-report-all/{month}/{year}")

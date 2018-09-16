@@ -84,7 +84,8 @@
         app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDate"
+        />
 
     <TableLayout
         android:id="@+id/tlWorkArrangement"
@@ -147,7 +148,8 @@
                 android:layout_weight="1"
                 android:background="#0288d1"
                 android:src="@drawable/add_ic"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:onClick="addWorkerSelect"/>
 
             <ImageButton
                 android:id="@+id/btnEditWorkSunday"
@@ -211,7 +213,8 @@
                 android:background="#0288d1"
                 android:src="@drawable/add_ic"
                 android:layout_weight="1"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:onClick="addWorkerSelect" />
 
             <ImageButton
                 android:id="@+id/btnEditWorkMonday"
@@ -270,7 +273,8 @@
                 android:background="#0288d1"
                 android:src="@drawable/add_ic"
                 android:layout_weight="1"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:onClick="addWorkerSelect"/>
 
             <ImageButton
                 android:id="@+id/btnEditWorkTuesday"

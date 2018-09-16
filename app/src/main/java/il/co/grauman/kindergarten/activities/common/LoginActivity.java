@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
                         User tempUser = response.body();
                         SPref.getInstance().putString(Constants.USERNAME, username.getText().toString());
-                        SPref.getInstance().putInt(Constants.ROLE, tempUser.getRole().ordinal());
+                        SPref.getInstance().putInt(Constants.ROLE, tempUser.getCategory().ordinal());
                         LoginActivity.this.onLoginSucceed();
                     }
 

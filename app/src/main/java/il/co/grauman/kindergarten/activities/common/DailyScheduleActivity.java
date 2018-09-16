@@ -10,21 +10,32 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.bl.reports.ReportSheets;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivty;
 import il.co.grauman.kindergarten.models.DailySchedule;
 import il.co.grauman.kindergarten.models.DailyScheduleAdapter;
 import il.co.grauman.kindergarten.models.DateManager;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DailyScheduleActivity extends BaseDrawerActivity {
     TextView date;
     RecyclerView schedule;
     ImageView arrowRight;
     ImageView arrowLeft;
+
+    DateManager dateManager;
 
     private RecyclerView mRecyclerView;
     private DailyScheduleAdapter mAdapter;
@@ -37,7 +48,7 @@ public class DailyScheduleActivity extends BaseDrawerActivity {
 
         setUIElements();
 
-        DateManager dateManager = new DateManager(date, arrowRight, arrowLeft);
+        dateManager = new DateManager(date, arrowRight, arrowLeft);
 
         setSchedule();
 
@@ -52,21 +63,29 @@ public class DailyScheduleActivity extends BaseDrawerActivity {
     }
 
     private void setSchedule(){
-        ArrayList<DailySchedule> dailyActivities = new ArrayList<DailySchedule>();
+        Date currentDate = dateManager.getCurrentDate();
+        ReportSheets.getInstace().getDailySchedule(currentDate, new Callback<List<DayActivty>>(){
 
-        //TO-DO: ADD THE FUNCTION THAT GETS DATA FROM BL FOR THE DAILY SCHEDULE
-        // STATIC DATA FOR NOW
-        dailyActivities.add(new DailySchedule("8","אוכל"));
-        dailyActivities.add(new DailySchedule("9","פיפי"));
-        dailyActivities.add(new DailySchedule("10","סקראם"));
+            @Override
+            public void onResponse(Call<List<DayActivty>> call, Response<List<DayActivty>> response) {
 
-        mAdapter = new DailyScheduleAdapter(this, dailyActivities);
+                List<DayActivty> dailyActivities = response.body();
 
-        mRecyclerView = findViewById(R.id.schedule);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+                mAdapter = new DailyScheduleAdapter(DailyScheduleActivity.this, dailyActivities);
 
-        mRecyclerView.setAdapter(mAdapter);
+                mRecyclerView = findViewById(R.id.schedule);
+                mLayoutManager = new LinearLayoutManager(DailyScheduleActivity.this);
+                mRecyclerView.setLayoutManager(mLayoutManager);
+
+                mRecyclerView.setAdapter(mAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<DayActivty>> call, Throwable t) {
+
+            }
+
+        });
 
     }
 

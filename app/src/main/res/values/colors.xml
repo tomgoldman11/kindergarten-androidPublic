@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 245b0f4a46aa12e4e37f28a11096247b7d8f7e6b
     <!--<color name="colorPrimary">#0288D1</color>-->
     <!--<color name="colorPrimaryDark">#01579B</color>-->
     <!--<color name="colorPrimaryDarker">#01467c</color>-->
@@ -12,8 +15,11 @@
     <!--<color name="black">#1a1818</color>-->
     <!--<color name="lightBlue">#CED8F6</color>-->
 
+<<<<<<< HEAD
 =======
 >>>>>>> e81bfae22f1fbe1e11a2946e23717012b6a7f3c0
+=======
+>>>>>>> 245b0f4a46aa12e4e37f28a11096247b7d8f7e6b
 <color name="colorPrimary">#0288D1</color>
 <color name="colorPrimaryDark">#01579B</color>
 <color name="colorPrimaryDarker">#01467c</color>

@@ -24,6 +24,9 @@
     <string name="new_event">New Event</string>
     <string name="home">בית</string>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 245b0f4a46aa12e4e37f28a11096247b7d8f7e6b
     <string name="date_format">%s/%s/%s</string>
 
     <!--<string name="events">אירועים  -  </string>-->
@@ -61,13 +64,22 @@
     <!--<string name="pictures">תמנות</string>-->
     <!--<string name="add_event_description_title">הוספת תיאור</string>-->
 
+<<<<<<< HEAD
 =======
     <string name="date_format">%s%s%s</string>
     <string name="add_event">הוסף תיאור ארוע</string>
+=======
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="try_again">אירעה תקלה, אנא נסו שוב</string>
+    <string name="event_added_to_calendar">האירוע %s נוסף ללוח השנה בהצלחה</string>
+    <string name="add_event_description_title">תיאור האירוע</string>
+    <string name="date">תאריך</string>
+    <string name="error_adding_event">אירעה תקלה בהוספת האירוע, אנא נסה שוב</string>
+
+>>>>>>> 245b0f4a46aa12e4e37f28a11096247b7d8f7e6b
     <string name="see_event_description">תיאור הארוע</string>
     <string name="pictures">תמונות</string>
 
-   <!-- reham ressources-->
     <string name="worker1">עובד1</string>
     <string name="add_hours">שבץ</string>
     <string name="prev_week">שבוע שעבר</string>
@@ -100,6 +112,7 @@
     <string name="back">חזרה</string>
     <string name="begin_day">יום התחלה</string>
     <string name="end_day">יום סיום</string>
+<<<<<<< HEAD
 >>>>>>> e81bfae22f1fbe1e11a2946e23717012b6a7f3c0
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="try_again">אירעה תקלה, אנא נסו שוב</string>
@@ -143,6 +156,8 @@
     <string name="back">חזרה</string>
     <string name="begin_day">יום התחלה</string>
     <string name="end_day">יום סיום</string>
+=======
+>>>>>>> 245b0f4a46aa12e4e37f28a11096247b7d8f7e6b
     <string name="events">ארועים -</string>
     <string name="hours">שעות</string>
     <string name="this_month_work_hours">החודש הזה עבדת</string>
@@ -150,8 +165,11 @@
     <string name="add_title">הוסף כותרת ארוע</string>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> e81bfae22f1fbe1e11a2946e23717012b6a7f3c0
+=======
+>>>>>>> 245b0f4a46aa12e4e37f28a11096247b7d8f7e6b
 </resources>

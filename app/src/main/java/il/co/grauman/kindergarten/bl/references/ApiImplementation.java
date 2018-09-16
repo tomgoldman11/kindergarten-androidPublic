@@ -9,7 +9,7 @@ import retrofit2.Response;
 
 public class ApiImplementation{
 
-    public static  <T> void apiImplementation(Callback<T> callback, Supplier<Call<T>> func) {
+    public static  <C,T> void apiImplementation(Callback<T> callback, Supplier<Call<T>> func) {
         Call<T> call = func.get();
         call.enqueue(new Callback<T>() {
             @Override

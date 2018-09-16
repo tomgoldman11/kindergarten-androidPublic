@@ -96,6 +96,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
                 DailySummary newEvent = response.body();
 
                 // get data from dailysummary class object
+
                 String eventDescription = newEvent.getEvent();
                 List<String> eventImages = (List<String>) newEvent.getPictures();
 

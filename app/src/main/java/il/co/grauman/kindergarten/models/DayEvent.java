@@ -1,9 +1,15 @@
-package il.co.grauman.kindergarten.bl.calender;
+package il.co.grauman.kindergarten.models;
 
+
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Time;
-import java.util.Date;
+
+import il.co.grauman.kindergarten.enums.EventType;
 
 public class DayEvent {
+
     private int id;
     private Date date;
     private EventType type;
@@ -20,6 +26,7 @@ public class DayEvent {
         this.from = from;
         this.to = to;
     }
+
 
     public int getId() {
         return id;

@@ -86,7 +86,7 @@ public interface Api {
     Call<List<DayEvent>> updateCalender(@Body DayEvent newEvent);
 
     @POST("events/add")
-    Call<List<DayEvent>> addCalender(@Body DayEvent dayEvent);
+    Call<DayEvent> addCalender(@Body DayEvent dayEvent);
     @POST("events/delete")
     Call<DayEvent> deleteCalender(@Body DayEvent dayEvent);
 

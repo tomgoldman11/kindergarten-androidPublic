@@ -29,7 +29,7 @@ public class Calender {
                 }
 
                 @Override
-                public void addEventToCalender(DayEvent newEvent, Callback<List<DayEvent>> callback) {
+                public void addEventToCalender(DayEvent newEvent, Callback<DayEvent> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().addCalender(newEvent));
                 }

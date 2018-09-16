@@ -1,9 +1,11 @@
 package il.co.grauman.kindergarten.activities.common;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.R;
+import il.co.grauman.kindergarten.activities.admin.AddEventToCalendarActivity;
 import il.co.grauman.kindergarten.bl.calender.Calender;
 import il.co.grauman.kindergarten.bl.calender.DayEvent;
 import il.co.grauman.kindergarten.enums.Role;

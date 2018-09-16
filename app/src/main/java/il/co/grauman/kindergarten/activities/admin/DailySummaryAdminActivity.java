@@ -7,7 +7,7 @@ import il.co.grauman.kindergarten.activities.common.DailySummaryActivity;
 public class DailySummaryAdminActivity extends DailySummaryActivity {
     View addEventBtn;
 
-    DailySummaryAdminActivity() {
+    public DailySummaryAdminActivity() {
         super();
     }
 

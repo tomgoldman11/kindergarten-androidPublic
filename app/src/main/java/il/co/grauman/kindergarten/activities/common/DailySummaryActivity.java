@@ -1,9 +1,8 @@
 package il.co.grauman.kindergarten.activities.common;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
@@ -18,12 +17,11 @@ import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.admin.AddEventFragment;
 import il.co.grauman.kindergarten.bl.reports.ReportSheets;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
 import il.co.grauman.kindergarten.enums.Role;
-import il.co.grauman.kindergarten.models.DateManager;
 import il.co.grauman.kindergarten.models.DailySummaryAdapter;
+import il.co.grauman.kindergarten.models.DateManager;
 import il.co.grauman.kindergarten.utils.Constants;
 import il.co.grauman.kindergarten.utils.SPref;
 import retrofit2.Call;
@@ -51,23 +49,23 @@ public class DailySummaryActivity extends BaseDrawerActivity {
 
         setUIElements();
 
-<<<<<<< HEAD
-=======
-        setRoleBasedUIElemnts();
-
->>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e
+//<<<<<<< HEAD
+//=======
+//        setRoleBasedUIElemnts();
+//
+//>>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e
         dateManager = new DateManager(date, arrowRight, arrowLeft);
 
         setSummary();
     }
+//
+//<<<<<<< HEAD
+//        addEventBtn.setOnClickListener(v -> public navigateToFragment(new AddEventFragment()));
+//=======
+//    protected void setRoleBasedUIElemnts() {
+//
+//>>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e
 
-<<<<<<< HEAD
-        addEventBtn.setOnClickListener(v -> public navigateToFragment(new AddEventFragment()));
-=======
-    protected void setRoleBasedUIElemnts() {
-
->>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e
-    }
 
     protected void navigateToFragment(Fragment newFragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

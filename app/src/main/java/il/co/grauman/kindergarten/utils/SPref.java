@@ -12,7 +12,7 @@ public class SPref {
     private SharedPreferences sharedPreferences;
 
     synchronized public static SPref getInstance() {
-        if(instance == null){
+        if (instance == null) {
             instance = new SPref();
         }
         return instance;
@@ -22,21 +22,21 @@ public class SPref {
         sharedPreferences = App.getInstance().getSharedPreferences(Constants.SHAREDPREF, Context.MODE_PRIVATE);
     }
 
-    public String getString(String key, String defValue){
+    public String getString(String key, String defValue) {
         return sharedPreferences.getString(key, defValue);
     }
 
-    public void putString(String key, String value){
+    public void putString(String key, String value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value);
         editor.apply();
     }
 
-    public Integer getInt(String key, Integer defValue){
+    public Integer getInt(String key, Integer defValue) {
         return sharedPreferences.getInt(key, defValue);
     }
 
-    public void putInt(String key, Integer value){
+    public void putInt(String key, Integer value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(key, value);
         editor.apply();
@@ -44,5 +44,9 @@ public class SPref {
 
     public boolean contains(String key) {
         return sharedPreferences.contains(key);
+    }
+
+    public void clearAll() {
+        sharedPreferences.edit().clear().apply();
     }
 }

@@ -3,6 +3,7 @@ package il.co.grauman.kindergarten.bl.references;
 import java.util.Date;
 import java.util.List;
 
+import il.co.grauman.kindergarten.BuildConfig;
 import il.co.grauman.kindergarten.bl.calender.DayEvent;
 import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
@@ -28,16 +29,16 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface Api {
-    public final String BASE_URL ="http://localhost/Authentication/webapi/";
+    String BASE_URL = BuildConfig.DEBUG ? "http://192.168.43.217:8080/kindergarten-rest/webapi/" : "http://3.120.93.72/kindergarten/webapi/";
 
-    @POST ("auth/login")
-    Call<User>userLogin(@Body LoginRequest req);
+    @POST("auth/login")
+    Call<User> userLogin(@Body LoginRequest req);
 
-    @POST ("shifts/get-by-date-by-worker/from")
+    @POST("shifts/get-by-date-by-worker/from")
     Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
 
     @GET("shifts/get-by-date/from/{fromDate}/to/{toDate}")
-    Call<List<DailyShift>> getWorkSchedule( String formDate);
+    Call<List<DailyShift>> getWorkSchedule(String formDate);
 
     @POST("shifts/add")
     Call<DailyShift> addShift(@Body DailyShift dailyShift);
@@ -72,14 +73,14 @@ public interface Api {
     @POST("summary/add-daily-summary")
     Call<DailySummaryDTO> addDailySummary(@Body DailySummaryRequest dailySummary);
 
-    @POST("events/get")
-    Call<List<DayEvent>> getCalender(@Body int year);
+    @GET("events/get/{year}")
+    Call<List<DayEvent>> getCalender(@Path("year") int year);
 
     @POST("events/update")
-    Call<List<DayEvent>> updateCalender(@Body DayEvent newEvent);
+    Call<DayEvent> updateCalender(@Body DayEvent newEvent);
 
     @POST("events/add")
-    Call<List<DayEvent>> addCalender(@Body DayEvent dayEvent);
+    Call<DayEvent> addCalender(@Body DayEvent dayEvent);
 
     @POST("admin/")
     Call<List<Child>> getLateChildren(@Body Date day);

@@ -82,14 +82,14 @@ public class AddEventFragment extends Fragment {
         });
     }
 
-    private void saveEvent(){
+    private void saveEvent() {
         String description = eventDescription.getText().toString();
 //        Toast.makeText(getContext(), description.toString(), Toast.LENGTH_LONG).show();
 //        Toast.makeText(getContext(), images.toString(), Toast.LENGTH_LONG).show();
         //ReportSheets.getInstace().setDailySchedule(description, images);
     }
 
-    private void openGallery(){
+    private void openGallery() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
@@ -98,8 +98,8 @@ public class AddEventFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Activity.RESULT_OK)
-            switch (requestCode){
+        if (resultCode == Activity.RESULT_OK)
+            switch (requestCode) {
                 case GALLERY_REQUEST:
                     Uri selectedImage = data.getData();
                     try {
@@ -115,20 +115,22 @@ public class AddEventFragment extends Fragment {
                     break;
             }
     }
-    private byte[] convertImageFromBitmapToBytes(Bitmap bitmap){
+
+    private byte[] convertImageFromBitmapToBytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
     }
-    private void addNewImageViewToScrollView(Bitmap bitmap){
+
+    private void addNewImageViewToScrollView(Bitmap bitmap) {
         ImageView currentImage = new ImageView(getContext());
         currentImage.setImageBitmap(bitmap);
         dynamicImagesLayout.addView(currentImage);
     }
 
 
-    private void setUIElements(){
+    private void setUIElements() {
         date = getView().findViewById(R.id.tvDate);
         arrowRight = getView().findViewById(R.id.ivRightArrow);
         arrowLeft = getView().findViewById(R.id.ivLeftArrow);

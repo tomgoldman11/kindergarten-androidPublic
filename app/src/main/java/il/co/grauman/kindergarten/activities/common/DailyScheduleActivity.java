@@ -31,6 +31,11 @@ public class DailyScheduleActivity extends BaseDrawerActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
+    protected int getDrawerItemId() {
+        return 0;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_schedule);
@@ -44,16 +49,16 @@ public class DailyScheduleActivity extends BaseDrawerActivity {
     }
 
 
-    private void setUIElements(){
+    private void setUIElements() {
         date = findViewById(R.id.title_m);
         rvSchedule = findViewById(R.id.rvSchedule);
         arrowRight = findViewById(R.id.btnRightArrow);
         arrowLeft = findViewById(R.id.btnLeftArrow);
     }
 
-    private void setSchedule(){
+    private void setSchedule() {
         Date currentDate = dateManager.getCurrentDate();
-        ReportSheets.getInstace().getDailySchedule(currentDate, new Callback<List<Agenda>>(){
+        ReportSheets.getInstace().getDailySchedule(currentDate, new Callback<List<Agenda>>() {
 
             @Override
             public void onResponse(Call<List<Agenda>> call, Response<List<Agenda>> response) {

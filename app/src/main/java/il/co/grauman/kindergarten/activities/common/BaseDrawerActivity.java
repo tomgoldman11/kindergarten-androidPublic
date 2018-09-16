@@ -1,7 +1,6 @@
 package il.co.grauman.kindergarten.activities.common;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,22 +16,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.admin.AdminMainActivity;
-import il.co.grauman.kindergarten.activities.admin.DailyScheduleAdminActivity;
-import il.co.grauman.kindergarten.activities.admin.DailySummaryAdminActivity;
-import il.co.grauman.kindergarten.activities.admin.WorkScheduleAdminActivity;
-import il.co.grauman.kindergarten.activities.employee.DailyScheduleEmployeeActivity;
-import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
-import il.co.grauman.kindergarten.activities.employee.MessagesEmployeeActivity;
-import il.co.grauman.kindergarten.activities.employee.WorkScheduleEmployeeActivity;
-import il.co.grauman.kindergarten.activities.user.UserMainActivity;
 import il.co.grauman.kindergarten.enums.Role;
+import il.co.grauman.kindergarten.models.User;
+import il.co.grauman.kindergarten.services.AuthService;
 import il.co.grauman.kindergarten.utils.Constants;
 import il.co.grauman.kindergarten.utils.SPref;
 import il.co.grauman.kindergarten.utils.Util;
+import java8.util.function.Consumer;
 
 @SuppressLint("Registered")
 public abstract class BaseDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    protected abstract int getDrawerItemId();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +35,13 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
         super.setContentView(R.layout.activity_drawer_main);
         Util.setRtl(this, "he");
         setSupportActionBar(getToolbar());
+        AuthService.isLoggedIn(user -> {
+            if (user.getCategory() == Role.NONE) {
+                SPref.getInstance().clearAll();
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
+            }
+        });
     }
 
     @Override
@@ -74,20 +76,29 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
                 return R.menu.admin_drawer_menu;
             case EMPLOYEE:
                 return R.menu.employee_drawer_menu;
-            case USER:
-                return R.menu.user_drawer_menu;
             default:
-                throw new IllegalStateException();
+                return -1;
         }
     }
 
+    public void setBackButton(boolean visible) {
+
+    }
 
     protected void setupDrawerMenuItems() {
         DrawerLayout drawer = getDrawerLayout();
         NavigationView navigationView = getNavigationView();
         Toolbar toolbar = getToolbar();
 
-        getNavigationView().inflateMenu(getDrawerMenu());
+        getNavigationView().getMenu().clear();
+        int menuResource = getDrawerMenu();
+        getNavigationView().inflateMenu(R.menu.header_drawer_menu);
+        if (menuResource != -1) {
+            getNavigationView().inflateMenu(menuResource);
+        }
+        getNavigationView().inflateMenu(R.menu.footer_drawer_menu);
+        getNavigationView().getMenu().findItem(getDrawerItemId()).setCheckable(true).setChecked(true);
+
 
         // init Action Bar Drawer Toggle [Hamburger]
         // link toggle -> drawer left view
@@ -119,52 +130,39 @@ public abstract class BaseDrawerActivity extends AppCompatActivity implements Na
         int id = item.getItemId();
         getDrawerLayout().closeDrawer(GravityCompat.START);
         switch (id) {
-            // admin fragments
-            case R.id.adminHome:
-                navigateToActivity(new AdminMainActivity());
+            case R.id.dailySummaryMenu:
+                navigateToActivity(DailySummaryActivity.class);
                 break;
-            case R.id.adminDailySchedule:
-                navigateToActivity(new DailyScheduleActivity());
+            case R.id.calendarMenu:
+                navigateToActivity(CalendarScheduleActivity.class);
                 break;
-            case R.id.adminCalendar:
-                navigateToActivity(new CalendarScheduleActivity());
+            case R.id.messagesMenu:
+                navigateToActivity(MessagesActivity.class);
                 break;
-            case R.id.adminWorkSchedule:
-                navigateToActivity(new WorkScheduleAdminActivity());
-                break;
-            case R.id.adminDailySummary:
-                navigateToActivity(new DailySummaryAdminActivity());
+            case R.id.logoutMenu:
+                SPref.getInstance().clearAll();
+                navigateToActivity(MainActivity.class);
                 break;
 
-
-            case R.id.userHome:
-                navigateToActivity(new UserMainActivity());
+            // admin
+            case R.id.adminDailySummaryMenu:
                 break;
-
-
-            case R.id.employeeHome:
-                navigateToActivity(new EmployeeMainActivity());
+            case R.id.adminDailyScheduleMenu:
                 break;
-            case R.id.employeeCalendar:
+            case R.id.adminWorkScheduleMenu:
                 break;
-            case R.id.employeeDailySchedule:
-                navigateToActivity(new DailyScheduleEmployeeActivity());
+            // employee
+            case R.id.employeeDailyScheduleMenu:
                 break;
-            case R.id.employeeWorkSchedule:
-                navigateToActivity(new WorkScheduleEmployeeActivity());
-                break;
-            case R.id.employeeMessages:
-                navigateToActivity(new MessagesEmployeeActivity());
+            case R.id.employeeWorkScheduleMenu:
                 break;
         }
 
         return true;
     }
 
-    protected void navigateToActivity(Activity newIntent) {
-        Intent intent = new Intent(BaseDrawerActivity.this, newIntent.getClass());
-
-        startActivity(intent);
+    protected void navigateToActivity(Class c) {
+        startActivity(new Intent(BaseDrawerActivity.this, c));
         finish();
     }
 

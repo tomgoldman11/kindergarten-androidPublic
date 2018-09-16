@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="end"
+    android:layoutDirection="rtl">
     <group
-        android:id="@+id/groupUser"
-        android:checkableBehavior="single">
+        android:id="@+id/groupAdmin"
+        android:layout_gravity="end"
+        android:checkableBehavior="single"
+        android:gravity="end">
+
         <item
-            android:id="@+id/userHome"
-            android:checkable="false"
-            android:icon="@drawable/ic_menu_home"
-            android:title="@string/home_page" />
-        <item
-            android:id="@+id/userDailySummary"
+            android:id="@+id/dailySummaryMenu"
             android:checkable="false"
             android:icon="@drawable/ic_menu_daily_summary"
             android:title="@string/daily_summary" />
 
         <item
-            android:id="@+id/userCalendar"
+            android:id="@+id/calendarMenu"
             android:checkable="false"
             android:icon="@drawable/ic_menu_calendar"
             android:title="@string/calendar" />
 
         <item
-            android:id="@+id/userMessages"
+            android:id="@+id/messagesMenu"
             android:checkable="false"
             android:icon="@drawable/ic_menu_message"
             android:title="@string/messages" />
+
     </group>
 </menu>

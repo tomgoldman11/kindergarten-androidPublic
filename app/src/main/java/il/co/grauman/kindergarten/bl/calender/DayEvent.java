@@ -4,21 +4,26 @@ import java.sql.Time;
 import java.util.Date;
 
 public class DayEvent {
-    private int id;
+    private Integer id;
+    private String title;
+    private String description;
     private Date date;
     private EventType type;
-    private String description;
     private Time from;
     private Time to;
 
-
-    public DayEvent(int id, Date date, EventType type, String description, Time from, Time to) {
+    public DayEvent(Integer id, String title, String description, Date date, EventType type, Time from, Time to) {
         this.id = id;
+        this.title = title;
+        this.description = description;
         this.date = date;
         this.type = type;
-        this.description = description;
         this.from = from;
         this.to = to;
+    }
+
+    public DayEvent(String title, String description, Date date, EventType type, Time from, Time to) {
+        this(null, title, description, date, type, from, to);
     }
 
     public int getId() {
@@ -67,5 +72,13 @@ public class DayEvent {
 
     public void setTo(Time to) {
         this.to = to;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

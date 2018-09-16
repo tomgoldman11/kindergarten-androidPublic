@@ -2,4 +2,20 @@
 <resources>
     <string name="child_name">child name</string>
     <string name="welcome_home">ברוך הבא s%</string>
+    <string name="add_new">הוספה</string>
+    <string name="select_event_type">סוג אירוע</string>
+    <string name="from_hour">משעה</string>
+    <string name="to_hour">לשעה</string>
+    <string name="must_not_be_empty">לא יכול להיות ריק</string>
+    <string name="error">תקלה</string>
+    <string name="ok">אישור</string>
+    <string name="select_event_type_error">בחר סוג אירוע</string>
+    <string name="select_from_hour_error">בחר שעת התחלה</string>
+    <string name="select_to_hour_error">בחר שעת סיום</string>
+    <string name="add_new_event_title">הוספת אירוע חדש</string>
+    <string name="event_type_name_normal">רגיל</string>
+    <string name="event_type_name_birthday">יום הולדת</string>
+    <string name="event_type_name_holiday">חג/חופשה</string>
+    <string name="event_type_name_party">מסיבה</string>
+    <string name="logout">התנתק</string>
 </resources>

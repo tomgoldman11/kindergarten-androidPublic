@@ -46,6 +46,11 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     private ArrayList<DayEvent> eventsForDate;
 
     @Override
+    protected int getDrawerItemId() {
+        return R.id.calendarMenu;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
@@ -63,8 +68,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         simpleCalendarView.setOnDateChangeListener(this);
         adminAddEvents.setOnClickListener(v -> {
             Intent addEventToCalendar = new Intent(this, AddEventToCalendarActivity.class);
-            startActivityForResult(addEventToCalendar,Constants.ADD_EVENT_TO_CALENDAR_REQUEST);
-            //startActivity(addEventToCalendar);
+            startActivityForResult(addEventToCalendar, Constants.ADD_EVENT_TO_CALENDAR_REQUEST);
         });
     }
 
@@ -73,26 +77,25 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         if (requestCode == Constants.ADD_EVENT_TO_CALENDAR_REQUEST) {
             if (resultCode == RESULT_OK) {
                 String result = data.getStringExtra(Constants.EVENT_ADDED_RESULT);
-                Toast.makeText(this, String.format(getResources().getString(R.string.event_added_to_calendar), result), Toast.LENGTH_LONG);
+                Toast.makeText(this, String.format(getResources().getString(R.string.event_added_to_calendar), result), Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this,getResources().getString(R.string.error_adding_event),Toast.LENGTH_LONG);
+//                Toast.makeText(this, getResources().getString(R.string.error_adding_event), Toast.LENGTH_LONG).show();
             }
-            lastYearPicked =-1;
+            lastYearPicked = -1;
         }
     }
 
     public void setEventsListView(ArrayList<DayEvent> events) {
-        ArrayAdapter<DayEvent> adapter = new ArrayAdapter<DayEvent>(this,android.R.layout.simple_list_item_2, android.R.id.text1, events){
+        ArrayAdapter<DayEvent> adapter = new ArrayAdapter<DayEvent>(this, android.R.layout.simple_list_item_2, android.R.id.text1, events) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-
                 TextView text1 = view.findViewById(android.R.id.text1);
                 TextView text2 = view.findViewById(android.R.id.text2);
-
-                text1.setText(events.get(position).getId());
-                text2.setText(events.get(position).getDescription());
+                DayEvent event = events.get(position);
+                text1.setText(event.getDescription());
+                text2.setText(String.format("%s - %s", event.getFrom().toString(), event.getTo().toString()));
                 return view;
             }
         };
@@ -100,18 +103,19 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
     }
 
     private void eventsForSpecificDate(int year, int month, int day) {
-        Log.d(TAG,"EventsForSpecificDate()" + year + "/" + (month+1) + "/" +day);
-        if(year != lastYearPicked){
+        Log.d(TAG, "EventsForSpecificDate()" + year + "/" + (month + 1) + "/" + day);
+        if (year != lastYearPicked) {
             lastYearPicked = year;
             Calender.getInstance().getEventsFromCalender(lastYearPicked, new Callback<List<DayEvent>>() {
                 @Override
-                public void onResponse(Call<List<DayEvent>> call, Response<List<DayEvent>> response) {
+                public void onResponse(@NonNull Call<List<DayEvent>> call, @NonNull Response<List<DayEvent>> response) {
                     yearlyEvents = response.body();
-                    eventsForSpecificDate(year,month,day);
+                    eventsForSpecificDate(year, month, day);
                 }
 
                 @Override
-                public void onFailure(Call<List<DayEvent>> call, Throwable t) {
+                public void onFailure(@NonNull Call<List<DayEvent>> call, @NonNull Throwable t) {
+                    Log.e(TAG, "getEventsFromCalender()", t);
                     lastYearPicked = -1;
                     requestFailed(t.getMessage());
                 }
@@ -123,11 +127,11 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
             selectedDate.set(Calendar.MONTH, month);
             selectedDate.set(Calendar.DAY_OF_MONTH, day);
             eventsForDate = new ArrayList<>();
-            for(int i = 0; i< yearlyEvents.size(); i++){
+            for (int i = 0; i < yearlyEvents.size(); i++) {
                 DayEvent newEvent = yearlyEvents.get(i);
                 Calendar eventDate = Calendar.getInstance();
                 eventDate.setTime(newEvent.getDate());
-                if(selectedDate.equals(eventDate)){
+                if (selectedDate.equals(eventDate)) {
                     eventsForDate.add(newEvent);
                 }
             }
@@ -139,14 +143,13 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         Toast.makeText(this, /*errorMessage +*/ getResources().getString(R.string.try_again), Toast.LENGTH_LONG).show();
     }
 
-
     private void setupUIElements() {
         simpleCalendarView = findViewById(R.id.simpleCalendarView);
         simpleCalendarView.setFirstDayOfWeek(1);
         simpleCalendarView.setDate(Calendar.getInstance().getTimeInMillis());
         eventsListView = findViewById(R.id.lvEvents);
         adminAddEvents = findViewById(R.id.fabAddEvent);
-        if (Role.values()[SPref.getInstance().getInt(Constants.ROLE,3)]==Role.ADMIN){
+        if (Role.values()[SPref.getInstance().getInt(Constants.ROLE, 3)] == Role.ADMIN) {
             adminAddEvents.setVisibility(View.VISIBLE);
         } else {
             adminAddEvents.setVisibility(View.GONE);
@@ -155,26 +158,26 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
         Date today = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy/M/d");
         lastDatePicked = format.format(today);
-        Log.d(TAG, "SetupUIElements() "+ lastDatePicked);
+        Log.d(TAG, "SetupUIElements() " + lastDatePicked);
     }
 
     @Override
     public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-        Log.d(TAG, "onSelectedDayChange() "+ year + "/" + (month+1) + "/" + dayOfMonth);
-        if(String.format("%d/%d/%d",year,month+1,dayOfMonth).equals(lastDatePicked)){
-            if(eventsListView.getVisibility() == View.GONE){
+        Log.d(TAG, "onSelectedDayChange() " + year + "/" + (month + 1) + "/" + dayOfMonth);
+        if (String.format("%d/%d/%d", year, month + 1, dayOfMonth).equals(lastDatePicked)) {
+            if (eventsListView.getVisibility() == View.GONE) {
                 eventsListView.setVisibility(View.VISIBLE);
-                eventsForSpecificDate(year,month,dayOfMonth);
+                eventsForSpecificDate(year, month, dayOfMonth);
             } else {
                 eventsListView.setVisibility(View.GONE);
             }
-        } else{
+        } else {
             eventsListView.setVisibility(View.VISIBLE);
         }
-        lastDatePicked = year + "/" + (month+1) + "/" + dayOfMonth;
+        lastDatePicked = year + "/" + (month + 1) + "/" + dayOfMonth;
     }
 
-    private void navigateToFragment(Fragment newFragment){
+    private void navigateToFragment(Fragment newFragment) {
         android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.subLayout, newFragment);
         transaction.setTransition(android.support.v4.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);

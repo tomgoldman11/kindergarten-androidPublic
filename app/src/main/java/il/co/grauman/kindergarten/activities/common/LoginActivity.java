@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                         User tempUser = response.body();
                         SPref.getInstance().putString(Constants.USERNAME, username.getText().toString());
                         SPref.getInstance().putInt(Constants.ROLE, tempUser.getCategory().ordinal());
+                        SPref.getInstance().putString(Constants.SESSION, response.headers().get("Set-Cookie"));
                         LoginActivity.this.onLoginSucceed();
                     }
 

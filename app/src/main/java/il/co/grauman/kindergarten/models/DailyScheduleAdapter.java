@@ -16,15 +16,16 @@ public class DailyScheduleAdapter extends RecyclerView.Adapter<DailyScheduleAdap
     private Context context;
     private List<Agenda> dailyActivities;
 
-    public DailyScheduleAdapter(Context context, List<Agenda> dailyActivities){
+    public DailyScheduleAdapter(Context context, List<Agenda> dailyActivities) {
         this.context = context;
         this.dailyActivities = dailyActivities;
     }
+
     @NonNull
     @Override
     public DailyScheduleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.activity_daily_schedule_item,null);
+                .inflate(R.layout.activity_daily_schedule_item, null);
         DailyScheduleViewHolder dailyScheduleViewHolder = new DailyScheduleViewHolder(view);
         return dailyScheduleViewHolder;
     }
@@ -41,7 +42,7 @@ public class DailyScheduleAdapter extends RecyclerView.Adapter<DailyScheduleAdap
         return dailyActivities.size();
     }
 
-    public class DailyScheduleViewHolder extends RecyclerView.ViewHolder{
+    public class DailyScheduleViewHolder extends RecyclerView.ViewHolder {
         TextView activityData;
         TextView activityHour;
 

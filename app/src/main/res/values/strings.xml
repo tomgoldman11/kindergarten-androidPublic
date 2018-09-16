@@ -23,6 +23,7 @@
     <string name="subject">:נושא</string>
     <string name="new_event">New Event</string>
     <string name="home">בית</string>
+<<<<<<< HEAD
     <string name="date_format">%s/%s/%s</string>
 
     <!--<string name="events">אירועים  -  </string>-->
@@ -60,6 +61,46 @@
     <!--<string name="pictures">תמנות</string>-->
     <!--<string name="add_event_description_title">הוספת תיאור</string>-->
 
+=======
+    <string name="date_format">%s%s%s</string>
+    <string name="add_event">הוסף תיאור ארוע</string>
+    <string name="see_event_description">תיאור הארוע</string>
+    <string name="pictures">תמונות</string>
+
+   <!-- reham ressources-->
+    <string name="worker1">עובד1</string>
+    <string name="add_hours">שבץ</string>
+    <string name="prev_week">שבוע שעבר</string>
+    <string name="next_week">שבוע הבא</string>
+    <string name="Work_Arrangement">שיבוץ עובדים</string>
+    <string name="worker">עובד</string>
+    <string name="sunday">ראשון</string>
+    <string name="monday">שני</string>
+    <string name="tuesday">שלישי</string>
+    <string name="wednsday">רביעי</string>
+    <string name="thirsday">חמישי</string>
+    <string name="friday">שישי</string>
+    <string name="garden">גן ילדים</string>
+    <string name="add" >הוספה</string>
+    <string name="Worker_name">שם עובד</string>
+    <string name= "dateOfthisweek">תאריך של תחילת שבוע זה</string>
+    <string name= "shift1">משמרת 1</string>
+    <string name= "shift2">משמרת 2</string>
+    <string name="Cancel">ביטול</string>
+    <string name="OK">אישור</string>
+    <string name="ArrangeWorker">שיבוץ עובד</string>
+    <string name="chooseShift">בחירת משמרת</string>
+    <string name="chooseDay">בחירת יום מהשבוע</string>
+    <string name="chooseWorker">בחירת עובד</string>
+    <string name="edit_arrang">עריכת עובד</string>
+    <string name="workerName">שם עובד</string>
+    <string name="day">יום</string>
+    <string name="From">משעה</string>
+    <string name="To">עד שעה</string>
+    <string name="back">חזרה</string>
+    <string name="begin_day">יום התחלה</string>
+    <string name="end_day">יום סיום</string>
+>>>>>>> e81bfae22f1fbe1e11a2946e23717012b6a7f3c0
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="try_again">אירעה תקלה, אנא נסו שוב</string>
     <string name="event_added_to_calendar">האירוע %s נוסף ללוח השנה בהצלחה</string>
@@ -108,4 +149,9 @@
     <string name="monthly_work_hours">%d</string>
     <string name="add_title">הוסף כותרת ארוע</string>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e81bfae22f1fbe1e11a2946e23717012b6a7f3c0
 </resources>

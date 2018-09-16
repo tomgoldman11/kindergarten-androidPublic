@@ -23,7 +23,13 @@
         <item
             android:id="@+id/userMessages"
             android:checkable="false"
+<<<<<<< HEAD
             android:icon="@drawable/ic_menu_message"
             android:title="@string/messages" />
+=======
+            android:title="@string/messages"
+            android:icon="@drawable/ic_menu_message" />
+
+>>>>>>> e81bfae22f1fbe1e11a2946e23717012b6a7f3c0
     </group>
 </menu>

@@ -2,6 +2,9 @@
 <resources>
     <string name="child_name">child name</string>
     <string name="welcome_home">ברוך הבא s%</string>
+<<<<<<< HEAD
     <string name="Workers_names">שמות</string>
     <string name="select_date">בחר תאריך</string>
+=======
+>>>>>>> e81bfae22f1fbe1e11a2946e23717012b6a7f3c0
 </resources>

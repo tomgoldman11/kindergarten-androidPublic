@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <!--<color name="colorPrimary">#0288D1</color>-->
     <!--<color name="colorPrimaryDark">#01579B</color>-->
     <!--<color name="colorPrimaryDarker">#01467c</color>-->
@@ -11,6 +12,8 @@
     <!--<color name="black">#1a1818</color>-->
     <!--<color name="lightBlue">#CED8F6</color>-->
 
+=======
+>>>>>>> e81bfae22f1fbe1e11a2946e23717012b6a7f3c0
 <color name="colorPrimary">#0288D1</color>
 <color name="colorPrimaryDark">#01579B</color>
 <color name="colorPrimaryDarker">#01467c</color>

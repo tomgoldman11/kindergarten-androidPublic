@@ -33,10 +33,10 @@ public interface Api {
     @POST ("auth/login")
     Call<User>userLogin(@Body LoginRequest req);
 
-    @POST ("shifts/get-by-date-by-worker/from")
+    @GET ("shifts/get-by-date-by-worker{workerId}/from/{fromDate}")
     Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
 
-    @GET("shifts/get-by-date/from/{fromDate}/to/{toDate}")
+    @GET("shifts/get-by-date/from/{fromDate}")
     Call<List<DailyShift>> getWorkSchedule( String formDate);
 
     @POST("shifts/add")
@@ -57,22 +57,29 @@ public interface Api {
     @POST("shifts/checkout")
     Call<StatusResponse> checkOut(@Body ChckInOutRequest checkOutRequest);
 
-    @POST("shifts/hours-report-worker")
+    @GET("shifts/hours-report-worker/{userID}/{month}/{year}")
     Call<List<WorkHours>> getHoursReportForWorker(@Body EmployeeReportsRequest request);
 
-    @POST("shifts/hours-report-all")
+    @GET("shifts/hours-report-all/{day}")
     Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
 
-    @POST("agenda/get-agenda")
+    @POST("agenda/add-agenda-part")
+    Call<Agenda> addDailySchedule(@Body Agenda newAgenda);
+
+    @POST("agenda/remove-agenda-part")
+    Call<Agenda> removeDailySchedule(@Body Agenda newAgenda);
+
+    @GET("agenda/get-agenda/{day}")
     Call<List<Agenda>> getDailySchedule(@Body Date day);
 
-    @POST("summary/get-daily-summary")
+
+    @GET("summary/get-daily-summary/{day}")
     Call<DailySummaryDTO> getDailySummary(@Body Date day);
 
     @POST("summary/add-daily-summary")
     Call<DailySummaryDTO> addDailySummary(@Body DailySummaryRequest dailySummary);
 
-    @POST("events/get")
+    @GET("events/get/{year}")
     Call<List<DayEvent>> getCalender(@Body int year);
 
     @POST("events/update")
@@ -80,8 +87,11 @@ public interface Api {
 
     @POST("events/add")
     Call<List<DayEvent>> addCalender(@Body DayEvent dayEvent);
+    @POST("events/delete")
+    Call<DayEvent> deleteCalender(@Body DayEvent dayEvent);
 
-    @POST("admin/")
+
+    @GET("admin/late/{day}")
     Call<List<Child>> getLateChildren(@Body Date day);
 
     @POST("myresource/reports_to")
@@ -90,6 +100,6 @@ public interface Api {
     @POST("myresource/get_reports")
     Call<List<Report>> getReports();
 
-    @POST("myresource/get_workers_list")
+    @GET("myresource/get-workers")
     Call<List<User>> getWorkersList();
 }

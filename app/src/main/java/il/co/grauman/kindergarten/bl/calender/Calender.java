@@ -33,6 +33,12 @@ public class Calender {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().addCalender(newEvent));
                 }
+
+                @Override
+                public void deleteEventToCalender(DayEvent newEvent, Callback<DayEvent> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().deleteCalender(newEvent));
+                }
             };
         }
 

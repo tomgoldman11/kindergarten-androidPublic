@@ -26,6 +26,7 @@
 
 
             <ImageView
+                android:id="@+id/btnLeftArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/back_ic" />
@@ -45,6 +46,7 @@
 
 
             <ImageView
+                android:id="@+id/btnRightArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/next_ic"

@@ -45,10 +45,10 @@ public class DailyScheduleActivity extends BaseDrawerActivity {
 
 
     private void setUIElements(){
-        date = findViewById(R.id.date);
+        date = findViewById(R.id.title_m);
         rvSchedule = findViewById(R.id.rvSchedule);
-        arrowRight = findViewById(R.id.rightArrow);
-        arrowLeft = findViewById(R.id.leftArrow);
+        arrowRight = findViewById(R.id.btnRightArrow);
+        arrowLeft = findViewById(R.id.btnLeftArrow);
     }
 
     private void setSchedule(){

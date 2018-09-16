@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -38,7 +39,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
     ImageView arrowLeft;
     TextView description;
     LinearLayout DynamicImagesLayout;
-    protected Button addEventBtn;
+    protected ImageButton addEventBtn;
     DateManager dateManager;
 
     private RecyclerView mRecyclerView;
@@ -52,14 +53,14 @@ public class DailySummaryActivity extends BaseDrawerActivity {
 
         setUIElements();
 
-        setRoleBasedUIElemnts();
+        setRoleBasedUIElements();
 
         dateManager = new DateManager(date, arrowRight, arrowLeft);
 
         setSummary();
     }
 
-    protected void setRoleBasedUIElemnts() {
+    protected void setRoleBasedUIElements() {
 
     }
 
@@ -77,7 +78,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
         description = findViewById(R.id.description);
         arrowRight = findViewById(R.id.rightArrow);
         arrowLeft = findViewById(R.id.leftArrow);
-        //addEventBtn = findViewById(R.id.btnNewEvent);
+        addEventBtn = findViewById(R.id.btnNewEvent);
         DynamicImagesLayout = (LinearLayout) findViewById(R.id.linearLayoutDynamicImages);
     }
 

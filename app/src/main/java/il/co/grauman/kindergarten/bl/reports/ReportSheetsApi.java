@@ -33,5 +33,5 @@ public interface ReportSheetsApi {
     void getKids(retrofit2.Callback<List<Kid>> callback);
     void setKidCheckIn(String kidID ,retrofit2.Callback<StatusResponse> callback);
     void setKidCheckOut(String kidID ,retrofit2.Callback<StatusResponse> callback);
-    void getKidContact(retrofit2.Callback<List<KidContact>> callback);
+    void getKidContact(String kidID ,retrofit2.Callback<List<KidContact>> callback);
 }

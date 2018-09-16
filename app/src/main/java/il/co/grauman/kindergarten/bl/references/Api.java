@@ -115,7 +115,7 @@ public interface Api {
     @POST("kid/checkin")
     Call<StatusResponse> setKidCheckOut(@Body String kidID);
 
-    @GET("kid/contacts")
-    Call<List<KidContact>> getKidContact();
+    @GET("kid/contacts/{kidID}")
+    Call<List<KidContact>> getKidContact(@Path("kidID") String kidID);
 
     }

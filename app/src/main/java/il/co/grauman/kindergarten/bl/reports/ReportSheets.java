@@ -125,9 +125,9 @@ public class ReportSheets {
                 }
 
                 @Override
-                public void getKidContact(retrofit2.Callback<List<KidContact>> callback){
+                public void getKidContact(String kidID,retrofit2.Callback<List<KidContact>> callback){
                     ApiImplementation.apiImplementation(callback, ()-> RetrofitInstance.getInstance()
-                    .getApi().getKidContact());
+                    .getApi().getKidContact(kidID));
                 }
 
 

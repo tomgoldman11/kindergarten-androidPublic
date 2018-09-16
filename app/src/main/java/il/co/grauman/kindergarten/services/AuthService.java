@@ -24,10 +24,10 @@ public class AuthService {
      */
     public static void isLoggedIn(Context ctx, @NonNull Consumer<User> callback) throws Exception {
         SPref.getInstance().putString(Constants.USERNAME, "david");
-        SPref.getInstance().putInt(Constants.ROLE, Role.ADMIN.ordinal());
+        SPref.getInstance().putInt(Constants.ROLE, Role.USER.ordinal());
 
         if (!SPref.getInstance().contains(Constants.USERNAME)) {
-            callback.accept(new User("", "", Role.NONE));
+            callback.accept(new User("", "", Role.USER));
             throw new NotLoggedInException(ctx.getString(R.string.user_not_logged_in));
         }
         String username = SPref.getInstance().getString(Constants.USERNAME, "");

@@ -1,16 +1,19 @@
 package il.co.grauman.kindergarten.activities.admin;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
 
-import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.common.BaseDrawerActivity;
+import il.co.grauman.kindergarten.activities.common.DailySummaryActivity;
 
-public class DailySummaryAdminActivity extends BaseDrawerActivity {
+public class DailySummaryAdminActivity extends DailySummaryActivity {
+    View addEventBtn;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily_summary_admin);
+
+
+    protected void setRoleBasedUIElemnts() {
+
+
+        addEventBtn.setVisibility(View.VISIBLE);
+
+        addEventBtn.setOnClickListener(v -> navigateToFragment(new AddEventFragment()));
     }
 }

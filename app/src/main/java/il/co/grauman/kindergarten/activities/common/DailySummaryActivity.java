@@ -1,11 +1,9 @@
 package il.co.grauman.kindergarten.activities.common;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,14 +16,10 @@ import java.util.Date;
 import java.util.List;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.admin.AddEventFragment;
 import il.co.grauman.kindergarten.bl.reports.ReportSheets;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
-import il.co.grauman.kindergarten.enums.Role;
-import il.co.grauman.kindergarten.models.DateManager;
 import il.co.grauman.kindergarten.models.DailySummaryAdapter;
-import il.co.grauman.kindergarten.utils.Constants;
-import il.co.grauman.kindergarten.utils.SPref;
+import il.co.grauman.kindergarten.models.DateManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -51,14 +45,25 @@ public class DailySummaryActivity extends BaseDrawerActivity {
 
         setUIElements();
 
+//<<<<<<< HEAD
+//=======
+//        setRoleBasedUIElemnts();
+//
+//>>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e
         dateManager = new DateManager(date, arrowRight, arrowLeft);
 
         setSummary();
-
-        addEventBtn.setOnClickListener(v -> navigateToFragment(new AddEventFragment()));
     }
+//
+//<<<<<<< HEAD
+//        addEventBtn.setOnClickListener(v -> public navigateToFragment(new AddEventFragment()));
+//=======
+//    protected void setRoleBasedUIElemnts() {
+//
+//>>>>>>> 7b65bf6475dd51ff402c56b2ae622a29c807099e
 
-    private void navigateToFragment(Fragment newFragment){
+
+    protected void navigateToFragment(Fragment newFragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.subLayout, newFragment);
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -67,19 +72,19 @@ public class DailySummaryActivity extends BaseDrawerActivity {
     }
 
     private void setUIElements(){
-        date = findViewById(R.id.date);
-        summary = findViewById(R.id.summary);
-        description = findViewById(R.id.description);
-        arrowRight = findViewById(R.id.rightArrow);
-        arrowLeft = findViewById(R.id.leftArrow);
-        addEventBtn = findViewById(R.id.btnNewEvent);
-        DynamicImagesLayout = (LinearLayout) findViewById(R.id.linearLayoutDynamicImages);
-
-        if (Role.values()[SPref.getInstance().getInt(Constants.ROLE,3)]==Role.ADMIN){
-            addEventBtn.setVisibility(View.VISIBLE);
-        } else {
-            addEventBtn.setVisibility(View.GONE);
-        }
+//        date = findViewById(R.id.date);
+//        summary = findViewById(R.id.summary);
+//        description = findViewById(R.id.description);
+//        arrowRight = findViewById(R.id.rightArrow);
+//        arrowLeft = findViewById(R.id.leftArrow);
+//        addEventBtn = findViewById(R.id.btnNewEvent);
+//        DynamicImagesLayout = (LinearLayout) findViewById(R.id.linearLayoutDynamicImages);
+//
+//        if (Role.values()[SPref.getInstance().getInt(Constants.ROLE,3)]==Role.ADMIN){
+//            addEventBtn.setVisibility(View.VISIBLE);
+//        } else {
+//            addEventBtn.setVisibility(View.GONE);
+//        }
     }
 
     private void setSummary(){

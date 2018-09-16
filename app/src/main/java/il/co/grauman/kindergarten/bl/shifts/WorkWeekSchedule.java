@@ -22,8 +22,12 @@ public class WorkWeekSchedule {
 
                 @Override
                 public void getWorkSchedule(String userId, Date day, Callback<List<DailyShift>> callback) {
+
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    String fromDateString = format.format(day);
+
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().getWorkSchedule(new EmployeeShiftsRequest(day, userId)));
+                            .getApi().getWorkSchedule(userId, fromDateString));
                 }
 
                 @Override

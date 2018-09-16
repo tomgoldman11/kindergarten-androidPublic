@@ -1,5 +1,6 @@
 package il.co.grauman.kindergarten.bl.reports;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -28,20 +29,22 @@ public class ReportSheets {
             instance = new ReportSheetsApi() {
 
                 @Override
-                public void getHoursReportForWorker(int month, int year, String
-                        userID, retrofit2.Callback<List<WorkHours>> callback) {
+                public void getHoursReportForWorker(String userID,int month, int year, retrofit2.Callback<List<WorkHours>> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().getHoursReportForWorker(new EmployeeReportsRequest(month, year, userID)));
+                            .getApi().getHoursReportForWorker(userID, month, year));
                 }
 
                 @Override
                 public void getHoursReport(int month, int year, Callback<List<WorkHours>> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().getHoursReport(new ReportsRequest(month, year)));
+                            .getApi().getHoursReport(month, year));
                 }
 
                 @Override
-                public void getDailySchedule(Date day, Callback<List<Agenda>> callback) {
+                public void getDailySchedule(String day, Callback<List<Agenda>> callback) {
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    String fromDateString = format.format(day);
+
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().getDailySchedule(day));
                 }
@@ -59,7 +62,10 @@ public class ReportSheets {
 
 
                 @Override
-                public void getDailySummary(Date day, Callback<DailySummaryDTO> callback) {
+                public void getDailySummary(String day, Callback<DailySummaryDTO> callback) {
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    String fromDateString = format.format(day);
+
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().getDailySummary(day));
                 }
@@ -71,7 +77,10 @@ public class ReportSheets {
                 }
 
                 @Override
-                public void getLateChildren(Date day, Callback<List<Child>> callback) {
+                public void getLateChildren(String day, Callback<List<Child>> callback) {
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    String fromDateString = format.format(day);
+
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().getLateChildren(day));
                 }

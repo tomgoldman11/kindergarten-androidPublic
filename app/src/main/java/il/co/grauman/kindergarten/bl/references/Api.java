@@ -33,11 +33,11 @@ public interface Api {
     @POST ("auth/login")
     Call<User>userLogin(@Body LoginRequest req);
 
-    @GET ("shifts/get-by-date-by-worker{workerId}/from/{fromDate}")
-    Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
+    @GET ("shifts/get-by-date-by-worker/{workerId}/from/{fromDate}")
+    Call<List<DailyShift>> getWorkSchedule(@Path("workerId") String workerId, @Path("fromDate") String fromDate);
 
     @GET("shifts/get-by-date/from/{fromDate}")
-    Call<List<DailyShift>> getWorkSchedule( String formDate);
+    Call<List<DailyShift>> getWorkSchedule( @Path("fromDate") String formDate);
 
     @POST("shifts/add")
     Call<DailyShift> addShift(@Body DailyShift dailyShift);
@@ -58,10 +58,10 @@ public interface Api {
     Call<StatusResponse> checkOut(@Body ChckInOutRequest checkOutRequest);
 
     @GET("shifts/hours-report-worker/{userID}/{month}/{year}")
-    Call<List<WorkHours>> getHoursReportForWorker(@Body EmployeeReportsRequest request);
+    Call<List<WorkHours>> getHoursReportForWorker(@Path("userID") String userID,@Path("month") int month,@Path("year") int year);
 
-    @GET("shifts/hours-report-all/{day}")
-    Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
+    @GET("shifts/hours-report-all/{month}/{year}")
+    Call<List<WorkHours>> getHoursReport(@Path("month") int month,@Path("year") int year);
 
     @POST("agenda/add-agenda-part")
     Call<Agenda> addDailySchedule(@Body Agenda newAgenda);
@@ -70,17 +70,17 @@ public interface Api {
     Call<Agenda> removeDailySchedule(@Body Agenda newAgenda);
 
     @GET("agenda/get-agenda/{day}")
-    Call<List<Agenda>> getDailySchedule(@Body Date day);
+    Call<List<Agenda>> getDailySchedule(@Path("day") String day);
 
 
     @GET("summary/get-daily-summary/{day}")
-    Call<DailySummaryDTO> getDailySummary(@Body Date day);
+    Call<DailySummaryDTO> getDailySummary(@Path("day") String day);
 
     @POST("summary/add-daily-summary")
     Call<DailySummaryDTO> addDailySummary(@Body DailySummaryRequest dailySummary);
 
     @GET("events/get/{year}")
-    Call<List<DayEvent>> getCalender(@Body int year);
+    Call<List<DayEvent>> getCalender(@Path("year") int year);
 
     @POST("events/update")
     Call<List<DayEvent>> updateCalender(@Body DayEvent newEvent);
@@ -92,7 +92,7 @@ public interface Api {
 
 
     @GET("admin/late/{day}")
-    Call<List<Child>> getLateChildren(@Body Date day);
+    Call<List<Child>> getLateChildren(@Path("day") String day);
 
     @POST("myresource/reports_to")
     Call<StatusResponse> reportsTo(@Body Report report);

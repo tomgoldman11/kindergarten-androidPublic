@@ -35,9 +35,9 @@ public class Calender {
                 }
 
                 @Override
-                public void deleteEventToCalender(DayEvent newEvent, Callback<DayEvent> callback) {
+                public void deleteEventToCalender(DayEvent event, Callback<DayEvent> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
-                            .getApi().deleteCalender(newEvent));
+                            .getApi().deleteCalender(event));
                 }
             };
         }

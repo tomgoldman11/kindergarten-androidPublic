@@ -18,7 +18,10 @@ import il.co.grauman.kindergarten.bl.reports.reportsRequests.DailySummaryRequest
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
 import il.co.grauman.kindergarten.models.Agenda;
+import il.co.grauman.kindergarten.models.Kid;
+import il.co.grauman.kindergarten.models.KidContact;
 import il.co.grauman.kindergarten.models.User;
+import retrofit2.Call;
 import retrofit2.Callback;
 
 public class ReportSheets {
@@ -102,6 +105,31 @@ public class ReportSheets {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                     .getApi().getWorkersList());
                 }
+
+                @Override
+                public void getKids(retrofit2.Callback<List<Kid>> callback){
+                    ApiImplementation.apiImplementation(callback, ()-> RetrofitInstance.getInstance()
+                    .getApi().getKids());
+                }
+
+                @Override
+                public void setKidCheckIn(String kidID ,retrofit2.Callback<StatusResponse> callback){
+                    ApiImplementation.apiImplementation(callback, ()-> RetrofitInstance.getInstance()
+                    .getApi().setKidCheckIn(kidID));
+                }
+
+                @Override
+                public void setKidCheckOut(String kidID ,retrofit2.Callback<StatusResponse> callback){
+                    ApiImplementation.apiImplementation(callback, ()-> RetrofitInstance.getInstance()
+                            .getApi().setKidCheckOut(kidID));
+                }
+
+                @Override
+                public void getKidContact(retrofit2.Callback<List<KidContact>> callback){
+                    ApiImplementation.apiImplementation(callback, ()-> RetrofitInstance.getInstance()
+                    .getApi().getKidContact());
+                }
+
 
             };
         }

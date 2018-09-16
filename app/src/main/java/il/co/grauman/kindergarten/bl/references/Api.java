@@ -20,8 +20,11 @@ import il.co.grauman.kindergarten.bl.shifts.shiftRequests.AdminShiftsRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
 import il.co.grauman.kindergarten.models.Agenda;
+import il.co.grauman.kindergarten.models.Kid;
+import il.co.grauman.kindergarten.models.KidContact;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -102,4 +105,17 @@ public interface Api {
 
     @GET("myresource/get-workers")
     Call<List<User>> getWorkersList();
-}
+
+    @GET("kid/get-kids")
+    Call<List<Kid>> getKids();
+
+    @POST("kid/checkin")
+    Call<StatusResponse> setKidCheckIn(@Body String kidID);
+
+    @POST("kid/checkin")
+    Call<StatusResponse> setKidCheckOut(@Body String kidID);
+
+    @GET("kid/contacts")
+    Call<List<KidContact>> getKidContact();
+
+    }

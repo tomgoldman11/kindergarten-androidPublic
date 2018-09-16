@@ -3,7 +3,7 @@ package il.co.grauman.kindergarten.models;
 import il.co.grauman.kindergarten.enums.Role;
 
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;

@@ -8,6 +8,7 @@ import il.co.grauman.kindergarten.bl.references.RetrofitInstance;
 import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummaryDTO;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivtyPart;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
@@ -15,6 +16,7 @@ import il.co.grauman.kindergarten.bl.reports.reportsModles.Worker;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.DailySummaryRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.EmployeeReportsRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsRequests.ReportsRequest;
+import il.co.grauman.kindergarten.models.Agenda;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Callback;
 
@@ -39,19 +41,19 @@ public class ReportSheets {
                 }
 
                 @Override
-                public void getDailySchedule(Date day, Callback<List<DayActivtyPart>> callback) {
+                public void getDailySchedule(Date day, Callback<List<Agenda>> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().getDailySchedule(day));
                 }
 
                 @Override
-                public void getDailySummary(Date day, Callback<DailySummary> callback) {
+                public void getDailySummary(Date day, Callback<DailySummaryDTO> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().getDailySummary(day));
                 }
 
                 @Override
-                public void addDailySummary(DailySummaryRequest dailySummaryrequest, Callback<DailySummary> callback) {
+                public void addDailySummary(DailySummaryRequest dailySummaryrequest, Callback<DailySummaryDTO> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().addDailySummary(dailySummaryrequest));
                 }

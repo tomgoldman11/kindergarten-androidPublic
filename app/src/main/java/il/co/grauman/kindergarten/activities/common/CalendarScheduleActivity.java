@@ -91,7 +91,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
                 TextView text1 = view.findViewById(android.R.id.text1);
                 TextView text2 = view.findViewById(android.R.id.text2);
 
-                text1.setText(events.get(position).getEvent());
+                text1.setText(events.get(position).getId());
                 text2.setText(events.get(position).getDescription());
                 return view;
             }
@@ -126,7 +126,7 @@ public class CalendarScheduleActivity extends BaseDrawerActivity implements Cale
             for(int i = 0; i< yearlyEvents.size(); i++){
                 DayEvent newEvent = yearlyEvents.get(i);
                 Calendar eventDate = Calendar.getInstance();
-                eventDate.setTime(newEvent.getDay());
+                eventDate.setTime(newEvent.getDate());
                 if(selectedDate.equals(eventDate)){
                     eventsForDate.add(newEvent);
                 }

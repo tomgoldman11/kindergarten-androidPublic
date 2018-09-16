@@ -21,6 +21,7 @@ import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.admin.AddEventFragment;
 import il.co.grauman.kindergarten.bl.reports.ReportSheets;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummaryDTO;
 import il.co.grauman.kindergarten.enums.Role;
 import il.co.grauman.kindergarten.models.DateManager;
 import il.co.grauman.kindergarten.models.DailySummaryAdapter;
@@ -76,22 +77,22 @@ public class DailySummaryActivity extends BaseDrawerActivity {
         description = findViewById(R.id.description);
         arrowRight = findViewById(R.id.rightArrow);
         arrowLeft = findViewById(R.id.leftArrow);
-        addEventBtn = findViewById(R.id.btnNewEvent);
+        //addEventBtn = findViewById(R.id.btnNewEvent);
         DynamicImagesLayout = (LinearLayout) findViewById(R.id.linearLayoutDynamicImages);
     }
 
     private void setSummary(){
         Date currentDate = dateManager.getCurrentDate();
         DailySummary newEvent;
-        ReportSheets.getInstace().getDailySummary(currentDate, new Callback<DailySummary>() {
+        ReportSheets.getInstace().getDailySummary(currentDate, new Callback<DailySummaryDTO>() {
             @Override
-            public void onResponse(Call<DailySummary> call, Response<DailySummary> response) {
-                DailySummary newEvent = response.body();
+            public void onResponse(Call<DailySummaryDTO> call, Response<DailySummaryDTO> response) {
+                DailySummaryDTO newEvent = response.body();
 
                 // get data from dailysummary class object
 
-                String eventDescription = newEvent.getEvent();
-                List<String> eventImages = (List<String>) newEvent.getPictures();
+                String eventDescription = newEvent.getDailySummary().getDescription();
+                List<String> eventImages = newEvent.getPictures();
 
                 description.setText(eventDescription);
 
@@ -103,7 +104,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
             }
 
             @Override
-            public void onFailure(Call<DailySummary> call, Throwable t) {
+            public void onFailure(Call<DailySummaryDTO> call, Throwable t) {
 
             }
         });

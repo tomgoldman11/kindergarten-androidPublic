@@ -76,7 +76,7 @@
             android:layout_height="29dp"
             android:ems="10"
             android:gravity="center"
-            android:text="@string/select_date"
+            android:text="@string/date_format"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.8"

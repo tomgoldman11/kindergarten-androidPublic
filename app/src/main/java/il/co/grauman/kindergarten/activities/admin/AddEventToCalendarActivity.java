@@ -20,6 +20,7 @@ import java.util.List;
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.bl.calender.Calender;
 import il.co.grauman.kindergarten.bl.calender.DayEvent;
+import il.co.grauman.kindergarten.bl.calender.EventType;
 import il.co.grauman.kindergarten.utils.Constants;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -94,7 +95,7 @@ public class AddEventToCalendarActivity extends AppCompatActivity {
             datePicked.set(Calendar.MONTH, pickedMonth);
             datePicked.set(Calendar.DAY_OF_MONTH, pickedDay);
             Date dateSent = new Date(datePicked.getTimeInMillis());
-            Calender.getInstance().addEventToCalender(new DayEvent(dateSent, etTitle.getText().toString(), etDescription.getText().toString())
+            Calender.getInstance().addEventToCalender(new DayEvent(0, dateSent, EventType.NORMAL, etTitle.getText().toString(), null, null)
                     , new Callback<List<DayEvent>>() {
                 @Override
                 public void onResponse(Call<List<DayEvent>> call, Response<List<DayEvent>> response) {

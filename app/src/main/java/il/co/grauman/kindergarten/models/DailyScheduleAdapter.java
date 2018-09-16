@@ -11,13 +11,12 @@ import android.widget.TextView;
 import java.util.List;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivty;
 
 public class DailyScheduleAdapter extends RecyclerView.Adapter<DailyScheduleAdapter.DailyScheduleViewHolder> {
     private Context context;
-    private List<DayActivty> dailyActivities;
+    private List<Agenda> dailyActivities;
 
-    public DailyScheduleAdapter(Context context, List<DayActivty> dailyActivities){
+    public DailyScheduleAdapter(Context context, List<Agenda> dailyActivities){
         this.context = context;
         this.dailyActivities = dailyActivities;
     }
@@ -32,9 +31,9 @@ public class DailyScheduleAdapter extends RecyclerView.Adapter<DailyScheduleAdap
 
     @Override
     public void onBindViewHolder(@NonNull DailyScheduleViewHolder dailyScheduleViewHolder, int position) {
-        DayActivty currentActivity = dailyActivities.get(position);
-        dailyScheduleViewHolder.activityData.setText("  " + currentActivity.getDiscreption());
-        dailyScheduleViewHolder.activityHour.setText("  " + currentActivity.getDay());
+        Agenda currentActivity = dailyActivities.get(position);
+        dailyScheduleViewHolder.activityData.setText("  " + currentActivity.getDescription());
+        dailyScheduleViewHolder.activityHour.setText("  " + currentActivity.getDate());
     }
 
     @Override

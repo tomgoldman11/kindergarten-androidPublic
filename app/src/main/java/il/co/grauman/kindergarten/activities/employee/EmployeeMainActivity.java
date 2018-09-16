@@ -9,7 +9,7 @@ public class EmployeeMainActivity extends BaseDrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employee_main);
+        setContentView(R.layout.activity_employee_home);
         setTitle(R.string.employee_panel);
     }
 }

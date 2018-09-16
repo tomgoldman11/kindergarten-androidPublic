@@ -7,6 +7,7 @@ import il.co.grauman.kindergarten.bl.calender.DayEvent;
 import il.co.grauman.kindergarten.bl.login.ChckInOutRequest;
 import il.co.grauman.kindergarten.bl.login.LoginRequest;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Child;
+import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummaryDTO;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.Report;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DailySummary;
 import il.co.grauman.kindergarten.bl.reports.reportsModles.DayActivtyPart;
@@ -18,6 +19,7 @@ import il.co.grauman.kindergarten.bl.reports.reportsModles.WorkHours;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.AdminShiftsRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
+import il.co.grauman.kindergarten.models.Agenda;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -61,24 +63,14 @@ public interface Api {
     @POST("shifts/hours-report-all")
     Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
 
-<<<<<<< HEAD
-    @POST("agenda/get=agenda")
-    Call<List<DayActivty>> getDailySchedule(@Body Date day);
-=======
-    @POST("myresource/get_daily_schedule")
-    Call<List<DayActivtyPart>> getDailySchedule(@Body Date day);
->>>>>>> 40ae072dd8a5580dbee387debafdd08983e2c1bd
+    @POST("agenda/get-agenda")
+    Call<List<Agenda>> getDailySchedule(@Body Date day);
 
     @POST("summary/get-daily-summary")
-    Call<DailySummary> getDailySummary(@Body Date day);
+    Call<DailySummaryDTO> getDailySummary(@Body Date day);
 
-<<<<<<< HEAD
     @POST("summary/add-daily-summary")
-    Call<DailySummary> addDailySummary(@Body DailySummary dailySummary);
-=======
-    @POST("myresource/add_daily_summary")
-    Call<DailySummary> addDailySummary(@Body DailySummaryRequest dailySummaryRequest);
->>>>>>> 40ae072dd8a5580dbee387debafdd08983e2c1bd
+    Call<DailySummaryDTO> addDailySummary(@Body DailySummaryRequest dailySummary);
 
     @POST("events/get")
     Call<List<DayEvent>> getCalender(@Body int year);

@@ -9,7 +9,7 @@ public class UserMainActivity extends BaseDrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_main);
+        setContentView(R.layout.activity_user_home);
         setTitle(R.string.user_panel);
     }
 

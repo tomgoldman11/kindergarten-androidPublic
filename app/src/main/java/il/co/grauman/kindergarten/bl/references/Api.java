@@ -28,7 +28,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface Api {
-    public final String BASE_URL ="http://localhost/Authentication/webapi/";
+    public final String BASE_URL ="http://localhost:8090/kindergarten-rest/webapi/";
 
     @POST ("auth/login")
     Call<User>userLogin(@Body LoginRequest req);

@@ -4,7 +4,6 @@ import java.util.List;
 
 import il.co.grauman.kindergarten.bl.references.ApiImplementation;
 import il.co.grauman.kindergarten.bl.references.RetrofitInstance;
-import il.co.grauman.kindergarten.bl.references.StatusResponse;
 import retrofit2.Callback;
 
 
@@ -32,6 +31,12 @@ public class Calender {
                 public void addEventToCalender(DayEvent newEvent, Callback<DayEvent> callback) {
                     ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
                             .getApi().addCalender(newEvent));
+                }
+
+                @Override
+                public void deleteEventToCalender(DayEvent event, Callback<DayEvent> callback) {
+                    ApiImplementation.apiImplementation(callback, () -> RetrofitInstance.getInstance()
+                            .getApi().deleteCalender(event));
                 }
             };
         }

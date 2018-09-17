@@ -8,4 +8,6 @@ public interface CalenderApi {
     void updateEventToCalender(DayEvent newEvent, retrofit2.Callback<DayEvent> callback);
 
     void addEventToCalender(DayEvent dayEvents, retrofit2.Callback<DayEvent> callback);
+
+    void deleteEventToCalender(DayEvent dayEvents, retrofit2.Callback<DayEvent> callback);
 }

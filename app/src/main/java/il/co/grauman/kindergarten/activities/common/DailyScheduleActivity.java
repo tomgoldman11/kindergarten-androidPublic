@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -58,7 +59,8 @@ public class DailyScheduleActivity extends BaseDrawerActivity {
 
     private void setSchedule() {
         Date currentDate = dateManager.getCurrentDate();
-        ReportSheets.getInstace().getDailySchedule(currentDate, new Callback<List<Agenda>>() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        ReportSheets.getInstace().getDailySchedule(df.format(currentDate), new Callback<List<Agenda>>() {
 
             @Override
             public void onResponse(Call<List<Agenda>> call, Response<List<Agenda>> response) {

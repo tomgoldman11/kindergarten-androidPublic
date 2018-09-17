@@ -21,8 +21,11 @@ import il.co.grauman.kindergarten.bl.shifts.shiftRequests.AdminShiftsRequest;
 import il.co.grauman.kindergarten.bl.shifts.shiftModels.DailyShift;
 import il.co.grauman.kindergarten.bl.shifts.shiftRequests.UpdateShiftRequset;
 import il.co.grauman.kindergarten.models.Agenda;
+import il.co.grauman.kindergarten.models.Kid;
+import il.co.grauman.kindergarten.models.KidContact;
 import il.co.grauman.kindergarten.models.User;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -34,11 +37,11 @@ public interface Api {
     @POST("auth/login")
     Call<User> userLogin(@Body LoginRequest req);
 
-    @POST("shifts/get-by-date-by-worker/from")
-    Call<List<DailyShift>> getWorkSchedule(@Body AdminShiftsRequest shift);
-
     @GET("shifts/get-by-date/from/{fromDate}/to/{toDate}")
     Call<List<DailyShift>> getWorkSchedule(String formDate);
+
+    @GET ("shifts/get-by-date-by-worker/{workerId}/from/{fromDate}")
+    Call<List<DailyShift>> getWorkSchedule(@Path("workerId") String workerId, @Path("fromDate") String fromDate);
 
     @POST("shifts/add")
     Call<DailyShift> addShift(@Body DailyShift dailyShift);
@@ -58,17 +61,24 @@ public interface Api {
     @POST("shifts/checkout")
     Call<StatusResponse> checkOut(@Body ChckInOutRequest checkOutRequest);
 
-    @POST("shifts/hours-report-worker")
-    Call<List<WorkHours>> getHoursReportForWorker(@Body EmployeeReportsRequest request);
+    @GET("shifts/hours-report-worker/{userID}/date/{month}/{year}")
+    Call<List<WorkHours>> getHoursReportForWorker(@Path("userID") String userID,@Path("month") int month,@Path("year") int year);
 
-    @POST("shifts/hours-report-all")
-    Call<List<WorkHours>> getHoursReport(@Body ReportsRequest request);
+    @GET("shifts/hours-report-all/{month}/{year}")
+    Call<List<WorkHours>> getHoursReport(@Path("month") int month,@Path("year") int year);
 
-    @POST("agenda/get-agenda")
-    Call<List<Agenda>> getDailySchedule(@Body Date day);
+    @POST("agenda/add-agenda-part")
+    Call<Agenda> addDailySchedule(@Body Agenda newAgenda);
 
-    @POST("summary/get-daily-summary")
-    Call<DailySummaryDTO> getDailySummary(@Body Date day);
+    @POST("agenda/remove-agenda-part")
+    Call<Agenda> removeDailySchedule(@Body Agenda newAgenda);
+
+    @GET("agenda/get-agenda/{day}")
+    Call<List<Agenda>> getDailySchedule(@Path("day") String day);
+
+
+    @GET("summary/get-daily-summary/{day}")
+    Call<DailySummaryDTO> getDailySummary(@Path("day") String day);
 
     @POST("summary/add-daily-summary")
     Call<DailySummaryDTO> addDailySummary(@Body DailySummaryRequest dailySummary);
@@ -82,8 +92,12 @@ public interface Api {
     @POST("events/add")
     Call<DayEvent> addCalender(@Body DayEvent dayEvent);
 
-    @POST("admin/")
-    Call<List<Child>> getLateChildren(@Body Date day);
+    @POST("events/delete")
+    Call<DayEvent> deleteCalender(@Body DayEvent dayEvent);
+
+
+    @GET("admin/late/{day}")
+    Call<List<Child>> getLateChildren(@Path("day") String day);
 
     @POST("myresource/reports_to")
     Call<StatusResponse> reportsTo(@Body Report report);
@@ -91,6 +105,19 @@ public interface Api {
     @POST("myresource/get_reports")
     Call<List<Report>> getReports();
 
-    @POST("myresource/get_workers_list")
+    @GET("myresource/get-workers")
     Call<List<User>> getWorkersList();
-}
+
+    @GET("kid/get-kids")
+    Call<List<Kid>> getKids();
+
+    @POST("kid/checkin")
+    Call<StatusResponse> setKidCheckIn(@Body String kidID);
+
+    @POST("kid/checkin")
+    Call<StatusResponse> setKidCheckOut(@Body String kidID);
+
+    @GET("kid/contacts/{kidID}")
+    Call<List<KidContact>> getKidContact(@Path("kidID") String kidID);
+
+    }

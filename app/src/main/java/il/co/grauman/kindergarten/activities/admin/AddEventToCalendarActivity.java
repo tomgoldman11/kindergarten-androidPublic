@@ -116,7 +116,7 @@ public class AddEventToCalendarActivity extends AppCompatActivity {
             DayEvent event = new DayEvent(
                     eventTitleEditText.getText().toString(),
                     eventDescEditText.getText().toString(),
-                    datePicked.getTime(),
+                    new java.sql.Date(datePicked.getTimeInMillis()),
                     pickedEventType,
                     pickedFromHour,
                     pickedToHour

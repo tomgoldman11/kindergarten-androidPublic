@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -89,8 +90,8 @@ public class DailySummaryActivity extends BaseDrawerActivity {
 
     private void setSummary() {
         Date currentDate = dateManager.getCurrentDate();
-        DailySummary newEvent;
-        ReportSheets.getInstace().getDailySummary(currentDate, new Callback<DailySummaryDTO>() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        ReportSheets.getInstace().getDailySummary(df.format(currentDate), new Callback<DailySummaryDTO>() {
             @Override
             public void onResponse(Call<DailySummaryDTO> call, Response<DailySummaryDTO> response) {
                 DailySummaryDTO newEvent = response.body();

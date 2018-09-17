@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -47,6 +48,11 @@ public class DailySummaryActivity extends BaseDrawerActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
+    protected int getDrawerItemId() {
+        return R.id.dailySummaryMenu;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_summary);
@@ -64,7 +70,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
 
     }
 
-    protected void navigateToFragment(Fragment newFragment){
+    protected void navigateToFragment(Fragment newFragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.subLayout, newFragment);
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -72,7 +78,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
         transaction.commit();
     }
 
-    private void setUIElements(){
+    private void setUIElements() {
         date = findViewById(R.id.date);
         summary = findViewById(R.id.summary);
         description = findViewById(R.id.description);
@@ -82,10 +88,10 @@ public class DailySummaryActivity extends BaseDrawerActivity {
         DynamicImagesLayout = (LinearLayout) findViewById(R.id.linearLayoutDynamicImages);
     }
 
-    private void setSummary(){
+    private void setSummary() {
         Date currentDate = dateManager.getCurrentDate();
-        DailySummary newEvent;
-        ReportSheets.getInstace().getDailySummary(currentDate, new Callback<DailySummaryDTO>() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        ReportSheets.getInstace().getDailySummary(df.format(currentDate), new Callback<DailySummaryDTO>() {
             @Override
             public void onResponse(Call<DailySummaryDTO> call, Response<DailySummaryDTO> response) {
                 DailySummaryDTO newEvent = response.body();
@@ -97,7 +103,7 @@ public class DailySummaryActivity extends BaseDrawerActivity {
 
                 description.setText(eventDescription);
 
-                for(int i = 0 ; i < eventImages.size(); i++) {
+                for (int i = 0; i < eventImages.size(); i++) {
                     ImageView currentImage = new ImageView(DailySummaryActivity.this);
                     DynamicImagesLayout.addView(currentImage);
                     Picasso.get().load(eventImages.get(i).toString()).into(currentImage);

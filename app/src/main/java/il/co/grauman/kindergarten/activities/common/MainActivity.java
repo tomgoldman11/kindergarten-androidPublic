@@ -1,19 +1,13 @@
 package il.co.grauman.kindergarten.activities.common;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import il.co.grauman.kindergarten.R;
-import il.co.grauman.kindergarten.activities.admin.AdminMainActivity;
-import il.co.grauman.kindergarten.activities.employee.EmployeeMainActivity;
-import il.co.grauman.kindergarten.activities.user.UserMainActivity;
 import il.co.grauman.kindergarten.models.User;
-import il.co.grauman.kindergarten.models.exceptions.NotLoggedInException;
 import il.co.grauman.kindergarten.services.AuthService;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,30 +25,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        try {
-            AuthService.isLoggedIn(this, (@NonNull User result) -> {
-                Intent intent;
-                switch (result.getCategory()) {
-                    case NONE:
-                        intent = new Intent(MainActivity.this, LoginActivity.class);
-                        break;
-                    case ADMIN:
-                        intent = new Intent(MainActivity.this, AdminMainActivity.class);
-                        break;
-                    case EMPLOYEE:
-                        intent = new Intent(MainActivity.this, EmployeeMainActivity.class);
-                        break;
-                    case USER:
-                        intent = new Intent(MainActivity.this, UserMainActivity.class);
-                        break;
-                    default:
-                        throw new RuntimeException("Unsupported user role");
-                }
-                startActivity(intent);
-                finish();
-            });
-        } catch (Exception e) {
-            Log.e(TAG, "onResume()", e);
-        }
+        AuthService.isLoggedIn((@NonNull User result) -> {
+            Intent intent;
+            switch (result.getCategory()) {
+                case ADMIN:
+                case EMPLOYEE:
+                case USER:
+                    intent = new Intent(MainActivity.this, DailySummaryActivity.class);
+                    break;
+                default:
+                    intent = new Intent(MainActivity.this, LoginActivity.class);
+            }
+            startActivity(intent);
+            finish();
+        });
     }
 }

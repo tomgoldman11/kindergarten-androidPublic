@@ -1,12 +1,16 @@
 package il.co.grauman.kindergarten.activities.employee;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import il.co.grauman.kindergarten.R;
 import il.co.grauman.kindergarten.activities.common.BaseDrawerActivity;
 
 public class DailyScheduleEmployeeActivity extends BaseDrawerActivity {
+
+    @Override
+    protected int getDrawerItemId() {
+        return R.id.employeeDailyScheduleMenu;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

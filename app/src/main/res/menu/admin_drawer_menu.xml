@@ -1,53 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layoutDirection="rtl"
     android:layout_gravity="end"
->
+    android:layoutDirection="rtl">
     <group
         android:id="@+id/groupAdmin"
-        android:checkableBehavior="single"
         android:layout_gravity="end"
-        android:gravity="end"
-        >
-
+        android:checkableBehavior="single"
+        android:gravity="end">
+        
         <item
-            android:id="@+id/adminHome"
-            android:checkable="false"
-            android:icon="@drawable/ic_menu_home"
-            android:title="@string/home_page"
-            android:layout_gravity="end"
-            />
-
-        <item
-            android:id="@+id/adminDailySummary"
+            android:id="@+id/adminDailySummaryMenu"
             android:checkable="false"
             android:icon="@drawable/ic_menu_daily_summary"
             android:title="@string/daily_summary" />
 
         <item
-            android:id="@+id/adminDailySchedule"
+            android:id="@+id/adminDailyScheduleMenu"
             android:checkable="false"
             android:icon="@drawable/ic_menu_daily_schedule"
             android:title="@string/daily_schedule" />
 
         <item
-            android:id="@+id/adminWorkSchedule"
+            android:id="@+id/adminWorkScheduleMenu"
             android:checkable="false"
             android:icon="@drawable/ic_menu_work_schedule"
             android:title="@string/working_arrangement" />
-
-        <item
-            android:id="@+id/adminCalendar"
-            android:checkable="false"
-            android:title="@string/calendar"
-            android:icon="@drawable/ic_menu_calendar" />
-
-        <item
-            android:id="@+id/adminMessages"
-            android:checkable="false"
-            android:title="@string/messages"
-            android:icon="@drawable/ic_menu_message" />
-
 
     </group>
 </menu>

@@ -72,7 +72,7 @@ public class WorkScheduleAdminActivity extends BaseDrawerActivity {
             case R.id.btnNewWorkModay:
             case R.id.btnNewWorkTuesday:
                 FragmentManager fm = getSupportFragmentManager();
-                AddWorkerToScheduleDialogFragment addWorkerFragment = AddWorkerToScheduleDialogFragment.newInstance("");
+                AddWorkerToScheduleDialogFragment addWorkerFragment = AddWorkerToScheduleDialogFragment.newInstance(WorkerName);
                 addWorkerFragment.show(fm, "fragment_add_worker");
                 break;
 

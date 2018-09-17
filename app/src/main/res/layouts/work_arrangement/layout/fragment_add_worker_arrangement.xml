@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
-        android:id="@+id/spinner_choose_worker_name"
+        android:id="@+id/spinnerFrom"
         android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginBottom="8dp"
@@ -57,15 +57,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.739" />
-    <Spinner
-        android:id="@+id/spinnerFrom"
+    <TextView
+        android:id="@+id/WorkerInfo"
         android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="108dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
+        android:text=""
         app:layout_constraintEnd_toStartOf="@+id/textWorkerName"
         app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +81,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textTO"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_choose_worker_name" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFrom" />
 
     <TextView
         android:id="@+id/textTO"
@@ -168,7 +167,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_arrow" />
+        app:srcCompat="@drawable/back_arrow"
+        android:onClick="CloseFragment"/>
 </android.support.constraint.ConstraintLayout>
 
 
